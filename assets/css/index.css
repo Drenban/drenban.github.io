@@ -2758,21 +2758,21 @@ li.CodeMirror-hint-active {
     border-right-color: #333
 }
 
-/* The following is the css style of logio */
+/* The following is the css style of login */
 
-.menu__item--is-logio {
+.menu__item--is-login {
     position: relative
 }
 
-#preloader-vr,#prompt,.logio__tab,.xr-landing__desc {
+#preloader-vr,#prompt,.login__tab,.xr-landing__desc {
     text-align: center
 }
 
-#shader-logio-cm {
+#shader-login-cm {
     height: calc(100% - 40px)
 }
 
-.logio {
+.login {
     position: absolute;
     left: 50%;
     top: 0;
@@ -2784,44 +2784,44 @@ li.CodeMirror-hint-active {
     pointer-events: none
 }
 
-.logio.is-visible {
+.login.is-visible {
     pointer-events: all
 }
 
-.logio__inner {
+.login__inner {
     opacity: 0;
     -webkit-transition: opacity 1s;
     -o-transition: opacity 1s;
     transition: opacity 1s
 }
 
-.logio.is-visible .logio__inner {
+.login.is-visible .login__inner {
     opacity: 1
 }
 
-.logio__nav-modes {
+.login__nav-modes {
     position: absolute;
     right: 100%;
     padding-right: 2em;
     bottom: 32px
 }
 
-.logio__nav-mode-wrapper {
+.login__nav-mode-wrapper {
     position: relative;
     margin-top: 1.5ex;
     white-space: nowrap
 }
 
-.logio__nav-mode {
+.login__nav-mode {
     position: absolute;
     visibility: hidden
 }
 
-.logio__nav-mode:checked~label:after {
+.login__nav-mode:checked~label:after {
     display: block
 }
 
-.logio__nav-mode-label:before {
+.login__nav-mode-label:before {
     position: absolute;
     right: 100%;
     content: '';
@@ -2832,7 +2832,7 @@ li.CodeMirror-hint-active {
     background-color: #051015
 }
 
-.logio__nav-mode-label:after {
+.login__nav-mode-label:after {
     display: none;
     position: absolute;
     top: 0;
@@ -2845,56 +2845,56 @@ li.CodeMirror-hint-active {
     background-color: #c3c3c3
 }
 
-.logio__intro-header,.logio__tabs {
+.login__intro-header,.login__tabs {
     display: -webkit-box;
     display: -ms-flexbox
 }
 
-.logio__intro {
+.login__intro {
     border-top: 1px solid #51585b;
     overflow: hidden;
     max-height: 500px
 }
 
-.is-minimized .logio__intro {
+.is-minimized .login__intro {
     max-height: 3em
 }
 
-.logio__intro-description {
+.login__intro-description {
     margin: 1em 0 .5em;
     overflow: visible;
     padding-bottom: .15em;
     font-size: .8em
 }
 
-.logio__intro-description a,.logio__intro-description button {
+.login__intro-description a,.login__intro-description button {
     font-weight: 400;
     color: #00ffad
 }
 
 @media (max-width: 1440px) {
-    .logio__intro-description {
+    .login__intro-description {
         font-size:.8rem
     }
 }
 
 @media (max-width: 1280px) {
-    .logio__intro-description {
+    .login__intro-description {
         font-size:.8rem
     }
 }
 
-.logio__intro-description ul {
+.login__intro-description ul {
     margin: .75em 0 0 2em;
     list-style-type: square
 }
 
-.logio__intro-description li {
+.login__intro-description li {
     margin-bottom: .2em;
     line-height: 1.05em
 }
 
-.logio__intro-header {
+.login__intro-header {
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -2904,7 +2904,7 @@ li.CodeMirror-hint-active {
     justify-content: space-between
 }
 
-.logio__intro--minimize {
+.login__intro--minimize {
     margin-top: .75em;
     border: 1px solid #51585b;
     height: 22px;
@@ -2912,7 +2912,7 @@ li.CodeMirror-hint-active {
     position: relative
 }
 
-.logio__intro--minimize:after,.logio__intro--minimize:before {
+.login__intro--minimize:after,.login__intro--minimize:before {
     position: absolute;
     top: 10px;
     left: 7px;
@@ -2922,34 +2922,34 @@ li.CodeMirror-hint-active {
     content: ''
 }
 
-.logio__intro--minimize:after {
+.login__intro--minimize:after {
     opacity: 0;
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg)
 }
 
-.is-minimized .logio__intro--minimize:after {
+.is-minimized .login__intro--minimize:after {
     opacity: 1
 }
 
 @media (hover: hover) {
-    .logio__intro--minimize:hover {
+    .login__intro--minimize:hover {
         border-color:#c3c3c3
     }
 
-    .logio__intro--minimize:hover:after,.logio__intro--minimize:hover:before {
+    .login__intro--minimize:hover:after,.login__intro--minimize:hover:before {
         background-color: #c3c3c3
     }
 }
 
-.logio__intro-title {
+.login__intro-title {
     font-size: 1.5em;
     font-weight: 100;
     margin: .75em 0 0
 }
 
-.logio__tabs {
+.login__tabs {
     width: 100%;
     display: flex;
     -webkit-box-align: center;
@@ -2961,53 +2961,53 @@ li.CodeMirror-hint-active {
     margin: 0
 }
 
-.logio__buttons-line,.logio__controls {
+.login__buttons-line,.login__controls {
     display: -webkit-box;
     display: -ms-flexbox
 }
 
-.logio__tab {
+.login__tab {
     width: 33.3333333%;
     border: 1px solid #51585b;
     padding: .5em 0
 }
 
-.logio__tab+.logio__tab {
+.login__tab+.login__tab {
     border-left: none
 }
 
-.logio__tab.is-active {
+.login__tab.is-active {
     background-color: #c3c3c3;
     border-color: #c3c3c3;
     color: #051015
 }
 
 @media (hover: hover) {
-    .logio__tab:not(.is-active):hover {
+    .login__tab:not(.is-active):hover {
         background-color:#51585b;
         border-color: #51585b
     }
 }
 
-.logio__buttons {
+.login__buttons {
     border-left: 1px solid #51585b;
     border-right: 1px solid #51585b;
     padding: 1em 0
 }
 
-.logio__buttons-line {
+.login__buttons-line {
     display: flex
 }
 
-.logio__buttons-line+.logio__buttons-line {
+.login__buttons-line+.login__buttons-line {
     margin-top: 1em
 }
 
-.logio__main {
+.login__main {
     margin-top: 1em
 }
 
-#shader-logio {
+#shader-login {
     width: 100%;
     border: 1px solid #51585b;
     -webkit-transition: border-color .3s linear;
@@ -3015,15 +3015,15 @@ li.CodeMirror-hint-active {
     transition: border-color .3s linear
 }
 
-#shader-logio.success {
+#shader-login.success {
     border-color: #00ffad
 }
 
-#shader-logio.error {
+#shader-login.error {
     border-color: red
 }
 
-.logio__controls {
+.login__controls {
     position: relative;
     height: 40px;
     min-height: 40px;
@@ -3040,13 +3040,13 @@ li.CodeMirror-hint-active {
 }
 
 @media (max-width: 1440px) {
-    .logio__controls {
+    .login__controls {
         padding:0 .6em
     }
 }
 
 @media (max-width: 1280px) {
-    .logio__controls {
+    .login__controls {
         padding:0 .4em
     }
 
@@ -3056,12 +3056,12 @@ li.CodeMirror-hint-active {
 }
 
 @media (max-width: 1000px) {
-    .logio__controls {
+    .login__controls {
         padding:0 .2em
     }
 }
 
-.logio__controls-left {
+.login__controls-left {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3070,19 +3070,348 @@ li.CodeMirror-hint-active {
     align-items: center
 }
 
-.logio__controls-left .button-icon {
+.login__controls-left .button-icon {
     height: 18px;
     margin-left: .75em
 }
 
-.logio__controls-left .button-icon svg {
+.login__controls-left .button-icon svg {
     min-width: 12px;
     height: 100%;
     fill: #fff
 }
 
 @media (hover: hover) {
-    .logio__controls-left .button-icon:hover svg {
+    .login__controls-left .button-icon:hover svg {
+        fill:#c3c3c3
+    }
+}
+
+/* The following is the css style of register */
+
+.menu__item--is-register {
+    position: relative
+}
+
+#preloader-vr,#prompt,.register__tab,.xr-landing__desc {
+    text-align: center
+}
+
+#shader-register-cm {
+    height: calc(100% - 40px)
+}
+
+.register {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #051015;
+    padding: 5em 2.5em 20px;
+    opacity: 0;
+    pointer-events: none
+}
+
+.register.is-visible {
+    pointer-events: all
+}
+
+.register__inner {
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s
+}
+
+.register.is-visible .register__inner {
+    opacity: 1
+}
+
+.register__nav-modes {
+    position: absolute;
+    right: 100%;
+    padding-right: 2em;
+    bottom: 32px
+}
+
+.register__nav-mode-wrapper {
+    position: relative;
+    margin-top: 1.5ex;
+    white-space: nowrap
+}
+
+.register__nav-mode {
+    position: absolute;
+    visibility: hidden
+}
+
+.register__nav-mode:checked~label:after {
+    display: block
+}
+
+.register__nav-mode-label:before {
+    position: absolute;
+    right: 100%;
+    content: '';
+    width: 1em;
+    height: 1em;
+    margin-right: .4em;
+    border: 1px solid #51585b;
+    background-color: #051015
+}
+
+.register__nav-mode-label:after {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    margin-right: calc(.65em + 1px);
+    margin-top: calc(.25em + 1px);
+    content: '';
+    width: .5em;
+    height: .5em;
+    background-color: #c3c3c3
+}
+
+.register__intro-header,.register__tabs {
+    display: -webkit-box;
+    display: -ms-flexbox
+}
+
+.register__intro {
+    border-top: 1px solid #51585b;
+    overflow: hidden;
+    max-height: 500px
+}
+
+.is-minimized .register__intro {
+    max-height: 3em
+}
+
+.register__intro-description {
+    margin: 1em 0 .5em;
+    overflow: visible;
+    padding-bottom: .15em;
+    font-size: .8em
+}
+
+.register__intro-description a,.register__intro-description button {
+    font-weight: 400;
+    color: #00ffad
+}
+
+@media (max-width: 1440px) {
+    .register__intro-description {
+        font-size:.8rem
+    }
+}
+
+@media (max-width: 1280px) {
+    .register__intro-description {
+        font-size:.8rem
+    }
+}
+
+.register__intro-description ul {
+    margin: .75em 0 0 2em;
+    list-style-type: square
+}
+
+.register__intro-description li {
+    margin-bottom: .2em;
+    line-height: 1.05em
+}
+
+.register__intro-header {
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.register__intro--minimize {
+    margin-top: .75em;
+    border: 1px solid #51585b;
+    height: 22px;
+    width: 22px;
+    position: relative
+}
+
+.register__intro--minimize:after,.register__intro--minimize:before {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    height: 1px;
+    width: 6px;
+    background-color: #51585b;
+    content: ''
+}
+
+.register__intro--minimize:after {
+    opacity: 0;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg)
+}
+
+.is-minimized .register__intro--minimize:after {
+    opacity: 1
+}
+
+@media (hover: hover) {
+    .register__intro--minimize:hover {
+        border-color:#c3c3c3
+    }
+
+    .register__intro--minimize:hover:after,.register__intro--minimize:hover:before {
+        background-color: #c3c3c3
+    }
+}
+
+.register__intro-title {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin: .75em 0 0
+}
+
+.register__tabs {
+    width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0
+}
+
+.register__buttons-line,.register__controls {
+    display: -webkit-box;
+    display: -ms-flexbox
+}
+
+.register__tab {
+    width: 33.3333333%;
+    border: 1px solid #51585b;
+    padding: .5em 0
+}
+
+.register__tab+.register__tab {
+    border-left: none
+}
+
+.register__tab.is-active {
+    background-color: #c3c3c3;
+    border-color: #c3c3c3;
+    color: #051015
+}
+
+@media (hover: hover) {
+    .register__tab:not(.is-active):hover {
+        background-color:#51585b;
+        border-color: #51585b
+    }
+}
+
+.register__buttons {
+    border-left: 1px solid #51585b;
+    border-right: 1px solid #51585b;
+    padding: 1em 0
+}
+
+.register__buttons-line {
+    display: flex
+}
+
+.register__buttons-line+.register__buttons-line {
+    margin-top: 1em
+}
+
+.register__main {
+    margin-top: 1em
+}
+
+#shader-register {
+    width: 100%;
+    border: 1px solid #51585b;
+    -webkit-transition: border-color .3s linear;
+    -o-transition: border-color .3s linear;
+    transition: border-color .3s linear
+}
+
+#shader-register.success {
+    border-color: #00ffad
+}
+
+#shader-register.error {
+    border-color: red
+}
+
+.register__controls {
+    position: relative;
+    height: 40px;
+    min-height: 40px;
+    background-color: #051015;
+    border-top: 1px solid #51585b;
+    padding: 0 .8em;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+@media (max-width: 1440px) {
+    .register__controls {
+        padding:0 .6em
+    }
+}
+
+@media (max-width: 1280px) {
+    .register__controls {
+        padding:0 .4em
+    }
+
+    .select-quality {
+        max-width: 70px
+    }
+}
+
+@media (max-width: 1000px) {
+    .register__controls {
+        padding:0 .2em
+    }
+}
+
+.register__controls-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.register__controls-left .button-icon {
+    height: 18px;
+    margin-left: .75em
+}
+
+.register__controls-left .button-icon svg {
+    min-width: 12px;
+    height: 100%;
+    fill: #fff
+}
+
+@media (hover: hover) {
+    .register__controls-left .button-icon:hover svg {
         fill:#c3c3c3
     }
 }
