@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>PeekX - Site</title>
+        <base href="/">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+        <link rel="icon" href="/assets/images/icon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="https://use.typekit.net/upz7xsh.css">
+        <link rel="stylesheet" href="/assets/css/index.css">
+        <link rel="dns-prefetch" href="https://shadertoy.com">
+
+        <meta name="description" content="窥见 PeekX 专为交易与投资打造的下一代数据决策引擎">
+        <meta name="twitter:description" content="窥见 PeekX 专为交易与投资打造的下一代数据决策引擎">
+        <meta property="og:description" content="窥见 PeekX 专为交易与投资打造的下一代数据决策引擎">
+        <meta name="twitter:title" content="PeekX">
+        <meta property="og:site_name" content="PeekX">
+        <meta property="og:title" content="PeekX">
+        <meta name="twitter:site" content="@PeekX">
+        <meta name="twitter:creator" content="@PeekX">
+        <meta name="twitter:url" content="https://drenban.github.io/">
+        <meta property="og:url" content="https://drenban.github.io/">
+        <meta property="og:image" content="https://drenban.github.io/assets/images/share.png">
+        <meta name="twitter:image" content="https://drenban.github.io/assets/images/share.png">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+        <link rel="manifest" href="/assets/images/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <div id="app">
+            <header class="header">
+                <nav class="header__menu">
+                    <a href="/" target="_blank">
+                        <div class="header__menu_item--lab">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="468" height="45" viewBox="0 0 468 45" fill="none">
+                                <g fill="#000" class="lablogo-labs">
+                                    <path d="M273.691 6.706h6.2v6.2h-6.2v-6.2ZM273.691 12.906h6.2v6.2h-6.2v-6.2ZM273.691 19.105h6.2v6.2h-6.2v-6.2ZM273.691 25.306h6.2v6.2h-6.2v-6.2ZM273.691 31.506h6.2v6.2h-6.2v-6.2ZM273.691 37.706h6.2v6.2h-6.2v-6.2Z"/>
+                                    <path d="M279.892 .506h6.2v6.2h-6.2v-6.2ZM286.092 .506h6.2v6.2h-6.2v-6.2ZM292.291 .506h6.2v6.2h-6.2v-6.2ZM279.892 19.105h6.2v6.2h-6.2v-6.2ZM286.092 19.105h6.2v6.2h-6.2v-6.2ZM292.291 19.105h6.2v6.2h-6.2v-6.2Z"/>
+                                    <path d="M298.491 6.706h6.2v6.2h-6.2v-6.2ZM298.491 12.906h6.2v6.2h-6.2v-6.2Z"/>
+                                    <path d="M313.691 6.706h6.2v6.2h-6.2v-6.2ZM313.691 12.906h6.2v6.2h-6.2v-6.2ZM313.691 19.105h6.2v6.2h-6.2v-6.2ZM313.691 25.306h6.2v6.2h-6.2v-6.2ZM313.691 31.506h6.2v6.2h-6.2v-6.2ZM319.892 .506h6.2v6.2h-6.2v-6.2ZM326.092 .506h6.2v6.2h-6.2v-6.2ZM332.292 .506h6.2v6.2h-6.2v-6.2ZM338.492 .506h6.2v6.2h-6.2v-6.2ZM319.892 19.105h6.2v6.2h-6.2v-6.2ZM326.092 19.105h6.2v6.2h-6.2v-6.2ZM332.292 19.105h6.2v6.2h-6.2v-6.2ZM338.492 19.105h6.2v6.2h-6.2v-6.2ZM319.892 37.706h6.2v6.2h-6.2v-6.2ZM326.092 37.706h6.2v6.2h-6.2v-6.2ZM332.292 37.706h6.2v6.2h-6.2v-6.2ZM338.492 37.706h6.2v6.2h-6.2v-6.2Z"/>
+                                    <path d="M353.691 6.706h6.2v6.2h-6.2v-6.2ZM353.691 12.906h6.2v6.2h-6.2v-6.2ZM353.691 19.105h6.2v6.2h-6.2v-6.2ZM353.691 25.306h6.2v6.2h-6.2v-6.2ZM353.691 31.506h6.2v6.2h-6.2v-6.2ZM359.892 .506h6.2v6.2h-6.2v-6.2ZM366.092 .506h6.2v6.2h-6.2v-6.2ZM372.292 .506h6.2v6.2h-6.2v-6.2ZM378.492 .506h6.2v6.2h-6.2v-6.2ZM359.892 19.105h6.2v6.2h-6.2v-6.2ZM366.092 19.105h6.2v6.2h-6.2v-6.2ZM372.292 19.105h6.2v6.2h-6.2v-6.2ZM378.492 19.105h6.2v6.2h-6.2v-6.2ZM359.892 37.706h6.2v6.2h-6.2v-6.2ZM366.092 37.706h6.2v6.2h-6.2v-6.2ZM372.292 37.706h6.2v6.2h-6.2v-6.2ZM378.492 37.706h6.2v6.2h-6.2v-6.2Z"/>
+                                    <path d="M393.691 .506h6.2v6.2h-6.2v-6.2ZM393.691 6.706h6.2v6.2h-6.2v-6.2ZM393.691 12.906h6.2v6.2h-6.2v-6.2ZM393.691 19.105h6.2v6.2h-6.2v-6.2ZM393.691 25.306h6.2v6.2h-6.2v-6.2ZM393.691 31.506h6.2v6.2h-6.2v-6.2ZM393.691 37.706h6.2v6.2h-6.2v-6.2ZM399.892 12.906h6.2v6.2h-6.2v-6.2ZM399.892 19.105h6.2v6.2h-6.2v-6.2ZM406.092 6.706h6.2v6.2h-6.2v-6.2ZM406.091 19.105h6.2v6.2h-6.2v-6.2ZM412.291 .506h6.2v6.2h-6.2v-6.2ZM418.491 .506h6.2v6.2h-6.2v-6.2ZM412.291 19.105h6.2v6.2h-6.2v-6.2ZM418.491 25.306h6.2v6.2h-6.2v-6.2ZM418.491 31.506h6.2v6.2h-6.2v-6.2ZM418.491 37.706h6.2v6.2h-6.2v-6.2Z"/>
+                                    <path d="M433.691 .506h6.2v6.2h-6.2v-6.2ZM433.691 6.706h6.2v6.2h-6.2v-6.2ZM433.691 12.906h6.2v6.2h-6.2v-6.2ZM433.691 25.306h6.2v6.2h-6.2v-6.2ZM433.691 31.506h6.2v6.2h-6.2v-6.2ZM433.691 37.706h6.2v6.2h-6.2v-6.2ZM439.892 12.906h6.2v6.2h-6.2v-6.2ZM439.892 25.306h6.2v6.2h-6.2v-6.2ZM446.092 19.105h6.2v6.2h-6.2v-6.2ZM452.292 12.906h6.2v6.2h-6.2v-6.2ZM452.292 25.306h6.2v6.2h-6.2v-6.2ZM458.491 .506h6.2v6.2h-6.2v-6.2ZM458.491 6.706h6.2v6.2h-6.2v-6.2ZM458.491 12.906h6.2v6.2h-6.2v-6.2ZM458.491 25.306h6.2v6.2h-6.2v-6.2ZM458.491 31.506h6.2v6.2h-6.2v-6.2ZM458.491 37.706h6.2v6.2h-6.2v-6.2Z"/>
+                                </g>
+                                
+                                <g fill="#000" class="lablogo-dots">
+                                    <path d="M247.943 6.104a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM247.943 27.104a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z"/>
+                                </g>
+                                <g fill="#000" class="lablogo-lusion">
+                                    <path d="M0 43.803V.403h7.13v21.39L35.65 .403v7.13L17.825 24.955L35.65 43.803h-7.13L10.69 28.52L7.13 32.085v11.718H0ZM49.053.217v25.172c0 4.092.806 7.171 2.418 9.238 1.612 2.025 4.113 3.038 7.502 3.038 3.43 0 5.952-1.013 7.564-3.038 1.653-2.067 2.48-5.146 2.48-9.238V.217h7.13v24.8c0 6.2-1.467 10.912-4.402 14.136-2.893 3.224-7.15 4.836-12.772 4.836-5.58 0-9.817-1.612-12.71-4.836-2.893-3.224-4.34-7.936-4.34-14.136V.217h7.13ZM85.022.403h7.13v43.4h-7.13V.403ZM106.412 25.172c0 4.092.806 7.171 2.418 9.238 1.612 2.025 4.113 3.038 7.502 3.038 3.43 0 5.952-1.013 7.564-3.038 1.653-2.067 2.48-5.146 2.48-9.238V.217h7.13v24.8c0 6.2-1.467 10.912-4.402 14.136-2.893 3.224-7.15 4.836-12.772 4.836-5.58 0-9.817-1.612-12.71-4.836-2.893-3.224-4.34-7.936-4.34-14.136V25.172h7.13ZM141.886.403h7.13v43.4h-7.13V.403ZM156.146 43.803L168.4 7.533v-7.13h7.13v7.13L187.785 43.803h-7.13L171.965 14.663L163.276 43.803h-7.13ZM194.915 43.803V.403h6.51l21.142 30.752V.403h7.006v43.4h-6.51l-21.142-30.752v30.752h-7.006Z"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </a>
+                    <ul class="menu__items">
+                        <li class="menu__item">
+                            <button class="menu__audio" aria-label="Toggle Audio">
+
+                            </button>
+                        </li>
+                        <li class="menu__item menu__item--is-separator">
+                            <span>|</span>
+                        </li>
+                        <li class="menu__item">
+                            <a href="/" class="menu__link" rel="internal">主页</a>
+                        </li>
+                        <li class="menu__item menu__item--is-gallery">
+                            <a href="/gallery" class="menu__link" rel="internal">画廊</a>
+                        </li>
+                        <li class="menu__item menu__item--is-editor">
+                            <a href="/editor" class="menu__link" rel="internal">PeekX</a>
+                        </li>
+                        <li class="menu__item menu__item--is-logio">
+                            <a href="/logio" class="menu__link" rel="internal">登录</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="/about" class="menu__link" rel="internal">关于</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <canvas id="main-canvas">
+
+            </canvas>
+            <div id="shader-context">
+                <h4 id="shader-title"></h4>
+                <div id="shader-desc"></div>
+            </div>
+            <div class="view-infos">
+                <h4 class="view-infos__title"></h4>
+                <div class="view-infos__subtitle"> by <a href="https://www.shadertoy.com/user/" target="_blank" class="button-inline view-infos__author"></a></div>
+                <p class="view-infos__description"></p>
+                <div class="view-infos__buttons">
+                    <a href="/" target="blank" class="button-default view-infos__link">在 PeekX 中打开</a>
+                    <div class="view-infos__fork">
+                        <div class="select-wrapper">
+                            <select class="select-default view-infos__select" title="Choose the editor's tab where this sketch will be copied">
+                                <option value="1" selected="selected">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <button class="button-default view-infos__fork-button" aria-label="Edit">确定</button>
+                    </div>
+                    <button class="button-default view-infos__back">返回</button>
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="gallery__wrapper">
+                    <header class="gallery__header">
+                        <p class="gallery__subtitle">
+                            探索由 <a class="button-inline title-text-effect__non-text" href="https://www.shadertoy.com" target="_blank">PeekX</a> 社区打造的独特视觉体验。<br>
+                            点击任意一项，即可在 3D 环境中实时预览。<br>
+                            如果您想添加自己的创作？请 <button class="button-inline about-prompt-button title-text-effect__non-text" data-id="save-and-share" aria-label="Open the save and share instructions"> 按照以下说明操作</button>。
+                        </p>
+                        <div class="gallery__controls">
+                            <span class="gallery__controls-text">Sort by:</span>
+                            <div class="select-wrapper select-wrapper--gallery">
+                                <select class="select-default gallery__select" title="Select the Shadertoy sorting method">
+                                    <option value="popular" selected="selected">Popular</option>
+                                    <option value="newest">Newest</option>
+                                    <option value="hot">Hot</option>
+                                    <option value="name">Name</option>
+                                    <option value="love">Love</option>
+                                </select>
+                            </div>
+                        </div>
+                    </header>
+                    <main class="gallery__inner"></main>
+                </div>
+            </div>
+            <div class="about">
+                <div class="about__wrapper">
+                    <div class="about__inner">
+                        <div class="about__infos">
+                            <div class="about__categories">
+                                <div class="about__category">
+                                    <h5 class="category__title">致谢</h5>
+                                    <div class="category__text"> PeekX 感谢以下技术与资源的支持：<br><br>
+                                        <span class="about-credit-custom-bullet title-text-effect__non-text">
+                                            <a class="button-inline title-text-effect__non-text" href="https://publicapis.io/yahoo-finance-api/" target="_blank">提供实时市场数据支持</a> Yahoo Finance API</span>
+                                        <span class="about-credit-custom-bullet title-text-effect__non-text">
+                                            <a class="button-inline title-text-effect__non-text" href="https://www.chartjs.org/" target="_blank">驱动交互式图表展示</a> Chart.js</span>
+                                        <span class="about-credit-custom-bullet title-text-effect__non-text">
+                                            <a class="button-inline title-text-effect__non-text" href="https://www.quantlib.org/" target="_blank">QuantLib</a></span>
+                                        <span class="about-credit-custom-bullet title-text-effect__non-text">
+                                            <a class="button-inline title-text-effect__non-text" href="https://getbootstrap.com/docs/4.0/getting-started/introduction/" target="_blank">Bootstrap</a></span>
+                                        <span class="about-credit-custom-bullet title-text-effect__non-text">
+                                            <a class="button-inline title-text-effect__non-text" href="https://animejs.com//" target="_blank">Anime.js</a><br></span>
+                                            <hr class="about-about-separator title-text-effect__non-text"> 特别鸣谢：<br><br>
+                                        <span class="about-credit-custom-bullet title-text-effect__non-text">
+                                            <a class="button-inline" href="http://patriciogonzalezvivo.com/" target="_blank">John Hull</a> 感谢其著作 
+                                            <a class="button-inline title-text-effect__non-text" href="https://thebookofshaders.com/" target="_blank">《期权、期货及其他衍生品》</a><br> 为 PeekX 的量化理念提供了启发 
+                                        </span>
+                                        <span class="about-credit-custom-bullet title-text-effect__non-text">
+                                            <a class="button-inline" href="http://refikanadol.com/" target="_blank">Wes McKinney</a> 感谢其 Pandas 项目对数据处理的深远影响，<br> 激励了 PeekX 的数据分析模块 
+                                        </span>
+                                            <hr class="about-about-separator title-text-effect__non-text"> 设计与开发团队：
+                                            <a class="button-inline title-text-effect__non-text" href="https://drenban.github.io/" target="_blank">PeekX</a><br><br>
+                                        <span class="about-credit-custom-bullet title-text-effect__non-text">视觉设计：Simon Feynman</span>
+                                        <span class="about-credit-custom-bullet title-text-effect__non-text">设计师兼首席开发者：董广</span>
+                                        <span class="about-credit-custom-bullet title-text-effect__non-text">开发支持：王芈卉</span>
+                                    </div>
+                                </div>
+                                <div class="about__category">
+                                    <div class="about__category-separator"></div>
+                                    <h5 class="category__title">常见问题 (FAQ)</h5>
+                                    <ul class="category__questions">
+                                        <li class="category__question">
+                                            <span class="question__title">为什么我们开发了 PeekX？</span>
+                                            <p class="question__answer"> 我们希望为散户交易者打造一个简单而强大的量化工具。在金融市场中，机构凭借复杂技术占据优势，而散户往往难以企及。PeekX 是一个非盈利项目，旨在通过直观的数据分析和低门槛的量化功能，帮助普通交易者洞察市场，平衡这一差距。</p>
+                                        </li>
+                                        <li class="category__question">
+                                            <span class="question__title">如何导入外部数据到 PeekX？</span>
+                                            <p class="question__answer"> 最简单的方法是将数据（如 CSV 文件）复制粘贴到 PeekX 的数据导入界面。请注意，PeekX 目前仅支持标准格式的股价和交易数据，不支持非结构化文本或多媒体文件。详情请参阅 
+                                                <button class="button-inline about-prompt-button title-text-effect__non-text" data-id="convert-your-shader" aria-label="Convert your shader"> 导入指南</button>。
+                                            </p>
+                                        </li>
+                                        <li class="category__question">
+                                            <span class="question__title">如何分享我的量化策略？</span>
+                                            <p class="question__answer"> PeekX 不存储用户策略。如需分享，你可以在 PeekX 中创建策略后，将其导出为配置文件，然后通过社交平台或社区分享。确保配置文件包含必要参数，接收者可直接 
+                                                <button class="button-inline about-prompt-button title-text-effect__non-text" data-id="save-and-share" aria-label="Open the save and share instructions"> 导入使用</button>。
+                                            </p>
+                                        </li>
+                                        <li class="category__question">
+                                            <span class="question__title">为什么我的策略没有显示在示例库中？</span>
+                                            <p class="question__answer"> PeekX 的示例库每天更新 4 次，从公开社区收集策略。请确保你的策略满足条件：<br><br>
+                                                <span class="about-credit-custom-bullet"> 在 PeekX 社区标记为 "公开示例"；</span>
+                                                <span class="about-credit-custom-bullet"> 设置为 "公开&nbsp;+&nbsp;API 可访问"。</span>
+                                                <br> 如果仍未显示，请检查网络连接或联系支持团队。
+                                            </p>
+                                        </li>
+                                        <li class="category__question">
+                                            <span class="question__title">为什么 PeekX 不支持复杂回测或多资产组合？</span>
+                                            <p class="question__answer"> 为保持低成本和易用性，PeekX 将功能聚焦于个人量化基础需求，依赖本地计算而非服务器存储。复杂的回测或多资产组合需要更多资源，这会增加用户成本。我们建议高级用户结合其他工具使用 PeekX 的输出结果。</p>
+                                        </li>
+                                        <li class="category__question">
+                                            <span class="question__title">PeekX 支持移动端使用吗？</span>
+                                            <p class="question__answer"> 是的，PeekX 通过响应式设计支持移动端浏览器访问。在手机或平板上打开 PeekX 网站即可体验完整功能，包括图表分析和策略编辑，无需额外安装应用。</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="about__category">
+                                    <div class="about__category-separator"></div>
+                                    <h5 class="category__title">更新日志</h5>
+                                    <div class="category__text category-log">
+                                        <p class="title-text-effect__non-text">
+                                            <b>v2.3.1 - 18/03/2025</b>
+                                            <br> - 修复移动端图表缩放时的显示错误
+                                            <br> - 优化小屏幕设备上的界面适配<br><br>
+                                            <b>v2.3.0 - 15/03/2025</b>
+                                            <br> - 提升实时数据刷新性能，减少延迟
+                                            <br> - 添加自定义指标保存功能，支持用户个性化设置
+                                            <br> - 新增深色模式切换选项<br><br>
+                                            <b>v2.2.0 - 10/03/2025</b>
+                                            <br> - 新增 WebSocket 支持，实现实时市场数据推送
+                                            <br> - 添加多语言支持（英文、中文）
+                                            <br> - 优化数据加载速度，提升 20%<br><br>
+                                            <b>v2.1.0 - 25/01/2025</b>
+                                            <br> - 添加用户个性化仪表盘页面
+                                            <br> - 新增股价预警功能，支持自定义阈值
+                                            <br> - 修复批量导出数据时的格式错误<br><br>
+                                            <b>v2.0.0 - 20/11/2024</b>
+                                            <br> - 发布重大更新：全新 UI 设计，更直观易用
+                                            <br> - 移除旧版趋势线工具，替换为动态趋势分析模块
+                                            <br> - 修复初次加载时的鼠标交互偏移问题
+                                            <br> - 为高清导出添加抗锯齿支持
+                                            <br> - 添加更新日志页面
+                                            <br> - 优化内存使用，减少卡顿<br><br>
+                                            <b>v1.5.0 - 15/08/2024</b>
+                                            <br> - 新增历史数据回测功能，支持 5 年数据分析
+                                            <br> - 添加一键量化策略模板（动量、均线交叉）
+                                            <br> - 修复 macOS 上字体渲染模糊问题<br><br>
+                                            <b>v1.4.2 - 10/05/2024</b>
+                                            <br> - 修复多账户登录时的同步错误
+                                            <br> - 优化图表缩放平滑度
+                                            <br> - 添加用户反馈入口<br><br>
+                                            <b>v1.4.0 - 20/02/2024</b>
+                                            <br> - 新增社交分享功能，可导出分析图表
+                                            <br> - 添加键盘快捷键支持，提升操作效率
+                                            <br> - 优化移动端触摸手势响应<br><br>
+                                            <b>v1.3.0 - 15/11/2023</b>
+                                            <br> - 引入基础机器学习模型，预测短期趋势
+                                            <br> - 添加多时间框架切换（日线、周线、月线）
+                                            <br> - 修复 CSV 数据导入时的编码问题<br><br>
+                                            <b>v1.2.1 - 10/08/2023</b>
+                                            <br> - 修复 Windows 系统下高 DPI 显示异常
+                                            <br> - 优化初次加载速度，缩短 15%
+                                            <br> - 添加数据源切换提示<br><br>
+                                            <b>v1.2.0 - 25/05/2023</b>
+                                            <br> - 新增批量股票筛选器，支持自定义条件
+                                            <br> - 添加实时新闻聚合模块
+                                            <br> - 优化账户安全性，引入双重验证<br><br>
+                                            <b>v1.1.0 - 20/02/2023</b>
+                                            <br> - 添加基础指标库（RSI、MACD、布林带）
+                                            <br> - 优化数据可视化，支持交互式图表
+                                            <br> - 修复多线程环境下数据刷新延迟<br><br>
+                                            <b>v1.0.2 - 15/11/2022</b>
+                                            <br> - 修复登录页面表单验证错误
+                                            <br> - 优化服务器响应时间
+                                            <br> - 添加用户指南文档<br><br>
+                                            <b>v1.0.1 - 10/09/2022</b>
+                                            <br> - 修复初版中部分浏览器兼容性问题
+                                            <br> - 添加数据导出功能（CSV 格式）
+                                            <br> - 优化移动端导航栏布局<br><br>
+                                            <b>v1.0.0 - 28/08/2021</b>
+                                            <br> - 初次发布 PeekX 个人量化交易平台
+                                            <br> - 提供核心功能：实时股价监控、基础图表分析
+                                            <br> - 支持股票市场数据接入（初期覆盖主要交易所）<br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="about__category">
+                                    <div class="about__category-separator"></div>
+                                    <h5 class="category__title">条款</h5>
+                                    <p class="category__text"> 免责声明 <br class="title-text-effect__non-text">
+                                        <br class="title-text-effect__non-text"> 本网站及其中包含的所有信息（以下简称 "信息"）旨在为 PeekX 用户提供一般性指导，仅供参考。我们尽力确保信息的准确性和及时性，但 PeekX 不对信息的完整性、准确性或适用性作出任何明示或暗示的保证。用户因依赖本信息采取的任何行动，风险自担。
+                                        <br class="title-text-effect__non-text">
+                                        <br class="title-text-effect__non-text"> PeekX 及其团队、作者或任何相关方不对因使用或信赖本网站信息可能导致的任何直接、间接、特殊或其他后果性损害承担责任。本网站信息可能随时更新或修改，恕不另行通知。<br class="title-text-effect__non-text">
+                                        <br class="title-text-effect__non-text"> 在基于本网站信息做出重大决策前，我们强烈建议您独立验证并咨询专业意见。本网站内容不构成专业建议或服务的替代品。本网站中提及的第三方品牌或产品名称仅用于标识，其商标权归各自所有者所有。<br class="title-text-effect__non-text">
+                                        <br class="title-text-effect__non-text"> 访问或使用本网站即表示您已阅读、理解并同意本免责声明的条款。如不同意，请勿使用本网站。有关 PeekX 的使用方法，请参阅 <a class="button-inline title-text-effect__non-text" href="https://www.shadertoy.com/terms" target="_blank">https://www.shadertoy.com/terms</a>
+                                        <br class="title-text-effect__non-text">
+                                        <br class="title-text-effect__non-text">
+                                        <br class="title-text-effect__non-text"> 侵权声明 <br class="title-text-effect__non-text">
+                                        <br class="title-text-effect__non-text"> PeekX 项目及其相关内容（包括但不限于文本、图像、代码、设计和数据，以下统称为 "内容"）受版权、商标及其他知识产权法律保护。未经 PeekX 明确书面授权，任何个人或实体不得复制、分发、修改、展示或以任何形式使用本内容用于商业或非商业目的。<br class="title-text-effect__non-text">
+                                        <br class="title-text-effect__non-text"> 如发现任何未经授权使用 PeekX 内容的行为，包括但不限于剽窃、仿冒或非法转载，PeekX 保留采取法律行动的权利，包括寻求损害赔偿和禁止令。用户提交至 PeekX 平台的内容，其知识产权归属须符合相关法律，用户不得上传侵犯第三方权益的内容，否则 PeekX 有权删除相关内容并追究责任。<br class="title-text-effect__non-text">
+                                        <br class="title-text-effect__non-text"> 本声明中提及的 PeekX 名称、标志及相关标识均为 PeekX 或其许可方的注册商标，未经许可不得使用。PeekX 致力于保护知识产权，并呼吁用户共同维护公平的创作环境。如您认为 PeekX 内容侵犯了您的合法权益，请通过官方渠道 <a class="button-inline title-text-effect__non-text" href="https://360.yandex.com/" target="_blank">Drenban@yandex.com</a> 联系我们，我们将及时处理。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about__intro">
+                            <h4 class="about__title">关于</h4>
+                            <div class="about__description"> PeekX 项目源于对股票交易市场噪音过滤的假设，中文名 "窥见" 寓意以更直观的视角洞察市场变化。我们旨在通过这一方式，提醒交易者关注市场噪音的存在及其影响。<br class="title-text-effect__non-text">
+                                <br class="title-text-effect__non-text"> 在瞬息万变的交易环境中，价格波动常常受到短期投机、情绪驱动和信息过载的干扰，导致真实趋势被掩盖。PeekX 致力于剥离这些干扰因素，通过数据分析和可视化工具，为交易者提供清晰的市场信号。<br class="title-text-effect__non-text">
+                                <br class="title-text-effect__non-text"> 我们的核心理念是将复杂的市场动态转化为简洁、直观的数据。PeekX 不仅是一个分析工具，更是一种思维方式，鼓励用户跳出噪音的迷雾，聚焦于真正驱动市场的力量。无论你是短线交易者还是长期投资者，PeekX 都能帮助你更冷静地解读市场，做出更理性的决策。<br class="title-text-effect__non-text">
+                                <br class="title-text-effect__non-text"> 未来，我们计划进一步优化算法，整合多维度数据源，让"窥见"不仅限于股票市场，还能扩展至其他金融领域。通过持续创新，PeekX 希望成为交易者信赖的伙伴，助力他们在噪音中发现机会，在变化中把握确定性。
+                                <hr class="about-about-separator title-text-effect__non-text">
+                                <div class="about-company-title title-text-effect__non-text">关于我们</div> PeekX 专注于为个人用户提供量化实现，而非面向机构用户。在当今金融市场中，机构凭借先进的量化技术和资源优势，大幅削弱了散户捕捉市场机会的能力。PeekX 旨在扭转这一趋势，通过简洁高效的工具，让更多散户以低成本参与个人量化交易。我们坚信，量化不应是机构专属的特权，而应成为每位交易者触手可及的利器。
+                                <hr class="about-about-separator title-text-effect__non-text">
+                                <div class="about-company-title title-text-effect__non-text">关注我们</div>
+                                <a class="about-social button-inline title-text-effect__non-text" href="https://drenban.github.io/" target="_blank">www</a>
+                                 | <a class="about-social button-inline title-text-effect__non-text" href="https://drenban.github.io/" target="_blank">tw</a>
+                                 | <a class="about-social button-inline title-text-effect__non-text" href="https://drenban.github.io/" target="_blank">in</a>
+                                 | <a class="about-social button-inline title-text-effect__non-text" href="https://drenban.github.io/" target="_blank">ig</a>
+                                 | <a class="about-social button-inline title-text-effect__non-text" href="https://drenban.github.io/" target="_blank">fb</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="editor">
+                <div class="editor__inner">
+                    <div class="editor__nav-modes">
+                        <div class="editor__nav-mode-wrapper">
+                            <input id="editor__nav-mode--narrow" class="editor__nav-mode" type="radio" name="nav-mode" value="narrow" checked="checked">
+                            <label class="editor__nav-mode-label" for="editor__nav-mode--narrow">静态</label>
+                        </div>
+                        <div class="editor__nav-mode-wrapper">
+                            <input id="editor__nav-mode--free" class="editor__nav-mode" type="radio" name="nav-mode" value="free">
+                            <label class="editor__nav-mode-label" for="editor__nav-mode--free">自由导航</label>
+                        </div>
+                    </div>
+                    <div class="editor__intro">
+                        <div class="editor__intro-header">
+                            <h2 class="editor__intro-title"> PeekX 量化助手 </h2>
+                            <button class="button-icon editor__intro--minimize" title="Hide Instruction"></button>
+                        </div>
+                        <div class="editor__intro-description"> 欢迎体验您的个人量化交易实验室！在这里，您可以创建自己的交易策略，并通过直观的数据可视化预览其效果。<br>
+                            <br> 使用须知：<br>
+                            <ul>
+                                <li> 编辑结构：策略编辑器与常见量化平台（如 QuantConnect）类似，支持预定义变量，例如 price（价格）、time（时间）等，但暂不支持外部 API 实时数据或复杂组合资产 </li>
+                                <li> 独特功能：支持通过参数调整实现动态回测，详情请查看回测指南。
+                                    <button class="button-inline button__instructions" data-id="more-features" aria-label="more features"> 请参阅此处了解更多详细信息 </button>
+                                </li>
+                                <li> 本地保存：PeekX 不托管您的策略，所有策略通过 localStorage API 自动保存在本地设备。您有 3 个策略存储槽。如需保存并分享您的策略，请
+                                    <button class="button-inline button__instructions" data-id="save-and-share" aria-label="Open the save and share instructions"> 参考分享说明 </button>
+                                </li>
+                                <li>技术支持：默认使用现代浏览器标准，若浏览器不支持最新特性，将降级为基本模式</li>
+                                <li> 需要预定义变量列表？
+                                    <button class="button-inline button__instructions" data-id="shader-syntax" aria-label="Shader syntax"> 点击查看 </button>
+                                </li>
+                                <li> 想将其他平台的策略转换为 PeekX 格式？
+                                    <button class="button-inline button__instructions" data-id="convert-your-shader" aria-label="Convert your shader"> 转换指南 </button>
+                                </li>
+                                <li> 导入现有策略至 PeekX：
+                                    <button class="button-default button__instructions" data-id="test-shadertoy" aria-label="test-shadertoy"> 点击进入 </button>
+                                </li>
+                            </ul>
+                            <br> 我们建议您在社区分享策略时添加
+                            <a class="button-inline" href="https://www.shadertoy.com/results?query=tag%3Dcineshader" target="_blank">PeekX</a> 标签，以便其他用户发现和学习。
+                        </div>
+                    </div>
+                    <div class="editor__main">
+                        <ul class="editor__tabs">
+                            <li class="editor__tab is-active" title="Slot 1">1</li>
+                            <li class="editor__tab" title="Slot 2">2</li>
+                            <li class="editor__tab" title="Slot 3">3</li>
+                        </ul>
+                        <div class="editor__buttons">
+                            <div class="editor__buttons-line">
+                                <div class="group group--template">
+                                    <span class="group__name">Template:</span>
+                                    <div class="select-wrapper">
+                                        <select class="select-default"></select>
+                                    </div>
+                                    <button class="button-default button__load" aria-label="Load template">New</button>
+                                </div>
+                                <div class="group group--model">
+                                    <span class="group__name">Model:</span>
+                                    <div class="select-wrapper">
+                                        <select class="select-default">
+                                            <option value="person">Person</option>
+                                            <option value="car">Car</option>
+                                            <option value="nothing">Nothing</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="editor__buttons-line">
+                                <div class="group group--title">
+                                    <span class="group__name">Title:</span>
+                                    <input class="group__input-text" type="text" value="My PeekX">
+                                </div>
+                                <div class="group group--description">
+                                    <span class="group__name">Description:</span>
+                                    <input class="group__input-text" type="text" value="Lorem ipsum dolor">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="shader-editor">
+                            <div id="shader-editor-cm"></div>
+                            <div class="editor__controls">
+                                <div class="editor__controls-left">
+                                    <button class="button-default button__preview" aria-label="Preview shader">Preview</button>
+                                    <span class="button-separator"></span>
+                                    <button class="button-default button__compile" aria-label="Compile shader" title="Alt + Enter">Compile</button>
+                                    <button class="button-icon button__restart" aria-label="Restart shader time" title="Alt + Down">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.9 26" xml:space="preserve">
+                                            <path d="M16.9 0v26L4.5 13 16.9 0M0 0h4.5v26H0z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="button-icon button__pause" aria-label="Pause shader" title="Alt + Up">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 12.4 26" xml:space="preserve">
+                                            <path class="play" d="M0 26V0l12.4 13L0 26"/>
+                                            <path class="pause" d="M0 0h4.5v26H0zM7.9 0h4.5v26H7.9z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="editor__controls-right">
+                                    <span class="time">164.7</span>
+                                    <span class="fps">
+                                        <span class="fps-value">59</span>fps
+                                    </span>
+                                    <span class="button-separator"></span>
+                                    <button class="button-icon button__screenshot" aria-label="Screenshot" title="HD snapshot">
+                                        <svg version="1.1" viewBox="0 0 16 16" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m4.8 9c0 1.8 1.5 3.3 3.3 3.3s3.3-1.5 3.3-3.3-1.6-3.2-3.4-3.2-3.2 1.4-3.2 3.2zm10.2-5.5h-3.5c-0.3-1-0.5-2-1.5-2h-4c-1 0-1.3 1-1.5 2h-3.5c-0.6 0-1 0.4-1 1v9c0 0.6 0.4 1 1 1h14c0.6 0 1-0.4 1-1v-9c0-0.6-0.4-1-1-1zm-7 9.9c-2.5 0-4.4-2-4.4-4.4s2-4.4 4.4-4.4c2.5 0 4.4 2 4.4 4.4s-1.9 4.4-4.4 4.4zm7-6.9h-2v-1h2v1z"/>
+                                        </svg>
+                                    </button>
+                                    <span class="button-separator"></span>
+                                    <div class="editor__controls-view-quality select-wrapper">
+                                        <select class="select-default select-quality" title="View Quality">
+                                            <option value="0">Minimal</option>
+                                            <option value="1">Low</option>
+                                            <option value="2">Mid (Interlace)</option>
+                                            <option value="3">Full</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="logio">
+                <div class="logio__inner">
+                    <div class="logio__nav-modes">
+                        <div class="logio__nav-mode-wrapper">
+                            <input id="logio__nav-mode--narrow" class="logio__nav-mode" type="radio" name="nav-mode" value="narrow" checked="checked">
+                            <label class="logio__nav-mode-label" for="logio__nav-mode--narrow">静态</label>
+                        </div>
+                        <div class="logio__nav-mode-wrapper">
+                            <input id="logio__nav-mode--free" class="logio__nav-mode" type="radio" name="nav-mode" value="free">
+                            <label class="logio__nav-mode-label" for="logio__nav-mode--free">自由导航</label>
+                        </div>
+                    </div>
+                    <div class="logio__intro">
+                        <div class="logio__intro-header">
+                            <h2 class="logio__intro-title"> PeekX 量化助手 </h2>
+                            <button class="button-icon logio__intro--minimize" title="Hide Instruction"></button>
+                        </div>
+                        <div class="logio__intro-description"> 欢迎体验您的个人量化交易实验室！在这里，您可以创建自己的交易策略，并通过直观的数据可视化预览其效果。<br>
+                            <br> 使用须知：<br>
+                            <ul>
+                                <li> 编辑结构：策略编辑器与常见量化平台（如 QuantConnect）类似，支持预定义变量，例如 price（价格）、time（时间）等，但暂不支持外部 API 实时数据或复杂组合资产 </li>
+                                <li> 独特功能：支持通过参数调整实现动态回测，详情请查看回测指南。
+                                    <button class="button-inline button__instructions" data-id="more-features" aria-label="more features"> 请参阅此处了解更多详细信息 </button>
+                                </li>
+                                <li> 本地保存：PeekX 不托管您的策略，所有策略通过 localStorage API 自动保存在本地设备。您有 3 个策略存储槽。如需保存并分享您的策略，请
+                                    <button class="button-inline button__instructions" data-id="save-and-share" aria-label="Open the save and share instructions"> 参考分享说明 </button>
+                                </li>
+                                <li>技术支持：默认使用现代浏览器标准，若浏览器不支持最新特性，将降级为基本模式</li>
+                                <li> 需要预定义变量列表？
+                                    <button class="button-inline button__instructions" data-id="shader-syntax" aria-label="Shader syntax"> 点击查看 </button>
+                                </li>
+                                <li> 想将其他平台的策略转换为 PeekX 格式？
+                                    <button class="button-inline button__instructions" data-id="convert-your-shader" aria-label="Convert your shader"> 转换指南 </button>
+                                </li>
+                                <li> 导入现有策略至 PeekX：
+                                    <button class="button-default button__instructions" data-id="test-shadertoy" aria-label="test-shadertoy"> 点击进入 </button>
+                                </li>
+                            </ul>
+                            <br> 我们建议您在社区分享策略时添加
+                            <a class="button-inline" href="https://www.shadertoy.com/results?query=tag%3Dcineshader" target="_blank">PeekX</a> 标签，以便其他用户发现和学习。
+                        </div>
+                    </div>
+                    <div class="logio__main">
+                        <ul class="logio__tabs">
+                            <li class="logio__tab is-active" title="Slot 1">1</li>
+                            <li class="logio__tab" title="Slot 2">2</li>
+                            <li class="logio__tab" title="Slot 3">3</li>
+                        </ul>
+                        <div class="logio__buttons">
+                            <div class="logio__buttons-line">
+                                <div class="group group--template">
+                                    <span class="group__name">Template:</span>
+                                    <div class="select-wrapper">
+                                        <select class="select-default"></select>
+                                    </div>
+                                    <button class="button-default button__load" aria-label="Load template">New</button>
+                                </div>
+                                <div class="group group--model">
+                                    <span class="group__name">Model:</span>
+                                    <div class="select-wrapper">
+                                        <select class="select-default">
+                                            <option value="person">Person</option>
+                                            <option value="car">Car</option>
+                                            <option value="nothing">Nothing</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="logio__buttons-line">
+                                <div class="group group--title">
+                                    <span class="group__name">Title:</span>
+                                    <input class="group__input-text" type="text" value="My PeekX">
+                                </div>
+                                <div class="group group--description">
+                                    <span class="group__name">Description:</span>
+                                    <input class="group__input-text" type="text" value="Lorem ipsum dolor">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="shader-logio">
+                            <div id="shader-logio-cm"></div>
+                            <div class="logio__controls">
+                                <div class="logio__controls-left">
+                                    <button class="button-default button__preview" aria-label="Preview shader">Preview</button>
+                                    <span class="button-separator"></span>
+                                    <button class="button-default button__compile" aria-label="Compile shader" title="Alt + Enter">Compile</button>
+                                    <button class="button-icon button__restart" aria-label="Restart shader time" title="Alt + Down">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.9 26" xml:space="preserve">
+                                            <path d="M16.9 0v26L4.5 13 16.9 0M0 0h4.5v26H0z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="button-icon button__pause" aria-label="Pause shader" title="Alt + Up">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 12.4 26" xml:space="preserve">
+                                            <path class="play" d="M0 26V0l12.4 13L0 26"/>
+                                            <path class="pause" d="M0 0h4.5v26H0zM7.9 0h4.5v26H7.9z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="logio__controls-right">
+                                    <span class="time">164.7</span>
+                                    <span class="fps">
+                                        <span class="fps-value">59</span>fps
+                                    </span>
+                                    <span class="button-separator"></span>
+                                    <button class="button-icon button__screenshot" aria-label="Screenshot" title="HD snapshot">
+                                        <svg version="1.1" viewBox="0 0 16 16" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m4.8 9c0 1.8 1.5 3.3 3.3 3.3s3.3-1.5 3.3-3.3-1.6-3.2-3.4-3.2-3.2 1.4-3.2 3.2zm10.2-5.5h-3.5c-0.3-1-0.5-2-1.5-2h-4c-1 0-1.3 1-1.5 2h-3.5c-0.6 0-1 0.4-1 1v9c0 0.6 0.4 1 1 1h14c0.6 0 1-0.4 1-1v-9c0-0.6-0.4-1-1-1zm-7 9.9c-2.5 0-4.4-2-4.4-4.4s2-4.4 4.4-4.4c2.5 0 4.4 2 4.4 4.4s-1.9 4.4-4.4 4.4zm7-6.9h-2v-1h2v1z"/>
+                                        </svg>
+                                    </button>
+                                    <span class="button-separator"></span>
+                                    <div class="logio__controls-view-quality select-wrapper">
+                                        <select class="select-default select-quality" title="View Quality">
+                                            <option value="0">Minimal</option>
+                                            <option value="1">Low</option>
+                                            <option value="2">Mid (Interlace)</option>
+                                            <option value="3">Full</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="preloader">
+                <div id="preloader-context">
+                    <h2 id="preloader-title">窥见<br>PeekX</h2>
+                    <h4 id="preloader-desc">专为交易与投资打造的下一代<br>数据决策引擎</h4>
+                    <div id="preloader-text">正在加载 (0%)</div>
+                </div>
+            </div>
+            <div id="prompt">
+                <div id="prompt--bg"></div>
+                <div id="prompt--box">
+                    <div id="prompt--msg">Error message here!</div>
+                    <input type="text" id="prompt--input">
+                    <button id="prompt--ok-btn" class="button-default prompt--button prompt--button__is-ok" aria-label="Ok">OK</button>
+                </div>
+            </div>
+            <div id="preloader-vr">
+                <h2 id="preloader-vr__title">Entering CineShader VR</h2>
+                <p id="preloader-vr__progress">Now Loading (<span id="preloader-vr__progress__percent"></span>%)</p>
+            </div>
+            <div class="xr-landing">
+                <div class="xr-landing__bg"></div>
+                <h3 class="xr-landing__title">Welcome to CineShader VR</h3>
+                <p class="xr-landing__desc">Discover shader artworks
+                    <br>from the Shadertoy community
+                    <br>in a cinematic VR environment.
+                </p>
+                <button class="button-default button__webxr button__webxr--middle" aria-label="ENTER VR">ENTER VR</button>
+                <a class="xr-landing__craftedby" href="https://lusion.co/" target="_blank">Crafted by Lusion</a>
+            </div>
+        </div>
+        <div class="button-wrapper__webxr--corner">
+            <button class="button-default button__webxr button__webxr--corner" aria-label="Enter VR">Enter VR</button>
+        </div>
+        <script src="/assets/js/index.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TLVTP5HQJ"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-4TLVTP5HQJ');
+        </script>
+    </body>
+</html>
