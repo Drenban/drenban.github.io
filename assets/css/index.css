@@ -2757,3 +2757,332 @@ li.CodeMirror-hint-active {
 .ge_colorpicker_dark .ge_colorpicker_bar-cursor-right {
     border-right-color: #333
 }
+
+/* The following is the css style of logio */
+
+.menu__item--is-logio {
+    position: relative
+}
+
+#preloader-vr,#prompt,.logio__tab,.xr-landing__desc {
+    text-align: center
+}
+
+#shader-logio-cm {
+    height: calc(100% - 40px)
+}
+
+.logio {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #051015;
+    padding: 5em 2.5em 20px;
+    opacity: 0;
+    pointer-events: none
+}
+
+.logio.is-visible {
+    pointer-events: all
+}
+
+.logio__inner {
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s
+}
+
+.logio.is-visible .logio__inner {
+    opacity: 1
+}
+
+.logio__nav-modes {
+    position: absolute;
+    right: 100%;
+    padding-right: 2em;
+    bottom: 32px
+}
+
+.logio__nav-mode-wrapper {
+    position: relative;
+    margin-top: 1.5ex;
+    white-space: nowrap
+}
+
+.logio__nav-mode {
+    position: absolute;
+    visibility: hidden
+}
+
+.logio__nav-mode:checked~label:after {
+    display: block
+}
+
+.logio__nav-mode-label:before {
+    position: absolute;
+    right: 100%;
+    content: '';
+    width: 1em;
+    height: 1em;
+    margin-right: .4em;
+    border: 1px solid #51585b;
+    background-color: #051015
+}
+
+.logio__nav-mode-label:after {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    margin-right: calc(.65em + 1px);
+    margin-top: calc(.25em + 1px);
+    content: '';
+    width: .5em;
+    height: .5em;
+    background-color: #c3c3c3
+}
+
+.logio__intro-header,.logio__tabs {
+    display: -webkit-box;
+    display: -ms-flexbox
+}
+
+.logio__intro {
+    border-top: 1px solid #51585b;
+    overflow: hidden;
+    max-height: 500px
+}
+
+.is-minimized .logio__intro {
+    max-height: 3em
+}
+
+.logio__intro-description {
+    margin: 1em 0 .5em;
+    overflow: visible;
+    padding-bottom: .15em;
+    font-size: .8em
+}
+
+.logio__intro-description a,.logio__intro-description button {
+    font-weight: 400;
+    color: #00ffad
+}
+
+@media (max-width: 1440px) {
+    .logio__intro-description {
+        font-size:.8rem
+    }
+}
+
+@media (max-width: 1280px) {
+    .logio__intro-description {
+        font-size:.8rem
+    }
+}
+
+.logio__intro-description ul {
+    margin: .75em 0 0 2em;
+    list-style-type: square
+}
+
+.logio__intro-description li {
+    margin-bottom: .2em;
+    line-height: 1.05em
+}
+
+.logio__intro-header {
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.logio__intro--minimize {
+    margin-top: .75em;
+    border: 1px solid #51585b;
+    height: 22px;
+    width: 22px;
+    position: relative
+}
+
+.logio__intro--minimize:after,.logio__intro--minimize:before {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    height: 1px;
+    width: 6px;
+    background-color: #51585b;
+    content: ''
+}
+
+.logio__intro--minimize:after {
+    opacity: 0;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg)
+}
+
+.is-minimized .logio__intro--minimize:after {
+    opacity: 1
+}
+
+@media (hover: hover) {
+    .logio__intro--minimize:hover {
+        border-color:#c3c3c3
+    }
+
+    .logio__intro--minimize:hover:after,.logio__intro--minimize:hover:before {
+        background-color: #c3c3c3
+    }
+}
+
+.logio__intro-title {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin: .75em 0 0
+}
+
+.logio__tabs {
+    width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0
+}
+
+.logio__buttons-line,.logio__controls {
+    display: -webkit-box;
+    display: -ms-flexbox
+}
+
+.logio__tab {
+    width: 33.3333333%;
+    border: 1px solid #51585b;
+    padding: .5em 0
+}
+
+.logio__tab+.logio__tab {
+    border-left: none
+}
+
+.logio__tab.is-active {
+    background-color: #c3c3c3;
+    border-color: #c3c3c3;
+    color: #051015
+}
+
+@media (hover: hover) {
+    .logio__tab:not(.is-active):hover {
+        background-color:#51585b;
+        border-color: #51585b
+    }
+}
+
+.logio__buttons {
+    border-left: 1px solid #51585b;
+    border-right: 1px solid #51585b;
+    padding: 1em 0
+}
+
+.logio__buttons-line {
+    display: flex
+}
+
+.logio__buttons-line+.logio__buttons-line {
+    margin-top: 1em
+}
+
+.logio__main {
+    margin-top: 1em
+}
+
+#shader-logio {
+    width: 100%;
+    border: 1px solid #51585b;
+    -webkit-transition: border-color .3s linear;
+    -o-transition: border-color .3s linear;
+    transition: border-color .3s linear
+}
+
+#shader-logio.success {
+    border-color: #00ffad
+}
+
+#shader-logio.error {
+    border-color: red
+}
+
+.logio__controls {
+    position: relative;
+    height: 40px;
+    min-height: 40px;
+    background-color: #051015;
+    border-top: 1px solid #51585b;
+    padding: 0 .8em;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+@media (max-width: 1440px) {
+    .logio__controls {
+        padding:0 .6em
+    }
+}
+
+@media (max-width: 1280px) {
+    .logio__controls {
+        padding:0 .4em
+    }
+
+    .select-quality {
+        max-width: 70px
+    }
+}
+
+@media (max-width: 1000px) {
+    .logio__controls {
+        padding:0 .2em
+    }
+}
+
+.logio__controls-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.logio__controls-left .button-icon {
+    height: 18px;
+    margin-left: .75em
+}
+
+.logio__controls-left .button-icon svg {
+    min-width: 12px;
+    height: 100%;
+    fill: #fff
+}
+
+@media (hover: hover) {
+    .logio__controls-left .button-icon:hover svg {
+        fill:#c3c3c3
+    }
+}
