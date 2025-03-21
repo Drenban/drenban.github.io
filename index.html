@@ -502,12 +502,12 @@
                             <li class="logio__tab" title="Slot 2">2</li>
                             <li class="logio__tab" title="Slot 3">3</li>
                         </ul>
-
-
-                            <h2>PeekX 登录</h2>
-                            <p>欢迎使用您的量化交易平台</p>
-
-                        
+                        <div class="editor__query">
+                            <input type="text" id="query-input" placeholder="输入查询条件" class="group__input-text">
+                            <button id="query-submit" class="button-default">查询</button>
+                            <div id="query-results" class="query__results"></div>
+                            <p class="query__error" style="display: none; color: red;"></p>
+                        </div>
                         <div class="logio__buttons">
                             <div class="logio__buttons-line">
                                 <div class="group group--template">
