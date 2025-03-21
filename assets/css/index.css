@@ -2763,7 +2763,7 @@ li.CodeMirror-hint-active {
     left: 50%;
     top: 50%;
     width: min(400px, 80%);
-    height: 80%;
+    height: 100%;
     background-color: #051015;
     padding: 2em;
     opacity: 0;
@@ -2771,8 +2771,6 @@ li.CodeMirror-hint-active {
     font-family: t26-carbon, monospace;
     color: #efefef;
     transition: opacity 0.4s cubic-bezier(0.55, 0, 0.1, 1);
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
 }
 
 .auth.is-visible {
