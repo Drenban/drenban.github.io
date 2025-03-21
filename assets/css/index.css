@@ -2757,21 +2757,21 @@ li.CodeMirror-hint-active {
     border-right-color: #333
 }
 
-/* The following is the css style of login */
+/* The following is the css style of logio */
 
-.menu__item--is-login {
+.menu__item--is-logio {
     position: relative
 }
 
-#preloader-vr,#prompt,.login__tab,.xr-landing__desc {
+#preloader-vr,#prompt,.logio__tab,.xr-landing__desc {
     text-align: center
 }
 
-#shader-login-cm {
+#shader-logio-cm {
     height: calc(100% - 40px)
 }
 
-.login {
+.logio {
     position: absolute;
     left: 50%;
     top: 0;
@@ -2783,44 +2783,44 @@ li.CodeMirror-hint-active {
     pointer-events: none
 }
 
-.login.is-visible {
+.logio.is-visible {
     pointer-events: all
 }
 
-.login__inner {
+.logio__inner {
     opacity: 0;
     -webkit-transition: opacity 1s;
     -o-transition: opacity 1s;
     transition: opacity 1s
 }
 
-.login.is-visible .login__inner {
+.logio.is-visible .logio__inner {
     opacity: 1
 }
 
-.login__nav-modes {
+.logio__nav-modes {
     position: absolute;
     right: 100%;
     padding-right: 2em;
     bottom: 32px
 }
 
-.login__nav-mode-wrapper {
+.logio__nav-mode-wrapper {
     position: relative;
     margin-top: 1.5ex;
     white-space: nowrap
 }
 
-.login__nav-mode {
+.logio__nav-mode {
     position: absolute;
     visibility: hidden
 }
 
-.login__nav-mode:checked~label:after {
+.logio__nav-mode:checked~label:after {
     display: block
 }
 
-.login__nav-mode-label:before {
+.logio__nav-mode-label:before {
     position: absolute;
     right: 100%;
     content: '';
@@ -2831,7 +2831,7 @@ li.CodeMirror-hint-active {
     background-color: #051015
 }
 
-.login__nav-mode-label:after {
+.logio__nav-mode-label:after {
     display: none;
     position: absolute;
     top: 0;
@@ -2844,56 +2844,56 @@ li.CodeMirror-hint-active {
     background-color: #c3c3c3
 }
 
-.login__intro-header,.login__tabs {
+.logio__intro-header,.logio__tabs {
     display: -webkit-box;
     display: -ms-flexbox
 }
 
-.login__intro {
+.logio__intro {
     border-top: 1px solid #51585b;
     overflow: hidden;
     max-height: 500px
 }
 
-.is-minimized .login__intro {
+.is-minimized .logio__intro {
     max-height: 3em
 }
 
-.login__intro-description {
+.logio__intro-description {
     margin: 1em 0 .5em;
     overflow: visible;
     padding-bottom: .15em;
     font-size: .8em
 }
 
-.login__intro-description a,.login__intro-description button {
+.logio__intro-description a,.logio__intro-description button {
     font-weight: 400;
     color: #00ffad
 }
 
 @media (max-width: 1440px) {
-    .login__intro-description {
+    .logio__intro-description {
         font-size:.8rem
     }
 }
 
 @media (max-width: 1280px) {
-    .login__intro-description {
+    .logio__intro-description {
         font-size:.8rem
     }
 }
 
-.login__intro-description ul {
+.logio__intro-description ul {
     margin: .75em 0 0 2em;
     list-style-type: square
 }
 
-.login__intro-description li {
+.logio__intro-description li {
     margin-bottom: .2em;
     line-height: 1.05em
 }
 
-.login__intro-header {
+.logio__intro-header {
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -2903,7 +2903,7 @@ li.CodeMirror-hint-active {
     justify-content: space-between
 }
 
-.login__intro--minimize {
+.logio__intro--minimize {
     margin-top: .75em;
     border: 1px solid #51585b;
     height: 22px;
@@ -2911,7 +2911,7 @@ li.CodeMirror-hint-active {
     position: relative
 }
 
-.login__intro--minimize:after,.login__intro--minimize:before {
+.logio__intro--minimize:after,.logio__intro--minimize:before {
     position: absolute;
     top: 10px;
     left: 7px;
@@ -2921,34 +2921,34 @@ li.CodeMirror-hint-active {
     content: ''
 }
 
-.login__intro--minimize:after {
+.logio__intro--minimize:after {
     opacity: 0;
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg)
 }
 
-.is-minimized .login__intro--minimize:after {
+.is-minimized .logio__intro--minimize:after {
     opacity: 1
 }
 
 @media (hover: hover) {
-    .login__intro--minimize:hover {
+    .logio__intro--minimize:hover {
         border-color:#c3c3c3
     }
 
-    .login__intro--minimize:hover:after,.login__intro--minimize:hover:before {
+    .logio__intro--minimize:hover:after,.logio__intro--minimize:hover:before {
         background-color: #c3c3c3
     }
 }
 
-.login__intro-title {
+.logio__intro-title {
     font-size: 1.5em;
     font-weight: 100;
     margin: .75em 0 0
 }
 
-.login__tabs {
+.logio__tabs {
     width: 100%;
     display: flex;
     -webkit-box-align: center;
@@ -2960,53 +2960,53 @@ li.CodeMirror-hint-active {
     margin: 0
 }
 
-.login__buttons-line,.login__controls {
+.logio__buttons-line,.logio__controls {
     display: -webkit-box;
     display: -ms-flexbox
 }
 
-.login__tab {
+.logio__tab {
     width: 33.3333333%;
     border: 1px solid #51585b;
     padding: .5em 0
 }
 
-.login__tab+.login__tab {
+.logio__tab+.logio__tab {
     border-left: none
 }
 
-.login__tab.is-active {
+.logio__tab.is-active {
     background-color: #c3c3c3;
     border-color: #c3c3c3;
     color: #051015
 }
 
 @media (hover: hover) {
-    .login__tab:not(.is-active):hover {
+    .logio__tab:not(.is-active):hover {
         background-color:#51585b;
         border-color: #51585b
     }
 }
 
-.login__buttons {
+.logio__buttons {
     border-left: 1px solid #51585b;
     border-right: 1px solid #51585b;
     padding: 1em 0
 }
 
-.login__buttons-line {
+.logio__buttons-line {
     display: flex
 }
 
-.login__buttons-line+.login__buttons-line {
+.logio__buttons-line+.logio__buttons-line {
     margin-top: 1em
 }
 
-.login__main {
+.logio__main {
     margin-top: 1em
 }
 
-#shader-login {
+#shader-logio {
     width: 100%;
     border: 1px solid #51585b;
     -webkit-transition: border-color .3s linear;
@@ -3014,15 +3014,15 @@ li.CodeMirror-hint-active {
     transition: border-color .3s linear
 }
 
-#shader-login.success {
+#shader-logio.success {
     border-color: #00ffad
 }
 
-#shader-login.error {
+#shader-logio.error {
     border-color: red
 }
 
-.login__controls {
+.logio__controls {
     position: relative;
     height: 40px;
     min-height: 40px;
@@ -3039,13 +3039,13 @@ li.CodeMirror-hint-active {
 }
 
 @media (max-width: 1440px) {
-    .login__controls {
+    .logio__controls {
         padding:0 .6em
     }
 }
 
 @media (max-width: 1280px) {
-    .login__controls {
+    .logio__controls {
         padding:0 .4em
     }
 
@@ -3055,12 +3055,12 @@ li.CodeMirror-hint-active {
 }
 
 @media (max-width: 1000px) {
-    .login__controls {
+    .logio__controls {
         padding:0 .2em
     }
 }
 
-.login__controls-left {
+.logio__controls-left {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3069,38 +3069,38 @@ li.CodeMirror-hint-active {
     align-items: center
 }
 
-.login__controls-left .button-icon {
+.logio__controls-left .button-icon {
     height: 18px;
     margin-left: .75em
 }
 
-.login__controls-left .button-icon svg {
+.logio__controls-left .button-icon svg {
     min-width: 12px;
     height: 100%;
     fill: #fff
 }
 
 @media (hover: hover) {
-    .login__controls-left .button-icon:hover svg {
+    .logio__controls-left .button-icon:hover svg {
         fill:#c3c3c3
     }
 }
 
-/* The following is the css style of register */
+/* The following is the css style of regisio */
 
-.menu__item--is-register {
+.menu__item--is-regisio {
     position: relative
 }
 
-#preloader-vr,#prompt,.register__tab,.xr-landing__desc {
+#preloader-vr,#prompt,.regisio__tab,.xr-landing__desc {
     text-align: center
 }
 
-#shader-register-cm {
+#shader-regisio-cm {
     height: calc(100% - 40px)
 }
 
-.register {
+.regisio {
     position: absolute;
     left: 50%;
     top: 0;
@@ -3112,44 +3112,44 @@ li.CodeMirror-hint-active {
     pointer-events: none
 }
 
-.register.is-visible {
+.regisio.is-visible {
     pointer-events: all
 }
 
-.register__inner {
+.regisio__inner {
     opacity: 0;
     -webkit-transition: opacity 1s;
     -o-transition: opacity 1s;
     transition: opacity 1s
 }
 
-.register.is-visible .register__inner {
+.regisio.is-visible .regisio__inner {
     opacity: 1
 }
 
-.register__nav-modes {
+.regisio__nav-modes {
     position: absolute;
     right: 100%;
     padding-right: 2em;
     bottom: 32px
 }
 
-.register__nav-mode-wrapper {
+.regisio__nav-mode-wrapper {
     position: relative;
     margin-top: 1.5ex;
     white-space: nowrap
 }
 
-.register__nav-mode {
+.regisio__nav-mode {
     position: absolute;
     visibility: hidden
 }
 
-.register__nav-mode:checked~label:after {
+.regisio__nav-mode:checked~label:after {
     display: block
 }
 
-.register__nav-mode-label:before {
+.regisio__nav-mode-label:before {
     position: absolute;
     right: 100%;
     content: '';
@@ -3160,7 +3160,7 @@ li.CodeMirror-hint-active {
     background-color: #051015
 }
 
-.register__nav-mode-label:after {
+.regisio__nav-mode-label:after {
     display: none;
     position: absolute;
     top: 0;
@@ -3173,56 +3173,56 @@ li.CodeMirror-hint-active {
     background-color: #c3c3c3
 }
 
-.register__intro-header,.register__tabs {
+.regisio__intro-header,.regisio__tabs {
     display: -webkit-box;
     display: -ms-flexbox
 }
 
-.register__intro {
+.regisio__intro {
     border-top: 1px solid #51585b;
     overflow: hidden;
     max-height: 500px
 }
 
-.is-minimized .register__intro {
+.is-minimized .regisio__intro {
     max-height: 3em
 }
 
-.register__intro-description {
+.regisio__intro-description {
     margin: 1em 0 .5em;
     overflow: visible;
     padding-bottom: .15em;
     font-size: .8em
 }
 
-.register__intro-description a,.register__intro-description button {
+.regisio__intro-description a,.regisio__intro-description button {
     font-weight: 400;
     color: #00ffad
 }
 
 @media (max-width: 1440px) {
-    .register__intro-description {
+    .regisio__intro-description {
         font-size:.8rem
     }
 }
 
 @media (max-width: 1280px) {
-    .register__intro-description {
+    .regisio__intro-description {
         font-size:.8rem
     }
 }
 
-.register__intro-description ul {
+.regisio__intro-description ul {
     margin: .75em 0 0 2em;
     list-style-type: square
 }
 
-.register__intro-description li {
+.regisio__intro-description li {
     margin-bottom: .2em;
     line-height: 1.05em
 }
 
-.register__intro-header {
+.regisio__intro-header {
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -3232,7 +3232,7 @@ li.CodeMirror-hint-active {
     justify-content: space-between
 }
 
-.register__intro--minimize {
+.regisio__intro--minimize {
     margin-top: .75em;
     border: 1px solid #51585b;
     height: 22px;
@@ -3240,7 +3240,7 @@ li.CodeMirror-hint-active {
     position: relative
 }
 
-.register__intro--minimize:after,.register__intro--minimize:before {
+.regisio__intro--minimize:after,.regisio__intro--minimize:before {
     position: absolute;
     top: 10px;
     left: 7px;
@@ -3250,34 +3250,34 @@ li.CodeMirror-hint-active {
     content: ''
 }
 
-.register__intro--minimize:after {
+.regisio__intro--minimize:after {
     opacity: 0;
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg)
 }
 
-.is-minimized .register__intro--minimize:after {
+.is-minimized .regisio__intro--minimize:after {
     opacity: 1
 }
 
 @media (hover: hover) {
-    .register__intro--minimize:hover {
+    .regisio__intro--minimize:hover {
         border-color:#c3c3c3
     }
 
-    .register__intro--minimize:hover:after,.register__intro--minimize:hover:before {
+    .regisio__intro--minimize:hover:after,.regisio__intro--minimize:hover:before {
         background-color: #c3c3c3
     }
 }
 
-.register__intro-title {
+.regisio__intro-title {
     font-size: 1.5em;
     font-weight: 100;
     margin: .75em 0 0
 }
 
-.register__tabs {
+.regisio__tabs {
     width: 100%;
     display: flex;
     -webkit-box-align: center;
@@ -3289,53 +3289,53 @@ li.CodeMirror-hint-active {
     margin: 0
 }
 
-.register__buttons-line,.register__controls {
+.regisio__buttons-line,.regisio__controls {
     display: -webkit-box;
     display: -ms-flexbox
 }
 
-.register__tab {
+.regisio__tab {
     width: 33.3333333%;
     border: 1px solid #51585b;
     padding: .5em 0
 }
 
-.register__tab+.register__tab {
+.regisio__tab+.regisio__tab {
     border-left: none
 }
 
-.register__tab.is-active {
+.regisio__tab.is-active {
     background-color: #c3c3c3;
     border-color: #c3c3c3;
     color: #051015
 }
 
 @media (hover: hover) {
-    .register__tab:not(.is-active):hover {
+    .regisio__tab:not(.is-active):hover {
         background-color:#51585b;
         border-color: #51585b
     }
 }
 
-.register__buttons {
+.regisio__buttons {
     border-left: 1px solid #51585b;
     border-right: 1px solid #51585b;
     padding: 1em 0
 }
 
-.register__buttons-line {
+.regisio__buttons-line {
     display: flex
 }
 
-.register__buttons-line+.register__buttons-line {
+.regisio__buttons-line+.regisio__buttons-line {
     margin-top: 1em
 }
 
-.register__main {
+.regisio__main {
     margin-top: 1em
 }
 
-#shader-register {
+#shader-regisio {
     width: 100%;
     border: 1px solid #51585b;
     -webkit-transition: border-color .3s linear;
@@ -3343,15 +3343,15 @@ li.CodeMirror-hint-active {
     transition: border-color .3s linear
 }
 
-#shader-register.success {
+#shader-regisio.success {
     border-color: #00ffad
 }
 
-#shader-register.error {
+#shader-regisio.error {
     border-color: red
 }
 
-.register__controls {
+.regisio__controls {
     position: relative;
     height: 40px;
     min-height: 40px;
@@ -3368,13 +3368,13 @@ li.CodeMirror-hint-active {
 }
 
 @media (max-width: 1440px) {
-    .register__controls {
+    .regisio__controls {
         padding:0 .6em
     }
 }
 
 @media (max-width: 1280px) {
-    .register__controls {
+    .regisio__controls {
         padding:0 .4em
     }
 
@@ -3384,12 +3384,12 @@ li.CodeMirror-hint-active {
 }
 
 @media (max-width: 1000px) {
-    .register__controls {
+    .regisio__controls {
         padding:0 .2em
     }
 }
 
-.register__controls-left {
+.regisio__controls-left {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3398,22 +3398,353 @@ li.CodeMirror-hint-active {
     align-items: center
 }
 
-.register__controls-left .button-icon {
+.regisio__controls-left .button-icon {
     height: 18px;
     margin-left: .75em
 }
 
-.register__controls-left .button-icon svg {
+.regisio__controls-left .button-icon svg {
     min-width: 12px;
     height: 100%;
     fill: #fff
 }
 
 @media (hover: hover) {
-    .register__controls-left .button-icon:hover svg {
+    .regisio__controls-left .button-icon:hover svg {
         fill:#c3c3c3
     }
 }
+
+/* The following is the css style of auth */
+
+.menu__item--is-auth {
+    position: relative
+}
+
+#preloader-vr,#prompt,.auth__tab,.xr-landing__desc {
+    text-align: center
+}
+
+#shader-auth-cm {
+    height: calc(100% - 40px)
+}
+
+.auth {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #051015;
+    padding: 5em 2.5em 20px;
+    opacity: 0;
+    pointer-events: none
+}
+
+.auth.is-visible {
+    pointer-events: all
+}
+
+.auth__inner {
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s
+}
+
+.auth.is-visible .auth__inner {
+    opacity: 1
+}
+
+.auth__nav-modes {
+    position: absolute;
+    right: 100%;
+    padding-right: 2em;
+    bottom: 32px
+}
+
+.auth__nav-mode-wrapper {
+    position: relative;
+    margin-top: 1.5ex;
+    white-space: nowrap
+}
+
+.auth__nav-mode {
+    position: absolute;
+    visibility: hidden
+}
+
+.auth__nav-mode:checked~label:after {
+    display: block
+}
+
+.auth__nav-mode-label:before {
+    position: absolute;
+    right: 100%;
+    content: '';
+    width: 1em;
+    height: 1em;
+    margin-right: .4em;
+    border: 1px solid #51585b;
+    background-color: #051015
+}
+
+.auth__nav-mode-label:after {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    margin-right: calc(.65em + 1px);
+    margin-top: calc(.25em + 1px);
+    content: '';
+    width: .5em;
+    height: .5em;
+    background-color: #c3c3c3
+}
+
+.auth__intro-header,.auth__tabs {
+    display: -webkit-box;
+    display: -ms-flexbox
+}
+
+.auth__intro {
+    border-top: 1px solid #51585b;
+    overflow: hidden;
+    max-height: 500px
+}
+
+.is-minimized .auth__intro {
+    max-height: 3em
+}
+
+.auth__intro-description {
+    margin: 1em 0 .5em;
+    overflow: visible;
+    padding-bottom: .15em;
+    font-size: .8em
+}
+
+.auth__intro-description a,.auth__intro-description button {
+    font-weight: 400;
+    color: #00ffad
+}
+
+@media (max-width: 1440px) {
+    .auth__intro-description {
+        font-size:.8rem
+    }
+}
+
+@media (max-width: 1280px) {
+    .auth__intro-description {
+        font-size:.8rem
+    }
+}
+
+.auth__intro-description ul {
+    margin: .75em 0 0 2em;
+    list-style-type: square
+}
+
+.auth__intro-description li {
+    margin-bottom: .2em;
+    line-height: 1.05em
+}
+
+.auth__intro-header {
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.auth__intro--minimize {
+    margin-top: .75em;
+    border: 1px solid #51585b;
+    height: 22px;
+    width: 22px;
+    position: relative
+}
+
+.auth__intro--minimize:after,.auth__intro--minimize:before {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    height: 1px;
+    width: 6px;
+    background-color: #51585b;
+    content: ''
+}
+
+.auth__intro--minimize:after {
+    opacity: 0;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg)
+}
+
+.is-minimized .auth__intro--minimize:after {
+    opacity: 1
+}
+
+@media (hover: hover) {
+    .auth__intro--minimize:hover {
+        border-color:#c3c3c3
+    }
+
+    .auth__intro--minimize:hover:after,.auth__intro--minimize:hover:before {
+        background-color: #c3c3c3
+    }
+}
+
+.auth__intro-title {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin: .75em 0 0
+}
+
+.auth__tabs {
+    width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0
+}
+
+.auth__buttons-line,.auth__controls {
+    display: -webkit-box;
+    display: -ms-flexbox
+}
+
+.auth__tab {
+    width: 33.3333333%;
+    border: 1px solid #51585b;
+    padding: .5em 0
+}
+
+.auth__tab+.auth__tab {
+    border-left: none
+}
+
+.auth__tab.is-active {
+    background-color: #c3c3c3;
+    border-color: #c3c3c3;
+    color: #051015
+}
+
+@media (hover: hover) {
+    .auth__tab:not(.is-active):hover {
+        background-color:#51585b;
+        border-color: #51585b
+    }
+}
+
+.auth__buttons {
+    border-left: 1px solid #51585b;
+    border-right: 1px solid #51585b;
+    padding: 1em 0
+}
+
+.auth__buttons-line {
+    display: flex
+}
+
+.auth__buttons-line+.auth__buttons-line {
+    margin-top: 1em
+}
+
+.auth__main {
+    margin-top: 1em
+}
+
+#shader-auth {
+    width: 100%;
+    border: 1px solid #51585b;
+    -webkit-transition: border-color .3s linear;
+    -o-transition: border-color .3s linear;
+    transition: border-color .3s linear
+}
+
+#shader-auth.success {
+    border-color: #00ffad
+}
+
+#shader-auth.error {
+    border-color: red
+}
+
+.auth__controls {
+    position: relative;
+    height: 40px;
+    min-height: 40px;
+    background-color: #051015;
+    border-top: 1px solid #51585b;
+    padding: 0 .8em;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+@media (max-width: 1440px) {
+    .auth__controls {
+        padding:0 .6em
+    }
+}
+
+@media (max-width: 1280px) {
+    .auth__controls {
+        padding:0 .4em
+    }
+
+    .select-quality {
+        max-width: 70px
+    }
+}
+
+@media (max-width: 1000px) {
+    .auth__controls {
+        padding:0 .2em
+    }
+}
+
+.auth__controls-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.auth__controls-left .button-icon {
+    height: 18px;
+    margin-left: .75em
+}
+
+.auth__controls-left .button-icon svg {
+    min-width: 12px;
+    height: 100%;
+    fill: #fff
+}
+
+@media (hover: hover) {
+    .auth__controls-left .button-icon:hover svg {
+        fill:#c3c3c3
+    }
+}
+
+/*  */
 
 .login-container {
     display: flex;
