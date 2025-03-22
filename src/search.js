@@ -9,12 +9,12 @@
     // 数据加载
     async function loadData() {
         try {
-            const dataResponse = await fetch('./json/data.json');
+            const dataResponse = await fetch('/json/data.json');
             if (!dataResponse.ok) throw new Error(`Failed to load data.json: ${dataResponse.status}`);
             data = await dataResponse.json();
             console.log('JSON 数据加载成功:', data.length);
 
-            const corpusResponse = await fetch('./json/obfuscated_corpus.json');
+            const corpusResponse = await fetch('/json/obfuscated_corpus.json');
             if (!corpusResponse.ok) throw new Error(`Failed to load corpus: ${corpusResponse.status}`);
             const obfuscatedData = await corpusResponse.text();
             corpus = JSON.parse(decodeBase64UTF8(obfuscatedData));
