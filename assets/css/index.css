@@ -2758,7 +2758,7 @@ li.CodeMirror-hint-active {
 }
 
 /* 基础样式，与全局一致 */
-.auth {
+.peekx {
     position: absolute;
     left: 50%;
     top: 0%;
@@ -2776,13 +2776,13 @@ li.CodeMirror-hint-active {
     flex-direction: column; /* 垂直排列子元素 */
 }
 
-.auth.is-visible {
+.peekx.is-visible {
     opacity: 1;
     pointer-events: all;
 }
 
 /* 内部容器 */
-.auth__inner {
+.peekx__inner {
     opacity: 0;
     transition: opacity 1s;
     flex-grow: 1; /* 填充可用空间 */
@@ -2790,12 +2790,12 @@ li.CodeMirror-hint-active {
     flex-direction: column; /* 垂直排列 */
 }
 
-.auth.is-visible .auth__inner {
+.peekx.is-visible .peekx__inner {
     opacity: 1;
 }
 
 /* 头部 */
-.auth__header {
+.peekx__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2803,13 +2803,13 @@ li.CodeMirror-hint-active {
     padding-top: 0.75em;
 }
 
-.auth__title {
+.peekx__title {
     font-size: 1.5em;
     font-weight: 100;
     margin: 0;
 }
 
-.auth__minimize {
+.peekx__minimize {
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
@@ -2821,8 +2821,8 @@ li.CodeMirror-hint-active {
     outline: none;
 }
 
-.auth__minimize:before,
-.auth__minimize:after {
+.peekx__minimize:before,
+.peekx__minimize:after {
     position: absolute;
     top: 10px;
     left: 7px;
@@ -2832,27 +2832,27 @@ li.CodeMirror-hint-active {
     content: '';
 }
 
-.auth__minimize:after {
+.peekx__minimize:after {
     opacity: 0;
     transform: rotate(90deg);
 }
 
-.auth.is-minimized .auth__minimize:after {
+.peekx.is-minimized .peekx__minimize:after {
     opacity: 1;
 }
 
 @media (hover: hover) {
-    .auth__minimize:hover {
+    .peekx__minimize:hover {
         border-color: #c3c3c3;
     }
-    .auth__minimize:hover:before,
-    .auth__minimize:hover:after {
+    .peekx__minimize:hover:before,
+    .peekx__minimize:hover:after {
         background-color: #c3c3c3;
     }
 }
 
 /* 内容区域 */
-.auth__content {
+.peekx__content {
     margin-top: 1em;
     overflow: hidden;
     max-height: 500px;
@@ -2864,12 +2864,12 @@ li.CodeMirror-hint-active {
     flex-grow: 1; /* 填充剩余空间 */
 }
 
-.auth.is-minimized .auth__content {
+.peekx.is-minimized .peekx__content {
     max-height: 0;
 }
 
 /* 输入框 */
-.auth__input {
+.peekx__input {
     display: block;
     -webkit-appearance: none;
     appearance: none;
@@ -2886,24 +2886,24 @@ li.CodeMirror-hint-active {
     box-sizing: border-box;
 }
 
-.auth__input:focus {
+.peekx__input:focus {
     outline: #fff solid 1px;
 }
 
 @media (max-width: 1440px) {
-    .auth__input {
+    .peekx__input {
         font-size: 0.8rem;
     }
 }
 
 @media (max-width: 1000px) {
-    .auth__input {
+    .peekx__input {
         font-size: 0.6rem;
     }
 }
 
 /* 按钮区域 */
-.auth__buttons {
+.peekx__buttons {
     display: flex;
     justify-content: space-between;
     width: 80%; /* 与输入框宽度一致 */
@@ -2911,7 +2911,7 @@ li.CodeMirror-hint-active {
     margin-top: 1em;
 }
 
-.auth__button {
+.peekx__button {
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
@@ -2926,25 +2926,25 @@ li.CodeMirror-hint-active {
 }
 
 @media (hover: hover) {
-    .auth__button:hover {
+    .peekx__button:hover {
         background-color: #ddd;
         color: #303030;
     }
 }
 
-.auth__button:active {
+.peekx__button:active {
     background-color: #fff;
     color: #051015;
 }
 
 @media (max-width: 1440px) {
-    .auth__button {
+    .peekx__button {
         font-size: 0.8rem;
     }
 }
 
 @media (max-width: 1000px) {
-    .auth__button {
+    .peekx__button {
         font-size: 0.6rem;
     }
 }
