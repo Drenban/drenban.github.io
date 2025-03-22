@@ -2761,9 +2761,9 @@ li.CodeMirror-hint-active {
 .peekx {
     position: absolute;
     left: 50%;
-    top: 0%;
-    width: 50%;
-    height: 100%;
+    top: 50%;
+    width: min(400px, 80%);
+    height: 80%;
     background-color: #051015;
     padding: 5em 2.5em 20px;
     opacity: 0;
@@ -2771,9 +2771,8 @@ li.CodeMirror-hint-active {
     font-family: t26-carbon, monospace;
     color: #efefef;
     transition: opacity 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+    transform: translate(-50%, -50%);
     box-sizing: border-box;
-    display: flex; /* 使用 flex 布局，使内容居中 */
-    flex-direction: column; /* 垂直排列子元素 */
 }
 
 .peekx.is-visible {
@@ -2785,9 +2784,6 @@ li.CodeMirror-hint-active {
 .peekx__inner {
     opacity: 0;
     transition: opacity 1s;
-    flex-grow: 1; /* 填充可用空间 */
-    display: flex; /* 使用 flex 布局 */
-    flex-direction: column; /* 垂直排列 */
 }
 
 .peekx.is-visible .peekx__inner {
@@ -2857,11 +2853,6 @@ li.CodeMirror-hint-active {
     overflow: hidden;
     max-height: 500px;
     transition: max-height 0.3s cubic-bezier(0.55, 0, 0.1, 1);
-    display: flex; /* 使用 flex 布局 */
-    flex-direction: column; /* 垂直排列 */
-    justify-content: center; /* 垂直居中 */
-    align-items: center; /* 水平居中 */
-    flex-grow: 1; /* 填充剩余空间 */
 }
 
 .peekx.is-minimized .peekx__content {
@@ -2879,11 +2870,9 @@ li.CodeMirror-hint-active {
     font-family: inherit;
     font-size: 0.8rem;
     padding: 0.2em 0.6em;
-    width: 80%; /* 限制宽度，避免过宽 */
-    max-width: 300px; /* 最大宽度 */
-    margin: 0.5em 0; /* 上下间距 */
+    width: calc(100% - 0.8em);
+    margin: 0.5em 0;
     outline: none;
-    box-sizing: border-box;
 }
 
 .peekx__input:focus {
@@ -2906,8 +2895,6 @@ li.CodeMirror-hint-active {
 .peekx__buttons {
     display: flex;
     justify-content: space-between;
-    width: 80%; /* 与输入框宽度一致 */
-    max-width: 300px; /* 最大宽度 */
     margin-top: 1em;
 }
 
