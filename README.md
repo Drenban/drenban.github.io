@@ -44,3 +44,21 @@ PeekX 专注于为个人用户提供量化实现，而非面向机构用户。�
 ### 关注我们
 
 www | tw | in | ig | fb
+
+- / (根目录，GitHub Pages 部署)
+  - src/
+    - auth.js       // 认证逻辑（登录、注册、Token 管理、URL 处理）
+    - search.js     // 数据加载与搜索（JSON 和语料库）
+    - ui.js         // UI 创建与动画（登录/注册 UI、搜索 UI、打字效果）
+    - utils.js      // 共享工具函数（sanitizeInput、hashPassword 等）
+    - styles.css    // 统一样式
+  - public/
+    - index.html    // 主页面
+    - login.html    // 登录/注册页面
+  - json/
+    - data.json     // JSON 数据（替代原 data.xlsx）
+    - obfuscated_corpus.json  // 语料库
+  - lib/
+    - json.full.min.js      // JSON 解析库（假设为占位符，实际可能不需要）
+    - fuse.min.js           // Fuse.js 库
+    - supabase.min.js       // Supabase 客户端库（可选）
