@@ -2757,24 +2757,26 @@ li.CodeMirror-hint-active {
     border-right-color: #333
 }
 
-/* 基础样式，与全局一致 */
+/* 基础样式，容器保持右侧布局 */
 .peekx {
     position: absolute;
     left: 50%;
-    top: 50%;
-    width: min(400px, 80%);
-    height: 80%;
-    background-color: #051015;
-    padding: 5em 2.5em 20px;
+    top: 0;
+    width: 50%; /* 占据右侧半屏 */
+    height: 100%; /* 填充整个高度 */
+    background-color: #051015; /* Editor 的深蓝色背景 */
+    padding: 5em 2.5em 20px; /* 恢复 Editor 的原始内边距 */
     opacity: 0;
     pointer-events: none;
-    font-family: t26-carbon, monospace;
-    color: #efefef;
-    transition: opacity 0.4s cubic-bezier(0.55, 0, 0.1, 1);
-    transform: translate(-50%, -50%);
+    font-family: t26-carbon, monospace; /* Editor 的字体 */
+    color: #efefef; /* Editor 的文字颜色 */
+    transition: opacity 0.4s cubic-bezier(0.55, 0, 0.1, 1); /* Editor 的动画曲线 */
     box-sizing: border-box;
+    display: flex; /* 使用 flex 布局，使内容居中 */
+    flex-direction: column; /* 垂直排列子元素 */
 }
 
+/* 显示状态 */
 .peekx.is-visible {
     opacity: 1;
     pointer-events: all;
@@ -2783,7 +2785,10 @@ li.CodeMirror-hint-active {
 /* 内部容器 */
 .peekx__inner {
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 1s; /* 淡入效果 */
+    flex-grow: 1; /* 填充可用空间 */
+    display: flex; /* 使用 flex 布局 */
+    flex-direction: column; /* 垂直排列 */
 }
 
 .peekx.is-visible .peekx__inner {
@@ -2795,7 +2800,7 @@ li.CodeMirror-hint-active {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid #51585b;
+    border-top: 1px solid #51585b; /* Editor 的边框颜色 */
     padding-top: 0.75em;
 }
 
@@ -2809,7 +2814,7 @@ li.CodeMirror-hint-active {
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
-    border: 1px solid #51585b;
+    border: 1px solid #51585b; /* Editor 的边框颜色 */
     height: 22px;
     width: 22px;
     position: relative;
@@ -2824,7 +2829,7 @@ li.CodeMirror-hint-active {
     left: 7px;
     height: 1px;
     width: 6px;
-    background-color: #51585b;
+    background-color: #51585b; /* 默认颜色 */
     content: '';
 }
 
@@ -2839,7 +2844,7 @@ li.CodeMirror-hint-active {
 
 @media (hover: hover) {
     .peekx__minimize:hover {
-        border-color: #c3c3c3;
+        border-color: #c3c3c3; /* Editor 的激活色 */
     }
     .peekx__minimize:hover:before,
     .peekx__minimize:hover:after {
@@ -2847,16 +2852,22 @@ li.CodeMirror-hint-active {
     }
 }
 
-/* 内容区域 */
+/* 内容区域 - 居中输入框和按钮 */
 .peekx__content {
     margin-top: 1em;
     overflow: hidden;
-    max-height: 500px;
-    transition: max-height 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+    max-height: 500px; /* 最大高度，适配内容 */
+    transition: max-height 0.3s cubic-bezier(0.55, 0, 0.1, 1); /* Editor 的动画曲线 */
+    display: flex; /* 使用 flex 布局 */
+    flex-direction: column; /* 垂直排列 */
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    flex-grow: 1; /* 填充剩余空间 */
 }
 
+/* 最小化状态 */
 .peekx.is-minimized .peekx__content {
-    max-height: 0;
+    max-height: 0; /* 隐藏内容 */
 }
 
 /* 输入框 */
@@ -2864,21 +2875,24 @@ li.CodeMirror-hint-active {
     display: block;
     -webkit-appearance: none;
     appearance: none;
-    border: 1px solid #c3c3c3;
+    border: 1px solid #c3c3c3; /* Editor 的边框颜色 */
     background-color: transparent;
     color: #fff;
     font-family: inherit;
     font-size: 0.8rem;
     padding: 0.2em 0.6em;
-    width: calc(100% - 0.8em);
-    margin: 0.5em 0;
+    width: 80%; /* 限制宽度，避免过宽 */
+    max-width: 300px; /* 最大宽度 */
+    margin: 0.5em 0; /* 上下间距 */
     outline: none;
+    box-sizing: border-box;
 }
 
 .peekx__input:focus {
-    outline: #fff solid 1px;
+    outline: #fff solid 1px; /* 聚焦时的白色描边 */
 }
 
+/* 响应式调整 */
 @media (max-width: 1440px) {
     .peekx__input {
         font-size: 0.8rem;
@@ -2895,6 +2909,8 @@ li.CodeMirror-hint-active {
 .peekx__buttons {
     display: flex;
     justify-content: space-between;
+    width: 80%; /* 与输入框宽度一致 */
+    max-width: 300px; /* 最大宽度 */
     margin-top: 1em;
 }
 
@@ -2902,28 +2918,30 @@ li.CodeMirror-hint-active {
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
-    border: 1px solid #c3c3c3;
+    border: 1px solid #c3c3c3; /* Editor 的边框颜色 */
     color: #fff;
     font-family: inherit;
     font-size: 14px;
     padding: 0.2em 0.6em;
-    width: 48%;
+    width: 48%; /* 按钮平分宽度 */
     cursor: pointer;
     outline: none;
 }
 
+/* 交互效果 */
 @media (hover: hover) {
     .peekx__button:hover {
-        background-color: #ddd;
-        color: #303030;
+        background-color: #ddd; /* Editor 的悬停背景色 */
+        color: #303030; /* 文字颜色调整 */
     }
 }
 
 .peekx__button:active {
-    background-color: #fff;
-    color: #051015;
+    background-color: #fff; /* Editor 的激活背景色 */
+    color: #051015; /* 文字颜色调整 */
 }
 
+/* 响应式按钮字体 */
 @media (max-width: 1440px) {
     .peekx__button {
         font-size: 0.8rem;
