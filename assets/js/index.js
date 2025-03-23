@@ -54176,60 +54176,38 @@
                     </div>
                 `;
     
-                // 注入修复后的 CSS
-                var style = document.createElement("style");
-                style.textContent = `
-                    html, body {
-                        margin: 0;
-                        padding: 0;
-                        height: 100%;
-                        width: 100%;
-                        overflow-x: hidden;
-                    }
-                    .peekx {
-                        position: absolute;
-                        left: 50%;
-                        top: 0;
-                        width: 50%;
-                        height: 100vh;
-                        background-color: #051015;
-                        padding: 5em 2.5em 20px;
+                // 设置所有必要样式通过内联方式
+                u.style.cssText = `
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    width: 50%;
+                    height: 100vh;
+                    background-color: #051015;
+                    padding: 5em 2.5em 20px;
+                    opacity: 0;
+                    pointer-events: none;
+                    font-family: t26-carbon, monospace;
+                    color: #efefef;
+                    box-sizing: border-box;
+                    display: none;
+                    flex-direction: column;
+                    z-index: 1000;
+                `;
+                var inner = u.querySelector(".peekx__inner");
+                if (inner) {
+                    inner.style.cssText = `
                         opacity: 0;
-                        pointer-events: none;
-                        font-family: t26-carbon, monospace;
-                        color: #efefef;
-                        box-sizing: border-box;
-                        display: flex;
-                        flex-direction: column;
-                        z-index: 1000;
-                    }
-                    .peekx.is-visible {
-                        opacity: 1;
-                        pointer-events: all;
-                    }
-                    .peekx__inner {
-                        opacity: 0;
-                        transition: opacity 1s;
                         flex-grow: 1;
                         display: flex;
                         flex-direction: column;
-                    }
-                    .peekx.is-visible .peekx__inner {
-                        opacity: 1;
-                    }
-                    .peekx__intro-header {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        border-top: 1px solid #51585b;
-                        padding-top: 0.75em;
-                    }
-                    .peekx__intro-title {
-                        font-size: 1.5em;
-                        font-weight: 100;
-                        margin: 0;
-                    }
-                    .peekx__intro--minimize {
+                    `;
+                }
+    
+                // 绑定最小化事件
+                var minimizeBtn = u.querySelector(".peekx__intro--minimize");
+                if (minimizeBtn) {
+                    minimizeBtn.style.cssText = `
                         -webkit-appearance: none;
                         appearance: none;
                         background-color: transparent;
@@ -54239,54 +54217,17 @@
                         position: relative;
                         cursor: pointer;
                         outline: none;
-                    }
-                    .peekx__intro--minimize:before,
-                    .peekx__intro--minimize:after {
-                        position: absolute;
-                        top: 10px;
-                        left: 7px;
-                        height: 1px;
-                        width: 6px;
-                        background-color: #51585b;
-                        content: '';
-                    }
-                    .peekx__intro--minimize:after {
-                        opacity: 0;
-                        transform: rotate(90deg);
-                    }
-                    .peekx.is-minimized .peekx__intro--minimize:after {
-                        opacity: 1;
-                    }
-                    @media (hover: hover) {
-                        .peekx__intro--minimize:hover {
-                            border-color: #c3c3c3;
+                    `;
+                    minimizeBtn.addEventListener("click", function() {
+                        u.classList.toggle("is-minimized");
+                        minimizeBtn.title = u.classList.contains("is-minimized") ? "Show Instruction" : "Hide Instruction";
+                        var desc = u.querySelector(".peekx__intro-description");
+                        if (desc) {
+                            desc.style.maxHeight = u.classList.contains("is-minimized") ? "0" : "500px";
                         }
-                        .peekx__intro--minimize:hover:before,
-                        .peekx__intro--minimize:hover:after {
-                            background-color: #c3c3c3;
-                        }
-                    }
-                    .peekx__intro-description {
-                        margin-top: 1em;
-                        overflow: hidden;
-                        max-height: 500px;
-                        transition: max-height 0.3s cubic-bezier(0.55, 0, 0.1, 1);
-                    }
-                    .peekx.is-minimized .peekx__intro-description {
-                        max-height: 0;
-                    }
-                `;
-                document.head.appendChild(style);
+                    });
+                }
     
-                // 绑定最小化事件
-                var minimizeBtn = u.querySelector(".peekx__intro--minimize");
-                minimizeBtn.addEventListener("click", function() {
-                    u.classList.toggle("is-minimized");
-                    minimizeBtn.title = u.classList.contains("is-minimized") ? "Show Instruction" : "Hide Instruction";
-                });
-    
-                // 强制初始隐藏并设置样式
-                u.style.cssText = "position: absolute; left: 50%; top: 0; width: 50%; height: 100vh; display: none; opacity: 0;";
                 console.log("PeekX initialized with styles:", u.style.cssText);
                 if (window.location.pathname !== "/peekx") {
                     u.classList.remove("is-visible");
@@ -54339,15 +54280,18 @@
                     r.resize();
                 }
                 u.style.display = "flex";
-                u.style.width = "50%"; // 强制重置
+                u.style.width = "50%";
                 u.style.left = "50%";
                 u.style.height = "100vh";
+                u.style.opacity = "0"; // 确保从 0 开始
                 u.classList.add("is-visible");
+                var inner = u.querySelector(".peekx__inner");
+                if (inner) inner.style.opacity = "1";
                 s.updateMenu(4);
                 l.to(u, { 
                     opacity: 1, 
                     duration: 1,
-                    overwrite: "auto", // 覆盖任何现有动画
+                    overwrite: "auto",
                     onComplete: function() {
                         var styles = window.getComputedStyle(u);
                         console.log("PeekX show animation complete, key styles:", {
@@ -54381,6 +54325,8 @@
                     onComplete: function() {
                         u.classList.remove("is-visible");
                         u.style.display = "none";
+                        var inner = u.querySelector(".peekx__inner");
+                        if (inner) inner.style.opacity = "0";
                         console.log("PeekX hide animation complete");
                         o();
                     }
@@ -54393,6 +54339,6 @@
         "../core/settings": 93,
         "../ui/header/header": 155,
         "./Page": 121,
-        gsap: 32
+        "gsap": 32
     }],
 }, {}, [102]);
