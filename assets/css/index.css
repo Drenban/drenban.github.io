@@ -2,8 +2,10 @@
     -webkit-box-sizing: border-box
 }
 
-#app,body {
+#app,body,html {
     height: 100%;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     width: 100%
 }
@@ -3076,8 +3078,8 @@ html.is-mobile .peekx {
     position: fixed;
     left: 0;
     top: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100% !important;
+    height: 100% !important;
     display: flex;
     flex-direction: column;
     background: red;
@@ -3085,13 +3087,13 @@ html.is-mobile .peekx {
 }
 
 html.is-mobile .peekx__inner {
-    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
     background: green;
     padding: 5em 2.5em 20px;
+    box-sizing: border-box;
 }
 
 html.is-mobile .peekx__intro {
@@ -3103,11 +3105,14 @@ html.is-mobile .peekx__main {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    background: blue;
+    width: 100%;
 }
 
 html.is-mobile .peekx__tabs,
 html.is-mobile .peekx__buttons {
     flex: 0 0 auto;
+    width: 100%;
 }
 
 html.is-mobile #shader-editor {
@@ -3115,19 +3120,11 @@ html.is-mobile #shader-editor {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 html.is-mobile #shader-editor-cm {
     flex: 1 1 auto;
     overflow: auto;
-}
-
-html.is-mobile .peekx {
-    background: red;
-}
-html.is-mobile .peekx__inner {
-    background: green;
-}
-html.is-mobile .peekx__main {
-    background: blue;
+    width: 100%;
 }
