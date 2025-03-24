@@ -3101,6 +3101,7 @@ html.is-mobile .peekx__intro {
     max-height: calc(100% - 5em);
     width: 100%;
     box-sizing: border-box;
+    overflow: visible;
 }
 
 html.is-mobile .peekx__intro--minimize {
@@ -3112,6 +3113,28 @@ html.is-mobile .peekx__intro--minimize {
     width: 22px;
     height: 22px;
     border: 1px solid #51585b;
+}
+
+html.is-mobile .peekx__intro--minimize:before,
+html.is-mobile .peekx__intro--minimize:after {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    height: 1px;
+    width: 6px;
+    background-color: #51585b;
+    content: '';
+}
+
+html.is-mobile .peekx__intro--minimize:after {
+    opacity: 0;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+html.is-mobile .is-minimized .peekx__intro--minimize:after {
+    opacity: 1;
 }
 
 html.is-mobile .peekx__nav-modes {
