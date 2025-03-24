@@ -3105,12 +3105,12 @@ html.is-mobile .peekx__intro {
 }
 
 html.is-mobile .peekx__intro--minimize {
-    position: absolute;
+    position: fixed;
     top: 1em;
     right: 1em;
     width: 22px;
     height: 22px;
-    z-index: 100;
+    z-index: 1000;
     border: 1px solid #51585b;
     background-color: #051015;
     display: block !important;
