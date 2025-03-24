@@ -3105,7 +3105,7 @@ html.is-mobile .peekx__intro {
 /* 优化按钮 */
 html.is-mobile .peekx__intro--minimize {
     position: absolute;
-    top: 1em;
+    top: 0.5em;
     right: 1em;
     margin: 0;
     border: 1px solid #51585b;
@@ -3137,7 +3137,5 @@ html.is-mobile .button-icon {
     position: relative;
     z-index: 9999;
     pointer-events: auto;
-    bottom: 80px;
-    right: 20px;
     background: yellow;
 }
