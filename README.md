@@ -1,64 +1,56 @@
-### PeekX 
+### PeekX
 
-**PeekX** 是一个创新的 Web 平台，致力于为用户提供沉浸式、可视化的交互体验。通过集成先进的虚拟现实（VR）技术和动态内容编辑工具，PeekX 将创意与技术无缝结合，为开发者、设计师和普通用户打造一个直观、高效的创作空间。
+**PeekX** is an innovative web platform dedicated to providing users with an immersive and visual interactive experience. By integrating cutting-edge Virtual Reality (VR) technologies and dynamic content editing tools, PeekX seamlessly blends creativity and technology to create an intuitive, efficient space for developers, designers, and everyday users.
 
-- **核心功能**：
-  - **实时编辑器**：支持右侧面板的代码编辑和模型预览，灵感来源于 Shadertoy，用户可以轻松调整和测试创意。
-  - **用户认证**：基于 Supabase 的安全登录和注册系统，确保数据隐私和账户管理。
-  - **深色主题 UI**：优雅的界面设计，优化视觉舒适度，适配长时间使用。
-  - **模块化架构**：灵活的 JavaScript 模块（如 `loginEditor`, `registerEditor`），便于扩展和维护。
+- **Core Features**:
+  - **Real-time Editor**: Inspired by Shadertoy, the editor supports code editing and model preview in the side panel, allowing users to effortlessly tweak and test their ideas.
+  - **User Authentication**: A secure login and registration system powered by Supabase ensures data privacy and account management.
+  - **Dark Theme UI**: Elegant interface design optimized for visual comfort, ideal for extended use.
+  - **Modular Architecture**: Flexible JavaScript modules (such as `loginEditor`, `registerEditor`) make expansion and maintenance easy.
 
-- **特色亮点**：
-  - 提供最小化/展开的动态面板，最大化屏幕利用率。
-  - 支持模糊搜索和语料库管理，助力快速定位内容。
-  - 与外部资源（如 Shadertoy）集成，扩展创作可能性。
+- **Key Highlights**:
+  - Dynamic panels with minimize/expand options to maximize screen utilization.
+  - Supports fuzzy search and corpus management for rapid content discovery.
+  - Integrates external resources (such as Shadertoy) to expand creative possibilities.
 
-- **适用场景**：
-  - 开发者可用于实验 VR 场景或着色器代码。
-  - 设计师可实时预览和调整视觉效果。
-  - 学习者可通过直观界面探索 Web 技术和创意编程。
+- **Use Cases**:
+  - Developers can experiment with VR scenes or shader code.
+  - Designers can preview and adjust visual effects in real-time.
+  - Learners can explore web technologies and creative programming through an intuitive interface.
 
-**PeekX** 的目标是打破传统 Web 应用的界限，让每一位用户都能在虚拟与现实的交汇处释放无限潜能。无论你是技术爱好者还是创意先锋，PeekX 都是你探索未来的理想起点。
+The mission of **PeekX** is to break the boundaries of traditional web applications and empower users to unleash their potential at the intersection of virtual and real worlds. Whether you are a tech enthusiast or a creative pioneer, PeekX is your ideal starting point for exploring the future.
 
-### 说明
-- **简洁性**：描述控制在 150 字左右，适合用作项目简介。
-- **吸引力**：强调创新性（VR 集成）和用户友好性（实时编辑、深色主题）。
-- **灵活性**：未锁定具体技术细节（如 TS/JS），方便后续调整。
+---
 
-如果需要更详细的版本（比如技术文档风格）或针对特定受众（如投资者、开发者），告诉我，我可以重新调整！
+### Notes
+- **Simplicity**: The description is limited to around 150 words, making it suitable for project overviews.
+- **Appeal**: Highlights innovation (VR integration) and user-friendliness (real-time editing, dark theme).
+- **Flexibility**: Technical specifics (e.g., TS/JS) are left open for future adjustments.
 
-### 关于
+If you need a more detailed version (e.g., for technical documentation) or one tailored to a specific audience (e.g., investors, developers), just let me know and I can adjust accordingly!
 
-PeekX 项目源于对股票交易市场噪音过滤的假设，中文名“窥见”寓意以更直观的视角洞察市场变化。我们旨在通过这一方式，提醒交易者关注市场噪音的存在及其影响。
+---
 
-在瞬息万变的交易环境中，价格波动常常受到短期投机、情绪驱动和信息过载的干扰，导致真实趋势被掩盖。PeekX 致力于剥离这些干扰因素，通过数据分析和可视化工具，为交易者提供清晰的市场信号。
+### About
 
-我们的核心理念是将复杂的市场动态转化为简洁、直观的数据。PeekX 不仅是一个分析工具，更是一种思维方式，鼓励用户跳出噪音的迷雾，聚焦于真正驱动市场的力量。无论你是短线交易者还是长期投资者，PeekX 都能帮助你更冷静地解读市场，做出更理性的决策。
+The PeekX project originated from a hypothesis about filtering noise in the stock trading market. The Chinese name “窥见” (Peek) symbolizes gaining insights into market dynamics from a clearer perspective. Our goal is to raise awareness among traders about the existence and impact of market noise.
 
-未来，我们计划进一步优化算法，整合多维度数据源，让"窥见"不仅限于股票市场，还能扩展至其他金融领域。通过持续创新，PeekX 希望成为交易者信赖的伙伴，助力他们在噪音中发现机会，在变化中把握确定性。
+In the fast-paced trading environment, price fluctuations are often driven by short-term speculation, emotional reactions, and information overload, obscuring the real trends. PeekX is committed to stripping away these distractions through data analysis and visualization tools, providing traders with clear market signals.
 
-### 关于我们
+Our core philosophy is to transform complex market dynamics into simple, intuitive data. PeekX is not just an analysis tool but a way of thinking—encouraging users to look beyond the noise and focus on the true forces driving the market. Whether you are a short-term trader or a long-term investor, PeekX can help you interpret the market calmly and make more rational decisions.
 
-PeekX 专注于为个人用户提供量化实现，而非面向机构用户。在当今金融市场中，机构凭借先进的量化技术和资源优势，大幅削弱了散户捕捉市场机会的能力。PeekX 旨在扭转这一趋势，通过简洁高效的工具，让更多散户以低成本参与个人量化交易。我们坚信，量化不应是机构专属的特权，而应成为每位交易者触手可及的利器。
+Looking ahead, we plan to further optimize our algorithms and integrate multi-dimensional data sources. Our vision is to extend "PeekX" beyond the stock market into other financial sectors. Through continuous innovation, PeekX aspires to become a trusted partner for traders, helping them find opportunities amidst noise and seize certainty in change.
 
-### 关注我们
+---
+
+### About Us
+
+PeekX focuses on enabling individual users to implement quantitative strategies, rather than serving institutional clients. In today's financial markets, institutions leverage advanced quantitative technologies and abundant resources, significantly reducing retail investors' ability to capture market opportunities. PeekX aims to reverse this trend by providing simple and efficient tools that allow more retail investors to engage in personal quantitative trading at a low cost. We firmly believe that quant should not be an exclusive privilege of institutions—it should be an accessible tool for every trader.
+
+---
+
+### Follow Us
 
 www | tw | in | ig | fb
 
-- / (根目录，GitHub Pages 部署)
-  - src/
-    - auth.js       // 认证逻辑（登录、注册、Token 管理、URL 处理）
-    - search.js     // 数据加载与搜索（JSON 和语料库）
-    - ui.js         // UI 创建与动画（登录/注册 UI、搜索 UI、打字效果）
-    - utils.js      // 共享工具函数（sanitizeInput、hashPassword 等）
-    - styles.css    // 统一样式
-  - public/
-    - index.html    // 主页面
-    - login.html    // 登录/注册页面
-  - json/
-    - data.json     // JSON 数据（替代原 data.xlsx）
-    - obfuscated_corpus.json  // 语料库
-  - lib/
-    - json.full.min.js      // JSON 解析库（假设为占位符，实际可能不需要）
-    - fuse.min.js           // Fuse.js 库
-    - supabase.min.js       // Supabase 客户端库（可选）
+---
