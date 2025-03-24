@@ -3145,6 +3145,7 @@ html.is-mobile .peekx__main {
     overflow: hidden;
     background: blue;
     width: 100%;
+    z-index: 1;
 }
 
 html.is-mobile .peekx__tabs,
@@ -3165,4 +3166,11 @@ html.is-mobile #shader-editor-cm {
     flex: 1 1 auto;
     overflow: auto;
     width: 100%;
+}
+
+html.is-mobile .button-icon {
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+    background: yellow;
 }
