@@ -3108,15 +3108,16 @@ html.is-mobile .peekx__intro--minimize {
     position: absolute;
     top: 1em;
     right: 1em;
-    z-index: 10;
-    pointer-events: all !important;
     width: 22px;
     height: 22px;
+    z-index: 100;
     border: 1px solid #51585b;
+    background-color: #051015;
+    display: block !important;
+    pointer-events: all !important;
 }
 
-html.is-mobile .peekx__intro--minimize:before,
-html.is-mobile .peekx__intro--minimize:after {
+html.is-mobile .peekx__intro--minimize:before {
     position: absolute;
     top: 10px;
     left: 7px;
@@ -3127,10 +3128,15 @@ html.is-mobile .peekx__intro--minimize:after {
 }
 
 html.is-mobile .peekx__intro--minimize:after {
-    opacity: 0;
-    -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    width: 6px;
+    height: 1px;
+    background-color: #51585b;
     transform: rotate(90deg);
+    opacity: 0;
 }
 
 html.is-mobile .is-minimized .peekx__intro--minimize:after {
