@@ -3104,7 +3104,7 @@ html.is-mobile .peekx__intro {
 
 html.is-mobile .peekx__intro--minimize {
     position: absolute;
-    top: 0.75em;
+    top: 1em;
     right: 1em;
     margin: 0;
     border: 1px solid #51585b;
