@@ -3073,34 +3073,46 @@ li.CodeMirror-hint-active {
 }
 
 html.is-mobile .peekx {
+    position: fixed;
+    left: 0;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
     padding: 5em 2.5em 20px;
-    box-sizing: border-box;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 html.is-mobile .peekx__inner {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+html.is-mobile .peekx__intro {
+    flex: 0 0 auto;
 }
 
 html.is-mobile .peekx__main {
-    width: 100%;
-    flex: 1;
-    height: auto;
-    overflow: auto;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-html.is-mobile .peekx__intro,
 html.is-mobile .peekx__tabs,
-html.is-mobile .peekx__controls {
-    width: 100%;
-    box-sizing: border-box;
+html.is-mobile .peekx__buttons {
+    flex: 0 0 auto;
+}
+
+html.is-mobile #shader-editor {
+    flex: 1 1 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+html.is-mobile #shader-editor-cm {
+    flex: 1 1 auto;
+    overflow: auto;
 }
