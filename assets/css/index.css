@@ -3028,13 +3028,13 @@ li.CodeMirror-hint-active {
 
 @media (max-width: 1440px) {
     .peekx__controls {
-        padding:0 .6em
+        padding:0 0em
     }
 }
 
 @media (max-width: 1280px) {
     .peekx__controls {
-        padding:0 .4em
+        padding:0 0em
     }
 
     .select-quality {
@@ -3044,7 +3044,7 @@ li.CodeMirror-hint-active {
 
 @media (max-width: 1000px) {
     .peekx__controls {
-        padding:0 .2em
+        padding:0 0em
     }
 }
 
