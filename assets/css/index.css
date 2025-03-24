@@ -2791,6 +2791,8 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__inner {
+    width: 100%;
+    height: 100%;
     opacity: 0;
     -webkit-transition: opacity 1s;
     -o-transition: opacity 1s;
@@ -2853,6 +2855,7 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__intro {
+    position: relative;
     border-top: 1px solid #51585b;
     overflow: hidden;
     max-height: 500px
@@ -3083,6 +3086,9 @@ li.CodeMirror-hint-active {
         width: 100%;
         padding: 5em 2.5em 20px;
     }
+    .peekx__inner {
+        width: 100%;
+    }
     .peekx__intro--minimize {
         position: fixed;
         top: 1em;
@@ -3092,12 +3098,4 @@ li.CodeMirror-hint-active {
 
 html.is-mobile .peekx__nav-modes {
     display: none;
-}
-
-html.is-mobile .peekx__tabs {
-    width: 100% !important;
-}
-
-html.is-mobile .peekx__main {
-    width: 100% !important;
 }
