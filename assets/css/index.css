@@ -3096,6 +3096,20 @@ html.is-mobile .peekx__main {
     width: 100% !important;
 }
 
+html.is-mobile .peekx__intro {
+    max-height: calc(100% - 5em);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+html.is-mobile .peekx__intro--minimize {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    z-index: 10;
+    pointer-events: all !important;
+}
+
 html.is-mobile .peekx__nav-modes {
     display: none;
 }
