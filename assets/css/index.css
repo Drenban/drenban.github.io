@@ -3094,30 +3094,47 @@ html.is-mobile .peekx__inner {
     background: green;
     padding: 5em 2.5em 20px;
     box-sizing: border-box;
-    position: relative;
 }
 
 html.is-mobile .peekx__intro {
     flex: 0 0 auto;
-    position: relative;
+    position: relative; /* 确保按钮定位 */
 }
 
+/* 修复最小化按钮 */
 html.is-mobile .peekx__intro--minimize {
     position: absolute;
     top: 1em;
     right: 1em;
-    margin: 0;
+    margin: 0; /* 重置 margin */
     border: 1px solid #51585b;
     height: 22px;
     width: 22px;
-    background-color: #051015;
-    z-index: 100;
+    background-color: #051015; /* 确保可见 */
+    z-index: 10; /* 提升层级 */
     cursor: pointer;
-    pointer-events: auto;
+}
+html.is-mobile .peekx__intro--minimize:before,
+html.is-mobile .peekx__intro--minimize:after {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    height: 1px;
+    width: 6px;
+    background-color: #51585b;
+    content: '';
+}
+html.is-mobile .peekx__intro--minimize:after {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+html.is-mobile .peekx.is-minimized .peekx__intro--minimize:after {
+    opacity: 1;
 }
 
+/* 最小化状态 */
 html.is-mobile .peekx.is-minimized .peekx__intro {
-    max-height: 3em;
+    max-height: 3em; /* 与桌面端一致 */
     overflow: hidden;
 }
 
@@ -3128,13 +3145,24 @@ html.is-mobile .peekx__main {
     overflow: hidden;
     background: blue;
     width: 100%;
-    z-index: 1;
-    pointer-events: none;
 }
 
-html.is-mobile .button-icon {
-    position: relative;
-    z-index: 9999;
-    pointer-events: auto;
-    background: yellow;
+html.is-mobile .peekx__tabs,
+html.is-mobile .peekx__buttons {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+html.is-mobile #shader-editor {
+    flex: 1 1 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+html.is-mobile #shader-editor-cm {
+    flex: 1 1 auto;
+    overflow: auto;
+    width: 100%;
 }
