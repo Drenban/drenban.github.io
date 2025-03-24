@@ -3129,7 +3129,6 @@ html.is-mobile .peekx__main {
     background: blue;
     width: 100%;
     z-index: 1;
-    margin-top: 2em;
 }
 
 html.is-mobile .button-icon {
