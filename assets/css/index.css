@@ -3073,15 +3073,29 @@ li.CodeMirror-hint-active {
 }
 
 html.is-mobile .peekx {
-    width: 100%;
-    left: 0;
-    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    position: fixed !important;
+    padding: 0 !important;
+    background-color: #051015 !important;
+}
+
+html.is-mobile .peekx__inner {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 5em 2.5em 20px;
+    box-sizing: border-box;
+}
+
+html.is-mobile .peekx__tabs {
+    width: 100% !important;
+}
+
+html.is-mobile .peekx__main {
+    width: 100% !important;
 }
 
 html.is-mobile .peekx__nav-modes {
     display: none;
-}
-
-html.is-mobile .peekx__inner {
-    width: 100%;
 }
