@@ -3071,3 +3071,13 @@ li.CodeMirror-hint-active {
         fill:#c3c3c3
     }
 }
+
+html.is-mobile .peekx {
+    width: 100%;
+    left: 0;
+    position: fixed;
+}
+
+html.is-mobile .peekx__nav-modes {
+    display: none;
+}
