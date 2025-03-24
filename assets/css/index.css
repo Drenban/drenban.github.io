@@ -2854,7 +2854,7 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__intro {
-    border-top: 0.8px solid #51585b;
+    border-top: 1px solid #51585b;
     overflow: hidden;
     max-height: 500px
 }
@@ -2908,7 +2908,7 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__intro--minimize {
-    margin-top: .45em;
+    margin-top: .75em;
     border: 1px solid #51585b;
     height: 22px;
     width: 22px;
@@ -3103,6 +3103,7 @@ html.is-mobile .peekx__intro {
 
 /* 修复最小化按钮 */
 html.is-mobile .peekx__intro--minimize {
+    margin-top: .35em;
     position: absolute;
     top: 1em;
     right: 1em;
