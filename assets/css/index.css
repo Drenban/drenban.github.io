@@ -3132,3 +3132,10 @@ html.is-mobile .peekx__main {
     width: 100%;
     z-index: 1; /* 低于按钮 */
 }
+
+html.is-mobile .button-icon {
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+    background: yellow;
+}
