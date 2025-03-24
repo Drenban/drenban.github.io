@@ -3075,13 +3075,11 @@ li.CodeMirror-hint-active {
 html.is-mobile .peekx {
     position: fixed;
     left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
-    padding: 0;
+    padding: 5em 2.5em 20px;
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
 }
 
 html.is-mobile .peekx__inner {
@@ -3089,7 +3087,6 @@ html.is-mobile .peekx__inner {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
 }
 
 html.is-mobile .peekx__intro {
@@ -3098,11 +3095,9 @@ html.is-mobile .peekx__intro {
 
 html.is-mobile .peekx__main {
     flex: 1 1 auto;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow: hidden;
 }
 
 html.is-mobile .peekx__tabs,
@@ -3112,20 +3107,14 @@ html.is-mobile .peekx__buttons {
 
 html.is-mobile #shader-editor {
     flex: 1 1 auto;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: auto;
 }
 
 html.is-mobile #shader-editor-cm {
     flex: 1 1 auto;
     overflow: auto;
-}
-
-html.is-mobile *,
-html.is-mobile *::before,
-html.is-mobile *::after {
-    box-sizing: border-box;
 }
 
 html.is-mobile .peekx {
