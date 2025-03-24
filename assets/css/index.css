@@ -3071,7 +3071,3 @@ li.CodeMirror-hint-active {
         fill:#c3c3c3
     }
 }
-
-html.is-mobile .header__menu_item--lab {
-    display: none;
-}
