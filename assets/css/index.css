@@ -3137,5 +3137,7 @@ html.is-mobile .button-icon {
     position: relative;
     z-index: 9999;
     pointer-events: auto;
+    bottom: 80px;
+    right: 20px;
     background: yellow;
 }
