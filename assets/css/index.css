@@ -3181,7 +3181,7 @@ html.is-mobile .peekx__controls {
     height: 40px;
     padding: 0 0.8em; /* 默认间距 */
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     box-sizing: border-box;
 }
 
@@ -3189,4 +3189,5 @@ html.is-mobile .peekx__controls {
 html.is-mobile .peekx__controls-left,
 html.is-mobile .peekx__controls-right {
     padding: 0 0.4em; /* 从假设的 1em 缩小到 0.4em */
+    margin-right: auto;
 }
