@@ -2756,3 +2756,318 @@ li.CodeMirror-hint-active {
 .ge_colorpicker_dark .ge_colorpicker_bar-cursor-right {
     border-right-color: #333
 }
+
+.CodeMirror-foldgutter-folded,.CodeMirror-foldgutter-open,.CodeMirror-foldmarker,.CodeMirror-hint,.peekx__nav-mode-label,.peekx__nav-mode-wrapper,.peekx__tab,.menu__link,.question__title,button {
+    cursor: pointer
+}
+
+.view-infos,html.is-mobile .menu__item--is-peekx,html.is-mobile:not(.is-vr-browser) .menu__item:first-child,html.is-mobile:not(.is-vr-browser) .menu__item:nth-child(2),html.is-vr-browser .menu__item--is-gallery {
+    display: none
+}
+
+.menu__item--is-peekx {
+    position: relative
+}
+
+#preloader-vr,#prompt,.peekx__tab,.xr-landing__desc {
+    text-align: center
+}
+
+.peekx {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #051015;
+    padding: 5em 2.5em 20px;
+    opacity: 0;
+    pointer-events: none
+}
+
+.peekx.is-visible {
+    pointer-events: all
+}
+
+.peekx__inner {
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s
+}
+
+.peekx.is-visible .peekx__inner {
+    opacity: 1
+}
+
+.peekx__nav-modes {
+    position: absolute;
+    right: 100%;
+    padding-right: 2em;
+    bottom: 32px
+}
+
+.peekx__nav-mode-wrapper {
+    position: relative;
+    margin-top: 1.5ex;
+    white-space: nowrap
+}
+
+.peekx__nav-mode {
+    position: absolute;
+    visibility: hidden
+}
+
+.peekx__nav-mode:checked~label:after {
+    display: block
+}
+
+.peekx__nav-mode-label:before {
+    position: absolute;
+    right: 100%;
+    content: '';
+    width: 1em;
+    height: 1em;
+    margin-right: .4em;
+    border: 1px solid #51585b;
+    background-color: #051015
+}
+
+.peekx__nav-mode-label:after {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    margin-right: calc(.65em + 1px);
+    margin-top: calc(.25em + 1px);
+    content: '';
+    width: .5em;
+    height: .5em;
+    background-color: #c3c3c3
+}
+
+.peekx__intro-header,.peekx__tabs {
+    display: -webkit-box;
+    display: -ms-flexbox
+}
+
+.peekx__intro {
+    border-top: 1px solid #51585b;
+    overflow: hidden;
+    max-height: 500px
+}
+
+.is-minimized .peekx__intro {
+    max-height: 3em
+}
+
+.peekx__intro-description {
+    margin: 1em 0 .5em;
+    overflow: visible;
+    padding-bottom: .15em;
+    font-size: .8em
+}
+
+.peekx__intro-description a,.peekx__intro-description button {
+    font-weight: 400;
+    color: #00ffad
+}
+
+@media (max-width: 1440px) {
+    .peekx__intro-description {
+        font-size:.8rem
+    }
+}
+
+@media (max-width: 1280px) {
+    .peekx__intro-description {
+        font-size:.8rem
+    }
+}
+
+.peekx__intro-description ul {
+    margin: .75em 0 0 2em;
+    list-style-type: square
+}
+
+.peekx__intro-description li {
+    margin-bottom: .2em;
+    line-height: 1.05em
+}
+
+.peekx__intro-header {
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.peekx__intro--minimize {
+    margin-top: .75em;
+    border: 1px solid #51585b;
+    height: 22px;
+    width: 22px;
+    position: relative
+}
+
+.peekx__intro--minimize:after,.peekx__intro--minimize:before {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    height: 1px;
+    width: 6px;
+    background-color: #51585b;
+    content: ''
+}
+
+.peekx__intro--minimize:after {
+    opacity: 0;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg)
+}
+
+.is-minimized .peekx__intro--minimize:after {
+    opacity: 1
+}
+
+@media (hover: hover) {
+    .peekx__intro--minimize:hover {
+        border-color:#c3c3c3
+    }
+
+    .peekx__intro--minimize:hover:after,.peekx__intro--minimize:hover:before {
+        background-color: #c3c3c3
+    }
+}
+
+.peekx__intro-title {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin: .75em 0 0
+}
+
+.peekx__tabs {
+    width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0
+}
+
+.peekx__buttons-line,.peekx__controls {
+    display: -webkit-box;
+    display: -ms-flexbox
+}
+
+.peekx__tab {
+    width: 33.3333333%;
+    border: 1px solid #51585b;
+    padding: .5em 0
+}
+
+.peekx__tab+.peekx__tab {
+    border-left: none
+}
+
+.peekx__tab.is-active {
+    background-color: #c3c3c3;
+    border-color: #c3c3c3;
+    color: #051015
+}
+
+@media (hover: hover) {
+    .peekx__tab:not(.is-active):hover {
+        background-color:#51585b;
+        border-color: #51585b
+    }
+}
+
+.peekx__buttons {
+    border-left: 1px solid #51585b;
+    border-right: 1px solid #51585b;
+    padding: 1em 0
+}
+
+.peekx__buttons-line {
+    display: flex
+}
+
+.peekx__buttons-line+.peekx__buttons-line {
+    margin-top: 1em
+}
+
+.peekx__main {
+    margin-top: 1em
+}
+
+.peekx__controls {
+    position: relative;
+    height: 40px;
+    min-height: 40px;
+    background-color: #051015;
+    border-top: 1px solid #51585b;
+    padding: 0 .8em;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+@media (max-width: 1440px) {
+    .peekx__controls {
+        padding:0 .6em
+    }
+}
+
+@media (max-width: 1280px) {
+    .peekx__controls {
+        padding:0 .4em
+    }
+
+    .select-quality {
+        max-width: 70px
+    }
+}
+
+@media (max-width: 1000px) {
+    .peekx__controls {
+        padding:0 .2em
+    }
+}
+
+.peekx__controls-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.peekx__controls-left .button-icon {
+    height: 18px;
+    margin-left: .75em
+}
+
+.peekx__controls-left .button-icon svg {
+    min-width: 12px;
+    height: 100%;
+    fill: #fff
+}
+
+@media (hover: hover) {
+    .peekx__controls-left .button-icon:hover svg {
+        fill:#c3c3c3
+    }
+}
