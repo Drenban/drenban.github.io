@@ -3150,11 +3150,3 @@ html.is-mobile #shader-editor-cm {
     flex: 1 1 auto;
     overflow: auto;
 }
-
-html.is-mobile .peekx__controls-right {
-    display: none;
-}
-
-html.is-mobile .peekx__controls-left {
-    display: none;
-}
