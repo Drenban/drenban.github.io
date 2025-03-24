@@ -3082,4 +3082,23 @@ html.is-mobile .peekx {
 html.is-mobile .peekx__inner {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+html.is-mobile .peekx__intro {
+    width: 100%;
+}
+
+html.is-mobile .peekx__main {
+    width: 100%;
+    flex: 1;
+}
+
+html.is-mobile .peekx__tabs {
+    width: 100%;
+}
+
+html.is-mobile .peekx__controls {
+    width: 100%;
 }
