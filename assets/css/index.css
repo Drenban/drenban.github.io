@@ -3119,7 +3119,8 @@ html.is-mobile .peekx__intro--minimize {
     width: 22px;
     height: 22px;
     border: 1px solid #51585b;
-    background-color: #051015;
+/*     background-color: #051015; */
+    background-color: red !important;
     z-index: 1000;
     display: block !important;
     padding: 0 !important;
