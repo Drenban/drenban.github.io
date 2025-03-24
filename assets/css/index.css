@@ -3094,32 +3094,28 @@ html.is-mobile .peekx__inner {
     background: green;
     padding: 5em 2.5em 20px;
     box-sizing: border-box;
-    position: relative; /* 提升层级上下文 */
-    overflow: visible;
+    position: relative;
 }
 
 html.is-mobile .peekx__intro {
     flex: 0 0 auto;
     position: relative;
-    overflow: visible;
 }
 
-/* 优化按钮 */
 html.is-mobile .peekx__intro--minimize {
     position: absolute;
-    top: 0.5em;
+    top: 1em;
     right: 1em;
     margin: 0;
     border: 1px solid #51585b;
     height: 22px;
     width: 22px;
     background-color: #051015;
-    z-index: 1000; /* 显著提升层级 */
+    z-index: 100;
     cursor: pointer;
-    pointer-events: auto; /* 强制可点击 */
+    pointer-events: auto;
 }
 
-/* 最小化逻辑 */
 html.is-mobile .peekx.is-minimized .peekx__intro {
     max-height: 3em;
     overflow: hidden;
@@ -3132,7 +3128,7 @@ html.is-mobile .peekx__main {
     overflow: hidden;
     background: blue;
     width: 100%;
-    z-index: 1; /* 低于按钮 */
+    z-index: 1;
 }
 
 html.is-mobile .button-icon {
