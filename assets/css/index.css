@@ -3093,3 +3093,11 @@ li.CodeMirror-hint-active {
 html.is-mobile .peekx__nav-modes {
     display: none;
 }
+
+html.is-mobile .peekx__tabs {
+    width: 100% !important;
+}
+
+html.is-mobile .peekx__main {
+    width: 100% !important;
+}
