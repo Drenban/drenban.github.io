@@ -3092,21 +3092,20 @@ html.is-mobile .peekx__inner {
     width: 100%;
     height: 100%;
     background: green;
-    padding: 5em 0em 20px;
+    padding: 5em 2.5em 20px;
     box-sizing: border-box;
 }
 
 html.is-mobile .peekx__intro {
     flex: 0 0 auto;
     position: relative; /* 确保按钮定位 */
-    padding: 0 2.5em;
 }
 
 /* 修复最小化按钮 */
 html.is-mobile .peekx__intro--minimize {
     position: absolute;
     top: 1em;
-    right: 3.5em;
+    right: 1em;
     margin: 0; /* 重置 margin */
     border: 1px solid #51585b;
     height: 22px;
@@ -3146,9 +3145,6 @@ html.is-mobile .peekx__main {
     overflow: hidden;
     background: blue;
     width: 100%;
-    margin: 0 -2.5em; /* 抵消父级的 padding */
-    padding: 0 2.5em; /* 内部内容保持间距 */
-    box-sizing: border-box;
     z-index: 1;
 }
 
@@ -3156,7 +3152,6 @@ html.is-mobile .peekx__tabs,
 html.is-mobile .peekx__buttons {
     flex: 0 0 auto;
     width: 100%;
-    padding: 0 2.5em;
 }
 
 html.is-mobile #shader-editor {
@@ -3178,4 +3173,20 @@ html.is-mobile .button-icon {
     z-index: 9999;
     pointer-events: auto;
     background: yellow;
+}
+
+/* 假设的 .peekx__controls 默认样式 */
+html.is-mobile .peekx__controls {
+    width: 100%;
+    height: 40px;
+    padding: 0 0.8em; /* 默认间距 */
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* 缩小手机端间距 */
+html.is-mobile .peekx__controls-left,
+html.is-mobile .peekx__controls-right {
+    padding: 0 0.4em; /* 从假设的 1em 缩小到 0.4em */
 }
