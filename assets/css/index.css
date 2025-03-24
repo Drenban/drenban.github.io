@@ -3081,3 +3081,7 @@ html.is-mobile .peekx {
 html.is-mobile .peekx__nav-modes {
     display: none;
 }
+
+html.is-mobile .peekx__inner {
+    width: 100%;
+}
