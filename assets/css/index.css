@@ -3083,9 +3083,3 @@ html.is-mobile .peekx__inner {
     width: 100%;
     height: 100%;
 }
-
-html.is-mobile .peekx__intro--minimize {
-    position: fixed;
-    top: 2em;
-    right: 1em;
-}
