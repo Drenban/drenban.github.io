@@ -3075,18 +3075,23 @@ li.CodeMirror-hint-active {
 html.is-mobile .peekx {
     position: fixed;
     left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 5em 2.5em 20px;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    background: red;
+    padding: 0;
 }
 
 html.is-mobile .peekx__inner {
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
+    background: green;
+    padding: 5em 2.5em 20px;
 }
 
 html.is-mobile .peekx__intro {
