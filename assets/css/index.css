@@ -3108,39 +3108,6 @@ html.is-mobile .peekx__intro--minimize {
     position: fixed;
     top: 1em;
     right: 1em;
-    width: 22px;
-    height: 22px;
-    z-index: 1000;
-    border: 1px solid #51585b;
-    background-color: #051015;
-    display: block !important;
-    pointer-events: all !important;
-}
-
-html.is-mobile .peekx__intro--minimize:before {
-    position: absolute;
-    top: 10px;
-    left: 7px;
-    height: 1px;
-    width: 6px;
-    background-color: #51585b;
-    content: '';
-}
-
-html.is-mobile .peekx__intro--minimize:after {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 7px;
-    width: 6px;
-    height: 1px;
-    background-color: #51585b;
-    transform: rotate(90deg);
-    opacity: 0;
-}
-
-html.is-mobile .is-minimized .peekx__intro--minimize:after {
-    opacity: 1;
 }
 
 html.is-mobile .peekx__nav-modes {
