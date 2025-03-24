@@ -3175,19 +3175,7 @@ html.is-mobile .button-icon {
     background: yellow;
 }
 
-/* 假设的 .peekx__controls 默认样式 */
-html.is-mobile .peekx__controls {
-    width: 100%;
-    height: 40px;
-    padding: 0 0.8em; /* 默认间距 */
-    display: flex;
-    justify-content: flex-start;
-    box-sizing: border-box;
-}
-
-/* 缩小手机端间距 */
 html.is-mobile .peekx__controls-left,
 html.is-mobile .peekx__controls-right {
-    padding: 0 0.4em; /* 从假设的 1em 缩小到 0.4em */
-    margin-right: auto;
+    padding: 0 0;
 }
