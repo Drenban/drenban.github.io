@@ -3081,12 +3081,20 @@ html.is-mobile .peekx {
     background-color: #051015 !important;
 }
 
+html.is-mobile .peekx.is-visible {
+    opacity: 1 !important;
+}
+
 html.is-mobile .peekx__inner {
     width: 100% !important;
     height: 100% !important;
     padding: 5em 2.5em 20px;
     box-sizing: border-box;
     position: relative;
+}
+
+html.is-mobile .peekx.is-visible .peekx__inner {
+    opacity: 1 !important;
 }
 
 html.is-mobile .peekx__tabs {
@@ -3108,6 +3116,41 @@ html.is-mobile .peekx__intro--minimize {
     position: fixed;
     top: 1em;
     right: 1em;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #51585b;
+    background-color: #051015;
+    z-index: 1000;
+    display: block !important;
+    padding: 0 !important;
+    font-size: 0 !important;
+    opacity: 1 !important;
+}
+
+html.is-mobile .peekx__intro--minimize:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    width: 6px;
+    height: 1px;
+    background-color: #51585b;
+}
+
+html.is-mobile .peekx__intro--minimize:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    width: 6px;
+    height: 1px;
+    background-color: #51585b;
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+html.is-mobile .is-minimized .peekx__intro--minimize:after {
+    opacity: 1;
 }
 
 html.is-mobile .peekx__nav-modes {
