@@ -3133,6 +3133,8 @@ html.is-mobile .peekx__main {
 }
 
 html.is-mobile .button-icon {
+    font-size: 10px;
+    padding: .1em .3em;
     position: relative;
     z-index: 9999;
     pointer-events: auto;
