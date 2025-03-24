@@ -3098,6 +3098,44 @@ html.is-mobile .peekx__inner {
 
 html.is-mobile .peekx__intro {
     flex: 0 0 auto;
+    position: relative; /* 确保按钮定位 */
+}
+
+/* 修复最小化按钮 */
+html.is-mobile .peekx__intro--minimize {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    margin: 0; /* 重置 margin */
+    border: 1px solid #51585b;
+    height: 22px;
+    width: 22px;
+    background-color: #051015; /* 确保可见 */
+    z-index: 10; /* 提升层级 */
+    cursor: pointer;
+}
+html.is-mobile .peekx__intro--minimize:before,
+html.is-mobile .peekx__intro--minimize:after {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    height: 1px;
+    width: 6px;
+    background-color: #51585b;
+    content: '';
+}
+html.is-mobile .peekx__intro--minimize:after {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+html.is-mobile .peekx.is-minimized .peekx__intro--minimize:after {
+    opacity: 1;
+}
+
+/* 最小化状态 */
+html.is-mobile .peekx.is-minimized .peekx__intro {
+    max-height: 3em; /* 与桌面端一致 */
+    overflow: hidden;
 }
 
 html.is-mobile .peekx__main {
