@@ -2854,7 +2854,7 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__intro {
-    border-top: 1px solid #51585b;
+    border-top: 0.8px solid #51585b;
     overflow: hidden;
     max-height: 500px
 }
