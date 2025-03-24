@@ -3104,14 +3104,14 @@ html.is-mobile .peekx__intro {
 
 html.is-mobile .peekx__intro--minimize {
     position: absolute;
-    top: 1em;
+    top: 0.2em;
     right: 1em;
     margin: 0;
     border: 1px solid #51585b;
     height: 22px;
     width: 22px;
     background-color: #051015;
-    z-index: 100;
+    z-index: 1000;
     cursor: pointer;
     pointer-events: auto;
 }
@@ -3129,6 +3129,7 @@ html.is-mobile .peekx__main {
     background: blue;
     width: 100%;
     z-index: 1;
+    pointer-events: none;
 }
 
 html.is-mobile .button-icon {
