@@ -3074,9 +3074,13 @@ li.CodeMirror-hint-active {
 
 html.is-mobile .peekx {
     width: 100%;
+    height: 100%;
+    top: 0;
     left: 0;
     position: fixed;
     padding: 5em 2.5em 20px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 html.is-mobile .peekx__inner {
@@ -3084,21 +3088,19 @@ html.is-mobile .peekx__inner {
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-html.is-mobile .peekx__intro {
-    width: 100%;
+    box-sizing: border-box;
 }
 
 html.is-mobile .peekx__main {
     width: 100%;
     flex: 1;
+    height: auto;
+    overflow: auto;
 }
 
-html.is-mobile .peekx__tabs {
-    width: 100%;
-}
-
+html.is-mobile .peekx__intro,
+html.is-mobile .peekx__tabs,
 html.is-mobile .peekx__controls {
     width: 100%;
+    box-sizing: border-box;
 }
