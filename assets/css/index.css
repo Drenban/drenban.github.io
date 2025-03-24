@@ -3138,15 +3138,3 @@ html.is-mobile .button-icon {
     pointer-events: auto;
     background: yellow;
 }
-
-html.is-mobile #shader-editor {
-    flex: 1 1 auto;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-html.is-mobile #shader-editor-cm {
-    flex: 1 1 auto;
-    overflow: auto;
-}
