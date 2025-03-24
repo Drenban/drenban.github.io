@@ -393,7 +393,7 @@ input[type=text] {
 
 @media (max-width: 1000px) {
     .header__menu .header__menu_item--lab {
-        width:140px;
+        width:100px;
         height: 30px;
         padding: 8px 12px
     }
