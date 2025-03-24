@@ -399,7 +399,7 @@ input[type=text] {
     }
 
     .menu__item+.menu__item {
-        margin-left: 1.5em
+        margin-left: 1em
     }
 }
 
