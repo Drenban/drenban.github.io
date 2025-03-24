@@ -2858,7 +2858,8 @@ li.CodeMirror-hint-active {
     position: relative;
     border-top: 1px solid #51585b;
     overflow: hidden;
-    max-height: 500px
+    max-height: 500px;
+    width: 100%;
 }
 
 .is-minimized .peekx__intro {
@@ -3088,10 +3089,14 @@ li.CodeMirror-hint-active {
     }
     .peekx__inner {
         width: 100%;
+        box-sizing: border-box;
+    }
+    .peekx__intro {
+        width: 100%;
     }
     .peekx__intro--minimize {
         position: fixed;
-        top: 1em;
+        top: 3em;
         right: 1em;
     }
 }
