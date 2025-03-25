@@ -3082,39 +3082,32 @@ html.is-mobile .peekx {
     height: 100% !important;
     display: flex;
     flex-direction: column;
-    background: red;
     padding: 0;
 }
-
 html.is-mobile .peekx__inner {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background: green;
     padding: 5em 2.5em 20px;
     box-sizing: border-box;
 }
-
 html.is-mobile .peekx__intro {
     flex: 0 0 auto;
-    position: relative; /* 确保按钮定位 */
-    overflow: visible; /* 防止剪裁 */
-    min-height: 3em; /* 确保足够空间 */
+    position: relative;
+    overflow: visible;
+    min-height: 3em;
 }
-
-/* 修复最小化按钮 */
 html.is-mobile .peekx__intro--minimize {
     margin-top: 0em;
     position: absolute;
     top: 1em;
     right: 1em;
-/*     margin: 0; /* 重置 margin */ */
     border: 1px solid #51585b;
     height: 22px;
     width: 22px;
-    background-color: #051015; /* 确保可见 */
-    z-index: 1000; /* 提升层级 */
+    background-color: #051015;
+    z-index: 1000;
     cursor: pointer;
     pointer-events: auto;
 }
@@ -3135,29 +3128,23 @@ html.is-mobile .peekx__intro--minimize:after {
 html.is-mobile .peekx.is-minimized .peekx__intro--minimize:after {
     opacity: 1;
 }
-
-/* 最小化状态 */
 html.is-mobile .peekx.is-minimized .peekx__intro {
-    max-height: 3em; /* 与桌面端一致 */
+    max-height: 3em;
     overflow: visible;
 }
-
 html.is-mobile .peekx__main {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background: blue;
     width: 100%;
     z-index: 1;
 }
-
 html.is-mobile .peekx__tabs,
 html.is-mobile .peekx__buttons {
     flex: 0 0 auto;
     width: 100%;
 }
-
 html.is-mobile #shader-editor {
     flex: 1 1 auto;
     overflow: hidden;
@@ -3165,20 +3152,17 @@ html.is-mobile #shader-editor {
     flex-direction: column;
     width: 100%;
 }
-
 html.is-mobile #shader-editor-cm {
     flex: 1 1 auto;
     overflow: auto;
     width: 100%;
 }
-
 html.is-mobile .button-icon {
     position: relative;
     z-index: 9999;
     pointer-events: auto;
     background: yellow;
 }
-
 html.is-mobile .peekx__controls-left,
 html.is-mobile .peekx__controls-right {
     display: none;
