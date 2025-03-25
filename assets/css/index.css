@@ -3137,6 +3137,7 @@ html.is-mobile .peekx__main {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    background-color: #051015;
     width: 100%;
     z-index: 1;
 }
@@ -3161,7 +3162,6 @@ html.is-mobile .button-icon {
     position: relative;
     z-index: 9999;
     pointer-events: auto;
-    background: yellow;
 }
 html.is-mobile .peekx__controls-left,
 html.is-mobile .peekx__controls-right {
