@@ -3105,8 +3105,8 @@ html.is-mobile .peekx__intro {
 html.is-mobile .peekx__intro--minimize {
     margin-top: .05em;
     position: absolute;
-    top: .75em;
-    right: .75em;
+    top: 1em;
+    right: 1em;
 /*     margin: 0; /* 重置 margin */ */
     border: 1px solid #51585b;
     height: 22px;
