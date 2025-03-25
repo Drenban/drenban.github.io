@@ -3114,7 +3114,7 @@ html.is-mobile .peekx__intro--minimize {
     height: 22px;
     width: 22px;
     background-color: #051015; /* 确保可见 */
-    z-index: 100; /* 提升层级 */
+    z-index: 1000; /* 提升层级 */
     cursor: pointer;
     pointer-events: auto;
 }
@@ -3139,7 +3139,7 @@ html.is-mobile .peekx.is-minimized .peekx__intro--minimize:after {
 /* 最小化状态 */
 html.is-mobile .peekx.is-minimized .peekx__intro {
     max-height: 3em; /* 与桌面端一致 */
-    overflow: hidden;
+    overflow: visible;
 }
 
 html.is-mobile .peekx__main {
