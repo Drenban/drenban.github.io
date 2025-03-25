@@ -473,10 +473,52 @@
                         </div>
                         <div class="peekx__main">
                             <ul class="peekx__tabs">
-                                <li class="peekx__tab is-active" title="Slot 1">1</li>
-                                <li class="peekx__tab" title="Slot 2">2</li>
-                                <li class="peekx__tab" title="Slot 3">3</li>
+                                <li class="peekx__tab" data-tab="register" title="Slot 1">注册</li>
+                                <li class="peekx__tab is-active" data-tab="login" title="Slot 2">登录</li>
+                                <li class="peekx__tab" data-tab="search" title="Slot 3">搜索</li>
                             </ul>
+                
+                            <div class="peekx__editor">
+                                <!-- 登录内容 -->
+                                <div class="peekx__content peekx__content--login">
+                                    <form class="peekx__content__form">
+                                        <h3 class="peekx__content__title">请登录</h3>
+                                        <label class="peekx__content__label">
+                                            用户名:
+                                            <input class="peekx__content__input" type="text" name="username" placeholder="请输入用户名" required>
+                                        </label>
+                                        <label class="peekx__content__label">
+                                            密码:
+                                            <input class="peekx__content__input" type="password" name="password" placeholder="请输入密码" required>
+                                        </label>
+                                        <button class="peekx__content__button" type="submit">登录</button>
+                                    </form>
+                                </div>
+                                <!-- 注册内容（隐藏） -->
+                                <div class="peekx__content peekx__content--register" style="display: none;">
+                                    <form class="peekx__content__form">
+                                        <h3 class="peekx__content__title">注册账户</h3>
+                                        <label class="peekx__content__label">
+                                            用户名:
+                                            <input class="peekx__content__input" type="text" name="username" placeholder="请输入用户名" required>
+                                        </label>
+                                        <label class="peekx__content__label">
+                                            密码:
+                                            <input class="peekx__content__input" type="password" name="password" placeholder="请输入密码" required>
+                                        </label>
+                                        <label class="peekx__content__label">
+                                            确认密码:
+                                            <input class="peekx__content__input" type="password" name="confirm-password" placeholder="请再次输入密码" required>
+                                        </label>
+                                        <button class="peekx__content__button" type="submit">注册</button>
+                                    </form>
+                                </div>
+                                <!-- 搜索内容（隐藏，登录后显示） -->
+                                <div class="peekx__content peekx__content--search" style="display: none;">
+                                    <div class="peekx__editor-codemirror"></div> <!-- CodeMirror 容器 -->
+                                </div>
+                            </div>
+
                             <div class="peekx__buttons">
                                 <div class="peekx__buttons-line">
                                     <div class="group group--template">
