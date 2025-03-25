@@ -2775,6 +2775,26 @@ li.CodeMirror-hint-active {
     text-align: center
 }
 
+#shader-peekx {
+    width: 100%;
+    border: 1px solid #51585b;
+    -webkit-transition: border-color .3s linear;
+    -o-transition: border-color .3s linear;
+    transition: border-color .3s linear
+}
+
+#shader-peekx-cm {
+    height: calc(100% - 40px)
+}
+
+#shader-peekx.success {
+    border-color: #00ffad
+}
+
+#shader-peekx.error {
+    border-color: red
+}
+
 .peekx {
     position: absolute;
     left: 50%;
@@ -3146,14 +3166,31 @@ html.is-mobile .peekx__buttons {
     flex: 0 0 auto;
     width: 100%;
 }
-html.is-mobile #shader-editor {
+@media (min-width: 768px) { /* 仅在桌面端生效 */
+    .is-minimized .peekx__intro #shader-peekx {
+        flex: 1 1 auto;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: lightblue; /* 调试用，可移除 */
+    }
+
+    .is-minimized .peekx__intro #shader-peekx-cm {
+        flex: 1 1 auto;
+        overflow: auto;
+        width: 100%;
+        background: lightgreen; /* 调试用，可移除 */
+    }
+}
+html.is-mobile #shader-peekx {
     flex: 1 1 auto;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-html.is-mobile #shader-editor-cm {
+html.is-mobile #shader-peekx-cm {
     flex: 1 1 auto;
     overflow: auto;
     width: 100%;
