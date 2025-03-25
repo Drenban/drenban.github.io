@@ -3166,23 +3166,6 @@ html.is-mobile .peekx__buttons {
     flex: 0 0 auto;
     width: 100%;
 }
-@media (min-width: 768px) {
-    .is-minimized .peekx__intro #shader-editor {
-        flex: 1 1 auto;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        background: lightblue;
-    }
-
-    .is-minimized .peekx__intro #shader-editor-cm {
-        flex: 1 1 auto;
-        overflow: auto;
-        width: 100%;
-        background: lightgreen;
-    }
-}
 html.is-mobile #shader-editor {
     flex: 1 1 auto;
     overflow: hidden;
