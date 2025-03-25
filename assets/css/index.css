@@ -3103,7 +3103,7 @@ html.is-mobile .peekx__intro {
 
 /* 修复最小化按钮 */
 html.is-mobile .peekx__intro--minimize {
-    margin-top: .75em;
+    margin-top: .05em;
     position: absolute;
     top: 1em;
     right: 1em;
