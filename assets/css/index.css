@@ -3099,21 +3099,24 @@ html.is-mobile .peekx__inner {
 html.is-mobile .peekx__intro {
     flex: 0 0 auto;
     position: relative; /* 确保按钮定位 */
+    overflow: visible; /* 防止剪裁 */
+    min-height: 3em; /* 确保足够空间 */
 }
 
 /* 修复最小化按钮 */
 html.is-mobile .peekx__intro--minimize {
-    margin-top: .05em;
+    margin-top: 0em;
     position: absolute;
-    top: 1em;
+    top: .5em;
     right: 1em;
 /*     margin: 0; /* 重置 margin */ */
     border: 1px solid #51585b;
     height: 22px;
     width: 22px;
     background-color: #051015; /* 确保可见 */
-    z-index: 10; /* 提升层级 */
+    z-index: 100; /* 提升层级 */
     cursor: pointer;
+    pointer-events: auto;
 }
 html.is-mobile .peekx__intro--minimize:before,
 html.is-mobile .peekx__intro--minimize:after {
