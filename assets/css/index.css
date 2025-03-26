@@ -3322,7 +3322,8 @@ html.is-mobile .peekx__nav-mode {
 html.is-mobile .peekx__intro,
 html.is-mobile .peekx__intro-tilte,
 html.is-mobile .peekx__intro-header,
-html.is-mobile .peekx__intro-description {
+html.is-mobile .peekx__intro-description,
+html.is-mobile .peekx__intro--minimize {
     display: none !important; /* 临时强制隐藏 */
 }
 html.is-mobile .peekx {
