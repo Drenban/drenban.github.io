@@ -3102,6 +3102,123 @@ li.CodeMirror-hint-active {
     height: 100%;
 }
 
+/* 重置样式 */
+.peekx__editor * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+}
+
+/* 容器样式 */
+.peekx__editor {
+    background: #f5f6fa;
+    padding: 1rem;
+    height: 100%;
+    overflow: auto;
+}
+
+/* 内容区域 */
+.peekx__content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* 表单样式 */
+.peekx__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* 表单头部 */
+.peekx__form-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.peekx__form-title {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.peekx__form-subtitle {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* 表单组 */
+.peekx__form-group {
+    margin-bottom: 1.5rem;
+}
+
+.peekx__form-label {
+    display: block;
+    color: #34495e;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.peekx__form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.peekx__form-input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* 按钮样式 */
+.peekx__form-button {
+    width: 100%;
+    padding: 0.9rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.peekx__form-button:hover {
+    background: #2980b9;
+}
+
+/* 链接样式 */
+.peekx__form-link {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.peekx__form-link a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.peekx__form-link a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式调整 */
+@media (max-width: 812px) {
+    .peekx__content {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+}
+
 html.is-mobile .peekx {
     position: fixed;
     left: 0;
