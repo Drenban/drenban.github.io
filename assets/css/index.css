@@ -3325,4 +3325,12 @@ html.is-mobile .peekx__intro-header,
 html.is-mobile .peekx__intro-description {
     display: none !important; /* 临时强制隐藏 */
 }
-
+html.is-mobile .peekx {
+    overflow: auto;  /* 允许滚动 */
+    -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
+    height: 100%;  /* 确保容器撑满整个屏幕 */
+}
+html.is-mobile body {
+    overflow: auto;
+    height: 100vh; /* 让 body 适应屏幕高度 */
+}
