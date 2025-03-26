@@ -3339,7 +3339,7 @@ li.CodeMirror-hint-active {
     }
 }
 
-html.is-mobile .peekx {
+/* html.is-mobile .peekx {
     position: fixed;
     left: 0;
     top: 0;
@@ -3451,4 +3451,4 @@ html.is-mobile body {
 }
 html.is-mobile .peekx > * {
     position: relative; /* 仅针对 .peekx 内部直接子元素，避免全局影响 */
-}
+} */
