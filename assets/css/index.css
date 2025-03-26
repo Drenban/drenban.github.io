@@ -3102,7 +3102,7 @@ li.CodeMirror-hint-active {
     height: 100%;
 }
 
-/* html.is-mobile .peekx {
+html.is-mobile .peekx {
     position: fixed;
     left: 0;
     top: 0;
@@ -3192,7 +3192,7 @@ html.is-mobile .button-icon {
     pointer-events: auto;
 }
 html.is-mobile .peekx__controls-left,
-html.is-mobile .peekx__controls-right {
+html.is-mobile .peekx__controls-right,
+html.is-mobile .peekx__nav-mode {
     display: none;
 }
- */
