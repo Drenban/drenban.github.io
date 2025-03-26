@@ -3097,6 +3097,16 @@ li.CodeMirror-hint-active {
     }
 }
 
+.peekx__content {
+    display: none; /* 默认隐藏，由 JS 控制 */
+}
+
+.peekx__content--login,
+.peekx__content--register,
+.peekx__content--search {
+    height: 100%;
+}
+
 html.is-mobile .peekx {
     position: fixed;
     left: 0;
