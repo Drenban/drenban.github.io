@@ -3221,9 +3221,13 @@ li.CodeMirror-hint-active {
 @media (max-width: 812px) {
     /* 主容器调整 */
     .peekx {
+        position: fixed; /* 改为固定定位，确保全屏 */
+        left: 0; /* 从 50% 改为 0，覆盖全屏 */
+        top: 0;
+        width: 100%; /* 确保全屏宽度 */
         padding: 2em 1em 10px; /* 减小左右和顶部内边距，保持底部空间 */
         overflow-y: auto; /* 启用垂直滚动 */
-        height: 100vh; /* 确保占满视口高度 */
+        height: 100vh; /* 占满视口高度 */
     }
 
     /* 内容区域（登录、注册、搜索共用） */
@@ -3232,12 +3236,12 @@ li.CodeMirror-hint-active {
         max-width: 100%;
         min-height: auto; /* 允许高度自适应内容 */
         overflow-y: auto; /* 内容超出时可滚动 */
-        border-radius: 8px; /* 稍减小圆角，适配小屏 */
+        border-radius: 8px; /* 稍减小圆角 */
     }
 
     /* 表单样式 */
     .peekx__form {
-        gap: 0.2rem; /* 减小间距，节省空间 */
+        gap: 0.2rem; /* 减小间距 */
     }
 
     /* 表单头部 */
@@ -3255,7 +3259,7 @@ li.CodeMirror-hint-active {
 
     /* 表单组 */
     .peekx__form-group {
-        margin-bottom: 0.4rem; /* 进一步减小间距 */
+        margin-bottom: 0.4rem; /* 减小间距 */
     }
 
     .peekx__form-label {
@@ -3280,31 +3284,33 @@ li.CodeMirror-hint-active {
 
     /* 选项卡调整 */
     .peekx__tabs {
-        flex-wrap: wrap; /* 允许选项卡换行 */
+        flex-wrap: wrap; /* 允许换行 */
     }
 
     .peekx__tab {
-        width: 50%; /* 每行两个选项卡 */
+        width: 33.3333333%; /* 默认保持 33.33% */
         padding: 0.4em 0; /* 减小内边距 */
         font-size: 0.9rem; /* 减小字体 */
     }
 
     .peekx__tab + .peekx__tab {
-        border-left: 1px solid #51585b; /* 恢复边框，确保分隔 */
+        border-left: 1px solid #51585b; /* 恢复边框分隔 */
     }
 
-    /* 导航模式调整 */
-    .peekx__nav-modes {
-        position: static; /* 取消绝对定位，放入正常流 */
-        padding: 1em 0; /* 添加内边距 */
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1em;
+    /* 针对登录和注册各占 50%，搜索占 100% */
+    .peekx__tab[data-tab="login"],
+    .peekx__tab[data-tab="register"] {
+        width: 50%; /* 登录和注册各占 50% */
     }
 
-    .peekx__nav-mode-wrapper {
-        margin-top: 0; /* 移除顶部间距 */
+    .peekx__tab[data-tab="search"] {
+        width: 100%; /* 搜索占 100% */
+    }
+
+    /* 隐藏导航模式 */
+    .peekx__nav-modes,
+    .peekx__intro--minimize {
+        display: none; /* 在手机端不显示 */
     }
 
     /* 介绍区域调整 */
