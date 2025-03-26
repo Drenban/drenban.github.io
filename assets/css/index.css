@@ -2815,7 +2815,8 @@ li.CodeMirror-hint-active {
     opacity: 0;
     -webkit-transition: opacity 1s;
     -o-transition: opacity 1s;
-    transition: opacity 1s
+    transition: opacity 1s;
+    min-height: 100%; /* 确保内部容器撑开 */
 }
 
 .peekx.is-visible .peekx__inner {
@@ -2876,12 +2877,12 @@ li.CodeMirror-hint-active {
 .peekx__intro {
     border-top: 1px solid #51585b;
     overflow: hidden;
-    max-height: 500px
+    max-height: 500px;
     margin-bottom: 1em; /* 添加底部间距，与 tabs 分离 */
 }
 
 .is-minimized .peekx__intro {
-    max-height: 3em
+    max-height: 3em;
     margin-bottom: 0.5em; /* 最小化时仍保留一定间距 */
 }
 
@@ -2926,7 +2927,7 @@ li.CodeMirror-hint-active {
     align-items: center;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between
+    justify-content: space-between;
     min-height: 3em; /* 固定最小高度，避免压缩 */
     padding: 0.5em 0; /* 增加内边距，提供缓冲 */
 }
