@@ -3217,11 +3217,125 @@ li.CodeMirror-hint-active {
     text-decoration: underline;
 }
 
-/* 响应式调整 */
+/* 响应式调整（针对 PeekX 页面） */
 @media (max-width: 812px) {
+    /* 主容器调整 */
+    .peekx {
+        padding: 2em 1em 10px; /* 减小左右和顶部内边距，保持底部空间 */
+        overflow-y: auto; /* 启用垂直滚动 */
+        height: 100vh; /* 确保占满视口高度 */
+    }
+
+    /* 内容区域（登录、注册、搜索共用） */
     .peekx__content {
         padding: 1.5rem;
         max-width: 100%;
+        min-height: auto; /* 允许高度自适应内容 */
+        overflow-y: auto; /* 内容超出时可滚动 */
+        border-radius: 8px; /* 稍减小圆角，适配小屏 */
+    }
+
+    /* 表单样式 */
+    .peekx__form {
+        gap: 0.2rem; /* 减小间距，节省空间 */
+    }
+
+    /* 表单头部 */
+    .peekx__form-header {
+        margin-bottom: 1rem; /* 减小头部间距 */
+    }
+
+    .peekx__form-title {
+        font-size: 1.5rem; /* 减小标题字体 */
+    }
+
+    .peekx__form-subtitle {
+        font-size: 0.85rem; /* 减小副标题字体 */
+    }
+
+    /* 表单组 */
+    .peekx__form-group {
+        margin-bottom: 0.4rem; /* 进一步减小间距 */
+    }
+
+    .peekx__form-label {
+        font-size: 0.9rem; /* 减小标签字体 */
+    }
+
+    .peekx__form-input {
+        padding: 0.6rem; /* 减小输入框内边距 */
+        font-size: 0.95rem; /* 减小输入字体 */
+    }
+
+    /* 按钮样式 */
+    .peekx__form-button {
+        padding: 0.7rem; /* 减小按钮内边距 */
+        font-size: 0.95rem; /* 减小按钮字体 */
+    }
+
+    /* 链接样式 */
+    .peekx__form-link {
+        font-size: 0.85rem; /* 减小链接字体 */
+    }
+
+    /* 选项卡调整 */
+    .peekx__tabs {
+        flex-wrap: wrap; /* 允许选项卡换行 */
+    }
+
+    .peekx__tab {
+        width: 50%; /* 每行两个选项卡 */
+        padding: 0.4em 0; /* 减小内边距 */
+        font-size: 0.9rem; /* 减小字体 */
+    }
+
+    .peekx__tab + .peekx__tab {
+        border-left: 1px solid #51585b; /* 恢复边框，确保分隔 */
+    }
+
+    /* 导航模式调整 */
+    .peekx__nav-modes {
+        position: static; /* 取消绝对定位，放入正常流 */
+        padding: 1em 0; /* 添加内边距 */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+
+    .peekx__nav-mode-wrapper {
+        margin-top: 0; /* 移除顶部间距 */
+    }
+
+    /* 介绍区域调整 */
+    .peekx__intro {
+        max-height: 300px; /* 减小最大高度 */
+    }
+
+    .is-minimized .peekx__intro {
+        max-height: 2.5em; /* 最小化时调整 */
+    }
+
+    .peekx__intro-description {
+        font-size: 0.75rem; /* 减小描述字体 */
+    }
+
+    /* 搜索区域（CodeMirror） */
+    #shader-peekx-cm {
+        height: auto; /* 自适应高度 */
+        min-height: 200px; /* 最小高度，确保可见 */
+    }
+
+    /* 控制栏调整 */
+    .peekx__controls {
+        padding: 0 0.5em; /* 减小内边距 */
+        height: 35px; /* 减小高度 */
+        min-height: 35px;
+    }
+
+    .peekx__controls-left .button-icon {
+        height: 16px; /* 减小图标大小 */
+        margin-left: 0.5em; /* 减小间距 */
     }
 }
 
