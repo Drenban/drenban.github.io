@@ -3308,11 +3308,15 @@ li.CodeMirror-hint-active {
     }
 
     /* 隐藏导航模式 */
-    .peekx__nav-modes,
-    .peekx__intro--minimize {
+    .peekx__nav-modes {
         display: none; /* 在手机端不显示 */
     }
 
+    /* 隐藏导航模式 */
+    .peekx__intro--minimize {
+        display: none; /* 在手机端不显示 */
+    }
+    
     /* 介绍区域调整 */
     .peekx__intro {
         max-height: 300px; /* 减小最大高度 */
