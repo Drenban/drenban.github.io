@@ -2781,10 +2781,12 @@ li.CodeMirror-hint-active {
     -webkit-transition: border-color .3s linear;
     -o-transition: border-color .3s linear;
     transition: border-color .3s linear
+    background: blue;
 }
 
 #shader-peekx-cm {
     height: calc(100% - 40px)
+    background: red;
 }
 
 #shader-peekx.success {
@@ -2815,8 +2817,7 @@ li.CodeMirror-hint-active {
     opacity: 0;
     -webkit-transition: opacity 1s;
     -o-transition: opacity 1s;
-    transition: opacity 1s;
-    min-height: 100%; /* 确保内部容器撑开 */
+    transition: opacity 1s
 }
 
 .peekx.is-visible .peekx__inner {
@@ -2877,13 +2878,11 @@ li.CodeMirror-hint-active {
 .peekx__intro {
     border-top: 1px solid #51585b;
     overflow: hidden;
-    max-height: 500px;
-    margin-bottom: 1em; /* 添加底部间距，与 tabs 分离 */
+    max-height: 500px
 }
 
 .is-minimized .peekx__intro {
-    max-height: 3em;
-    margin-bottom: 0.5em; /* 最小化时仍保留一定间距 */
+    max-height: 3em
 }
 
 .peekx__intro-description {
@@ -2927,19 +2926,15 @@ li.CodeMirror-hint-active {
     align-items: center;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between;
-    min-height: 3em; /* 固定最小高度，避免压缩 */
-    padding: 0.5em 0; /* 增加内边距，提供缓冲 */
+    justify-content: space-between
 }
 
 .peekx__intro--minimize {
-/*     margin-top: .75em; */
-    margin-top: 0; /* 重置顶部外边距，与标题对齐 */
+    margin-top: .75em;
     border: 1px solid #51585b;
     height: 22px;
     width: 22px;
-    position: relative;
-    flex-shrink: 0; /* 防止按钮被压缩 */
+    position: relative
 }
 
 .peekx__intro--minimize:after,.peekx__intro--minimize:before {
@@ -2976,8 +2971,7 @@ li.CodeMirror-hint-active {
 .peekx__intro-title {
     font-size: 1.5em;
     font-weight: 100;
-    margin: 0; /* 移除默认外边距，确保居中对齐 */
-/*     margin: .75em 0 0 */
+    margin: .75em 0 0
 }
 
 .peekx__tabs {
@@ -3035,8 +3029,7 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__main {
-/*     margin-top: 1em */
-    margin-top: 0; /* 移除多余的上边距，依靠 intro 的间距 */
+    margin-top: 1em
 }
 
 .peekx__controls {
