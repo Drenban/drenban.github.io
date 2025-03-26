@@ -3112,7 +3112,7 @@ li.CodeMirror-hint-active {
 
 /* 容器样式 */
 .peekx__editor {
-    background: #f5f6fa;
+    background: #051015; /* 改为深色背景，与 PeekX 一致 */
     padding: 1rem;
     height: 100%;
     overflow: auto;
@@ -3120,9 +3120,10 @@ li.CodeMirror-hint-active {
 
 /* 内容区域 */
 .peekx__content {
-    background: white;
+    background: #051015; /* 改为深色背景 */
     padding: 2rem;
     border-radius: 12px;
+    border: 1px solid #51585b; /* 添加边框，与其他元素一致 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     margin: 0 auto;
@@ -3142,13 +3143,13 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__form-title {
-    color: #333; /* 重置为默认深灰色 */
+    color: #c3c3c3; /* 使用浅灰色，与选中状态一致 */
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
 
 .peekx__form-subtitle {
-    color: #666; /* 重置为中灰色 */
+    color: #51585b; /* 使用深灰色，与边框一致 */
     font-size: 0.9rem;
 }
 
@@ -3159,51 +3160,55 @@ li.CodeMirror-hint-active {
 
 .peekx__form-label {
     display: block;
-    color: #333; /* 重置为默认深灰色 */
+    color: #c3c3c3; /* 使用浅灰色，提升可读性 */
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
 
+/* 输入框样式 */
 .peekx__form-input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ccc; /* 重置为浅灰色 */
+    border: 1px solid #51585b; /* 改为深灰色边框 */
     border-radius: 6px;
     font-size: 1rem;
+    background: #051015; /* 深色背景 */
+    color: #c3c3c3; /* 浅灰色文本 */
     transition: border-color 0.3s ease;
 }
 
 .peekx__form-input:focus {
     outline: none;
-    border-color: #007bff; /* 重置为标准蓝色 */
+    border-color: #00ffad; /* 使用亮青色，与成功状态一致 */
 }
 
 /* 按钮样式 */
 .peekx__form-button {
     width: 100%;
     padding: 0.9rem;
-    background: #007bff; /* 重置为标准蓝色 */
-    color: white;
+    background: #51585b; /* 默认深灰色，与边框一致 */
+    color: #c3c3c3; /* 浅灰色文本 */
     border: none;
     border-radius: 6px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .peekx__form-button:hover {
-    background: #0056b3; /* 重置为深蓝色 */
+    background: #00ffad; /* hover 时亮青色 */
+    color: #051015; /* 深色文本提升对比 */
 }
 
 /* 链接样式 */
 .peekx__form-link {
     text-align: center;
     font-size: 0.9rem;
-    color: #666; /* 重置为中灰色 */
+    color: #51585b; /* 深灰色，与次要文本一致 */
 }
 
 .peekx__form-link a {
-    color: #007bff; /* 重置为标准蓝色 */
+    color: #00ffad; /* 亮青色，与交互元素一致 */
     text-decoration: none;
 }
 
