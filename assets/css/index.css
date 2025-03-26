@@ -3319,7 +3319,10 @@ html.is-mobile .peekx__controls-right,
 html.is-mobile .peekx__nav-mode {
     display: none;
 }
-html.is-mobile .peekx__intro {
+html.is-mobile .peekx__intro,
+html.is-mobile .peekx__intro-tilte,
+html.is-mobile .peekx__intro-header,
+html.is-mobile .peekx__intro-description {
     display: none !important; /* 临时强制隐藏 */
 }
 
