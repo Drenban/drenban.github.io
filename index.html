@@ -477,7 +477,39 @@
                                 <li class="peekx__tab is-active" data-tab="login" title="Slot 2">登录</li>
                                 <li class="peekx__tab" data-tab="search" title="Slot 3">搜索</li>
                             </ul>
-                
+                            
+                            <div class="peekx__buttons">
+                                <div class="peekx__buttons-line">
+                                    <div class="group group--template">
+                                        <span class="group__name">Template:</span>
+                                        <div class="select-wrapper">
+                                            <select class="select-default"></select>
+                                        </div>
+                                        <button class="button-default button__load" aria-label="Load template">New</button>
+                                    </div>
+                                    <div class="group group--model">
+                                        <span class="group__name">Model:</span>
+                                        <div class="select-wrapper">
+                                            <select class="select-default">
+                                                <option value="person">Person</option>
+                                                <option value="car">Car</option>
+                                                <option value="nothing">Nothing</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="peekx__buttons-line">
+                                    <div class="group group--title">
+                                        <span class="group__name">Title:</span>
+                                        <input class="group__input-text" type="text" value="My PeekX">
+                                    </div>
+                                    <div class="group group--description">
+                                        <span class="group__name">Description:</span>
+                                        <input class="group__input-text" type="text" value="Lorem ipsum dolor">
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="peekx__editor">
                                 <!-- 登录内容 -->
                                 <div class="peekx__content peekx__content--login">
@@ -518,38 +550,7 @@
                                     <div class="peekx__editor-codemirror"></div> <!-- CodeMirror 容器 -->
                                 </div>
                             </div>
-
-                            <div class="peekx__buttons">
-                                <div class="peekx__buttons-line">
-                                    <div class="group group--template">
-                                        <span class="group__name">Template:</span>
-                                        <div class="select-wrapper">
-                                            <select class="select-default"></select>
-                                        </div>
-                                        <button class="button-default button__load" aria-label="Load template">New</button>
-                                    </div>
-                                    <div class="group group--model">
-                                        <span class="group__name">Model:</span>
-                                        <div class="select-wrapper">
-                                            <select class="select-default">
-                                                <option value="person">Person</option>
-                                                <option value="car">Car</option>
-                                                <option value="nothing">Nothing</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="peekx__buttons-line">
-                                    <div class="group group--title">
-                                        <span class="group__name">Title:</span>
-                                        <input class="group__input-text" type="text" value="My PeekX">
-                                    </div>
-                                    <div class="group group--description">
-                                        <span class="group__name">Description:</span>
-                                        <input class="group__input-text" type="text" value="Lorem ipsum dolor">
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div id="shader-peekx">
                                 <div id="shader-peekx-cm"></div>
                                 <div class="peekx__controls">
