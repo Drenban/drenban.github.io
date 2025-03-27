@@ -3378,6 +3378,10 @@ li.CodeMirror-hint-active {
     html.is-mobile .menu__item--is-peekx {
         display: block;
     }
+
+    html.is-mobile .gallery {
+        all: unset; /* 取消所有已应用的 CSS 规则 */
+    }
 }
 
 /* html.is-mobile .peekx {
