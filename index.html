@@ -512,11 +512,10 @@
                             
                             <div id="shader-peekx">
                                 <div id="shader-peekx-cm"></div>
-
                                 <div class="peekx__editor">
                                     <!-- 登录内容 -->
                                     <div class="peekx__content peekx__content--login">
-                                        <form class="peekx__form">
+                                        <form class="peekx__form" id="login-form">
                                             <div class="peekx__form-header">
                                                 <h3 class="peekx__form-title">请登录</h3>
                                                 <p class="peekx__form-subtitle">欢迎使用 PeekX 量化交易平台</p>
@@ -549,10 +548,9 @@
                                             </div>
                                         </form>
                                     </div>
-                                
-                                    <!-- 注册内容（默认隐藏） -->
+                                    <!-- 注册内容 -->
                                     <div class="peekx__content peekx__content--register" style="display: none;">
-                                        <form class="peekx__form">
+                                        <form class="peekx__form" id="register-form">
                                             <div class="peekx__form-header">
                                                 <h3 class="peekx__form-title">注册账户</h3>
                                                 <p class="peekx__form-subtitle">创建您的 PeekX 账户</p>
@@ -561,7 +559,7 @@
                                                 <label class="peekx__form-label" for="register-username">用户名</label>
                                                 <input 
                                                     class="peekx__form-input" 
-                                                    type="text" 
+                                                    type="email" 
                                                     id="register-username" 
                                                     name="username" 
                                                     placeholder="Email (e.g., admin@example.com)" 
@@ -596,17 +594,28 @@
                                             </div>
                                         </form>
                                     </div>
-                                
-                                    <!-- 搜索内容（隐藏，登录后显示） -->
+                                    <!-- 搜索内容 -->
                                     <div class="peekx__content peekx__content--search" style="display: none;">
-                                        <input type="text" id="query-input" placeholder="How can PeekX help?" onkeydown="if(event.key === 'Enter') search()"><!-- CodeMirror 容器 -->
-                                        <button id="search-btn">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                                            </svg>
-                                        </button>
+                                        <div class="peekx__form-group">
+                                            <input 
+                                                type="text" 
+                                                id="query-input" 
+                                                class="peekx__form-input" 
+                                                placeholder="How can PeekX help?" 
+                                                onkeydown="if(event.key === 'Enter') search()"
+                                            >
+                                            <button id="search-btn" class="peekx__form-button" onclick="search()">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div id="search-results" class="peekx__intro-description"></div>
                                     </div>
                                 </div>
+                            </div>
+                            <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+                            <script src="script.js"></script>
                                 
                                 <div class="peekx__controls">
                                     <div class="peekx__controls-left">
