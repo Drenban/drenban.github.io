@@ -3380,7 +3380,11 @@ li.CodeMirror-hint-active {
     }
 
     html.is-mobile .gallery {
-        all: unset; /* 取消所有已应用的 CSS 规则 */
+        display: block; /* 确保正常显示 */
+        overflow: visible; /* 允许默认滚动 */
+        position: static; /* 避免被固定 */
+        height: auto; /* 恢复默认高度 */
+        width: auto;
     }
 }
 
