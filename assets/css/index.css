@@ -3379,7 +3379,7 @@ li.CodeMirror-hint-active {
         display: block;
     }
 
-    html.is-mobile .gallery {
+    .gallery {
         display: block; /* 确保正常显示 */
         overflow: visible; /* 允许默认滚动 */
         position: static; /* 避免被固定 */
