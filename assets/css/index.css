@@ -3314,13 +3314,14 @@ li.CodeMirror-hint-active {
     }
 
     /* 隐藏导航模式 */
-    .button-icon .peekx__intro--minimize {
+    .peekx__intro--minimize {
         display: none; /* 在手机端不显示 */
     }
     
-    /* 介绍区域调整 */
+    /* 介绍区域调整 - 手机端默认最小化 */
     .peekx__intro {
-        max-height: 300px; /* 减小最大高度 */
+        max-height: 2.5em; /* 默认最小化 */
+        overflow: hidden; /* 确保内容被裁剪 */
     }
 
     .is-minimized .peekx__intro {
@@ -3347,6 +3348,25 @@ li.CodeMirror-hint-active {
     .peekx__controls-left .button-icon {
         height: 16px; /* 减小图标大小 */
         margin-left: 0.5em; /* 减小间距 */
+    }
+
+    /* 确保 header 和菜单栏可见 */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+        background: #051015;
+    }
+
+    .menu__items {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    html.is-mobile .menu__item--is-peekx {
+        display: block;
     }
 }
 
