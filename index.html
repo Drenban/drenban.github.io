@@ -514,7 +514,7 @@
                                 <div id="shader-peekx-cm"></div>
                                 <div class="peekx__editor">
                                     <!-- 登录内容 -->
-                                    <div class="peekx__content peekx__content--login">
+                                    <div class="peekx__content peekx__content--login" id="login-section">
                                         <form class="peekx__form" id="login-form">
                                             <div class="peekx__form-header">
                                                 <h3 class="peekx__form-title">请登录</h3>
@@ -542,14 +542,15 @@
                                                     required
                                                 >
                                             </div>
-                                            <button class="peekx__form-button" type="submit">登录</button>
+                                            <button class="peekx__form-button" type="submit" id="login-btn">登录</button>
                                             <div class="peekx__form-link">
                                                 还没有账号？<a href="#" data-tab="register">注册</a>
                                             </div>
+                                            <p id="error-message" style="text-align: center; margin-top: 10px;"></p>
                                         </form>
                                     </div>
                                     <!-- 注册内容 -->
-                                    <div class="peekx__content peekx__content--register" style="display: none;">
+                                    <div class="peekx__content peekx__content--register" id="register-section" style="display: none;">
                                         <form class="peekx__form" id="register-form">
                                             <div class="peekx__form-header">
                                                 <h3 class="peekx__form-title">注册账户</h3>
@@ -588,14 +589,15 @@
                                                     required
                                                 >
                                             </div>
-                                            <button class="peekx__form-button" type="submit">注册</button>
+                                            <button class="peekx__form-button" type="submit" id="signup-btn">注册</button>
                                             <div class="peekx__form-link">
                                                 已有账号？<a href="#" data-tab="login">登录</a>
                                             </div>
+                                            <p id="register-error-message" style="text-align: center; margin-top: 10px;"></p>
                                         </form>
                                     </div>
                                     <!-- 搜索内容 -->
-                                    <div class="peekx__content peekx__content--search" style="display: none;">
+                                    <div class="peekx__content peekx__content--search" id="query-section" style="display: none;">
                                         <div class="peekx__form-group">
                                             <input 
                                                 type="text" 
@@ -614,7 +616,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                                 <div class="peekx__controls">
                                     <div class="peekx__controls-left">
                                         <button class="button-default button__preview" aria-label="Preview shader">Preview</button>
