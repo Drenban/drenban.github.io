@@ -1,0 +1,22 @@
+[
+    {
+        "email": "user1@example.com",
+        "password": "password123",
+        "expiry": "2025-12-31"
+    },
+    {
+        "email": "user2@example.com",
+        "password": "securepass",
+        "expiry": "2024-06-30"
+    },
+    {
+        "email": "user3@example.com",
+        "password": "password123",
+        "expiry": "2026-03-15"
+    },
+    {
+        "email": "user4@example.com",
+        "password": "password123",
+        "expiry": "2023-11-20"
+    }
+]
