@@ -3314,6 +3314,11 @@ li.CodeMirror-hint-active {
     }
 
     /* 隐藏导航模式 */
+    .peekx__intro--title {
+        display: none; /* 在手机端不显示 */
+    }
+
+    /* 隐藏导航模式 */
     .peekx__intro--minimize {
         display: none; /* 在手机端不显示 */
     }
