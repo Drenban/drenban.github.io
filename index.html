@@ -525,10 +525,10 @@
                                                 <label class="peekx__form-label" for="login-username">用户名</label>
                                                 <input 
                                                     class="peekx__form-input" 
-                                                    type="text" 
+                                                    type="email" 
                                                     id="login-username" 
                                                     name="username" 
-                                                    placeholder="请输入用户名" 
+                                                    placeholder="Email (e.g., admin@example.com)" 
                                                     required
                                                 >
                                             </div>
@@ -539,7 +539,7 @@
                                                     type="password" 
                                                     id="login-password" 
                                                     name="password" 
-                                                    placeholder="请输入密码" 
+                                                    placeholder="Password" 
                                                     required
                                                 >
                                             </div>
@@ -564,7 +564,7 @@
                                                     type="text" 
                                                     id="register-username" 
                                                     name="username" 
-                                                    placeholder="请输入用户名" 
+                                                    placeholder="Email (e.g., admin@example.com)" 
                                                     required
                                                 >
                                             </div>
@@ -575,7 +575,7 @@
                                                     type="password" 
                                                     id="register-password" 
                                                     name="password" 
-                                                    placeholder="请输入密码" 
+                                                    placeholder="Password" 
                                                     required
                                                 >
                                             </div>
@@ -586,7 +586,7 @@
                                                     type="password" 
                                                     id="register-confirm-password" 
                                                     name="confirm-password" 
-                                                    placeholder="请再次输入密码" 
+                                                    placeholder="Same password as above" 
                                                     required
                                                 >
                                             </div>
@@ -599,7 +599,12 @@
                                 
                                     <!-- 搜索内容（隐藏，登录后显示） -->
                                     <div class="peekx__content peekx__content--search" style="display: none;">
-                                        <div class="peekx__editor-codemirror"></div> <!-- CodeMirror 容器 -->
+                                        <input type="text" id="query-input" placeholder="How can PeekX help?" onkeydown="if(event.key === 'Enter') search()"><!-- CodeMirror 容器 -->
+                                        <button id="search-btn">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                            </svg>
+                                        </button>
                                     </div>
                                 </div>
                                 
