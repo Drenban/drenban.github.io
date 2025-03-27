@@ -3232,11 +3232,10 @@ li.CodeMirror-hint-active {
         display: flex !important; /* 强制显示，覆盖可能的隐藏规则 */
         flex-direction: row;
         justify-content: space-around;
-        padding: 0.5em 1em;
     }
 
     /* 防止 PeekX 特定的菜单项隐藏 */
-    html.is-mobile .menu__item--is-peekx {
+    html.is-mobile .peekx .header {
         display: block; /* 恢复显示 */
     }
 
