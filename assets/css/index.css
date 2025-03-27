@@ -3222,23 +3222,11 @@ li.CodeMirror-hint-active {
     /* 确保 header 和菜单栏可见 */
     header {
         position: fixed !important; /* 固定在顶部 */
-        top: 0;
-        left: 0;
-        width: 100%;
         z-index: 2000; /* 高于 .peekx 的 z-index */
-        background: #051015; /* 与 PeekX 一致的深色背景 */
     }
 
     .menu__items {
         display: flex !important; /* 强制显示，覆盖可能的隐藏规则 */
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 0.5em 1em;
-    }
-
-    /* 防止 PeekX 特定的菜单项隐藏 */
-    html.is-mobile .menu__item--is-peekx {
-        display: block; /* 恢复显示 */
     }
     
     /* 主容器调整 */
@@ -3247,7 +3235,7 @@ li.CodeMirror-hint-active {
         left: 0; /* 从 50% 改为 0，覆盖全屏 */
         top: 0;
         width: 100%; /* 确保全屏宽度 */
-        padding: 3.5em 1em 10px; /* 减小左右和顶部内边距，保持底部空间 */
+        padding: 2em 1em 10px; /* 减小左右和顶部内边距，保持底部空间 */
         overflow-y: auto; /* 启用垂直滚动 */
         height: 100vh; /* 占满视口高度 */
         z-index: 1000; /* 低于 header */
@@ -3336,7 +3324,7 @@ li.CodeMirror-hint-active {
     }
 
     /* 隐藏导航模式 */
-    .peekx__intro--minimize {
+    .button-icon .peekx__intro--minimize {
         display: none; /* 在手机端不显示 */
     }
     
