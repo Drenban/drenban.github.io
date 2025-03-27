@@ -3234,8 +3234,14 @@ li.CodeMirror-hint-active {
         justify-content: space-around;
     }
 
+    /* 默认情况下，body 和 html 不滚动 */
+    html.is-mobile body {
+        overflow: hidden; /* 阻止整个页面滚动 */
+        height: 100vh;
+    }
+
     /* 防止 PeekX 特定的菜单项隐藏 */
-    html.is-mobile .peekx .header {
+    html.is-mobile .header {
         display: block; /* 恢复显示 */
     }
 
@@ -3247,6 +3253,7 @@ li.CodeMirror-hint-active {
         width: 100%;
         padding: 3.5em 1em 10px; /* 增加顶部内边距，留出 header 空间 */
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
         height: 100vh;
         z-index: 1000; /* 低于 header */
     }
