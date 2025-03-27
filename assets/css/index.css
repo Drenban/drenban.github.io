@@ -3219,15 +3219,37 @@ li.CodeMirror-hint-active {
 
 /* 响应式调整（针对 PeekX 页面） */
 @media (max-width: 812px) {
+    /* 确保 header 和菜单栏可见 */
+    header {
+        position: fixed; /* 固定在顶部 */
+        top: 0;
+        left: 0;
+        z-index: 2000; /* 高于 .peekx 的 z-index */
+        background: #051015; /* 与 PeekX 一致的深色背景 */
+    }
+
+    .menu__items {
+        display: flex !important; /* 强制显示，覆盖可能的隐藏规则 */
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0.5em 1em;
+    }
+
+    /* 防止 PeekX 特定的菜单项隐藏 */
+    html.is-mobile .menu__item--is-peekx {
+        display: block; /* 恢复显示 */
+    }
+
     /* 主容器调整 */
     .peekx {
-        position: fixed; /* 改为固定定位，确保全屏 */
-        left: 0; /* 从 50% 改为 0，覆盖全屏 */
+        position: fixed;
+        left: 0;
         top: 0;
-        width: 100%; /* 确保全屏宽度 */
-        padding: 2em 1em 10px; /* 减小左右和顶部内边距，保持底部空间 */
-        overflow-y: auto; /* 启用垂直滚动 */
-        height: 100vh; /* 占满视口高度 */
+        width: 100%;
+        padding: 3.5em 1em 10px; /* 增加顶部内边距，留出 header 空间 */
+        overflow-y: auto;
+        height: 100vh;
+        z-index: 1000; /* 低于 header */
     }
 
     /* 内容区域（登录、注册、搜索共用） */
