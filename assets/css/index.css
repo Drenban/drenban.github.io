@@ -3219,16 +3219,6 @@ li.CodeMirror-hint-active {
 
 /* 响应式调整（针对 PeekX 页面） */
 @media (max-width: 812px) {
-    /* 确保 header 和菜单栏可见 */
-    header {
-        position: fixed !important; /* 固定在顶部 */
-        z-index: 2000; /* 高于 .peekx 的 z-index */
-    }
-
-    .menu__items {
-        display: flex !important; /* 强制显示，覆盖可能的隐藏规则 */
-    }
-    
     /* 主容器调整 */
     .peekx {
         position: fixed; /* 改为固定定位，确保全屏 */
@@ -3238,7 +3228,6 @@ li.CodeMirror-hint-active {
         padding: 2em 1em 10px; /* 减小左右和顶部内边距，保持底部空间 */
         overflow-y: auto; /* 启用垂直滚动 */
         height: 100vh; /* 占满视口高度 */
-        z-index: 1000; /* 低于 header */
     }
 
     /* 内容区域（登录、注册、搜索共用） */
