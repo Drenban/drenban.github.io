@@ -2781,12 +2781,10 @@ li.CodeMirror-hint-active {
     -webkit-transition: border-color .3s linear;
     -o-transition: border-color .3s linear;
     transition: border-color .3s linear
-    background: blue;
 }
 
 #shader-peekx-cm {
     height: calc(100% - 40px)
-    background: red;
 }
 
 #shader-peekx.success {
@@ -3345,8 +3343,8 @@ li.CodeMirror-hint-active {
 
     /* 搜索区域（CodeMirror） */
     #shader-peekx-cm {
-        height: auto; /* 自适应高度 */
-        min-height: 200px; /* 最小高度，确保可见 */
+/*         height: auto;
+        min-height: 200px; */
     }
 
     /* 控制栏调整 */
