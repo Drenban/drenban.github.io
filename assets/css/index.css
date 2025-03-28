@@ -3112,7 +3112,6 @@ li.CodeMirror-hint-active {
 
 /* 容器样式 */
 .peekx__editor {
-/*     border: 1px solid #51585b; */
     background: #051015; /* 改为深色背景，与 PeekX 一致 */
     padding: 1rem;
     height: 100%;
