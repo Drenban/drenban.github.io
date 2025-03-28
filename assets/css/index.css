@@ -2930,6 +2930,7 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__intro--minimize {
+    display: none;
     margin-top: .75em;
     border: 1px solid #51585b;
     height: 22px;
