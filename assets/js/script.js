@@ -13,12 +13,12 @@ let userData = null;
 
     window.addEventListener('DOMContentLoaded', () => {
         const currentUrl = window.location.href;
-        const basePath = '/peekx/';
+        const basePath = '/';
         const targetUrl = window.location.origin + basePath;
 
         const urlParams = new URLSearchParams(window.location.search);
         const currentRandom = urlParams.get('r');
-        const isBasePath = currentUrl === targetUrl || currentUrl.endsWith('/peekx/index.html');
+        const isBasePath = currentUrl === targetUrl || currentUrl.endsWith('/');
         const isRandomPath = currentRandom !== null;
 
         if (isBasePath || isRandomPath) {
@@ -143,7 +143,7 @@ const PeekXAuth = {
                     if (!expiryDate || !isMembershipValid(expiryDate)) {
                         errorMessage.textContent = '您的会员已过期或未设置有效期，请续费';
                         localStorage.setItem('expiredEmail', username);
-                        setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
+                        setTimeout(() => window.location.href = '/assets/pay/index.html', 2000);
                         loginBtn.disabled = false;
                         return false;
                     }
@@ -175,7 +175,7 @@ const PeekXAuth = {
             if (!expiryDate || !isMembershipValid(expiryDate)) {
                 errorMessage.textContent = '您的会员已过期或未设置有效期，请续费';
                 localStorage.setItem('expiredEmail', username);
-                setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
+                setTimeout(() => window.location.href = '/assets/pay/index.html', 2000);
                 loginBtn.disabled = false;
                 return false;
             }
@@ -252,7 +252,7 @@ const PeekXAuth = {
         localStorage.removeItem('token');
         localStorage.removeItem('salt');
         localStorage.removeItem('session');
-        window.location.href = '/peekx/login.html';
+        window.location.href = '/peekx/';
     }
 };
 
@@ -266,11 +266,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const hasRandomParam = urlParams.has('r');
     const token = localStorage.getItem('token');
 
-    const isIndexPage = pathname === '/peekx/' || pathname.endsWith('/peekx/index.html') || hasRandomParam;
+    const isIndexPage = pathname === '/' || pathname.endsWith('/peekx/') || hasRandomParam;
 
     if (isIndexPage) {
         if (!token || !verifyToken(token)) {
-            window.location.href = '/peekx/login.html';
+            window.location.href = '/peekx/';
         } else {
             const loginSection = document.getElementById('login-section');
             const querySection = document.getElementById('query-section');
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const loginBtn = document.getElementById('login-btn');
-    if (pathname.includes('login.html') && loginBtn) {
+    if (pathname.includes('/peekx/') && loginBtn) {
         loginBtn.addEventListener('click', PeekXAuth.login);
     }
 
