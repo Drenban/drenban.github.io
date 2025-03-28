@@ -227,6 +227,10 @@ function generateResponse(intent, match) {
 
 // 显示结果的打字效果
 function typeLines(lines, element) {
+    if (!element) {
+        console.error('Result container element is null');
+        return;
+    }
     let lineIndex = 0;
     let charIndex = 0;
 
@@ -535,8 +539,21 @@ const PeekXAuth = {
             return;
         }
 
+        const searchSection = document.getElementById('search-section');
+        if (!searchSection || searchSection.style.display === 'none') {
+            appState = 'search';
+            updateUI();
+        }
+
         const query = document.getElementById('query-input').value.trim();
         if (!query) return;
+
+        const resultContainer = document.getElementById('result-container');
+        if (!resultContainer) {
+            console.error('Result container not found');
+            return;
+        }
+        resultContainer.innerHTML = '';
 
         const isXlsxQuery = query.includes(':') ||
             (/[，, ]/.test(query) && query.split(/[，, ]+/).length === 2 &&
@@ -544,9 +561,6 @@ const PeekXAuth = {
             /^[\u4e00-\u9fa5a-zA-Z]+\d+$/.test(query) ||
             /^\d+[\u4e00-\u9fa5a-zA-Z]+$/.test(query) ||
             /^\d+$/.test(query);
-
-        const resultContainer = document.getElementById('result-container');
-        resultContainer.innerHTML = '';
 
         if (isXlsxQuery) {
             const xlsxResult = searchXLSX(query);
@@ -600,6 +614,7 @@ window.PeekXAuth = PeekXAuth;
 
 // 初始化页面
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded');
     const token = localStorage.getItem('token');
 
     // 检查 token 是否有效，设置初始状态
