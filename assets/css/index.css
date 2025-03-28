@@ -3328,7 +3328,7 @@ li.CodeMirror-hint-active {
 
     /* 隐藏导航模式 */
     .peekx__intro--minimize {
-        display: none !important; /* 在手机端不显示 */
+
     }
     
     /* 介绍区域调整 - 手机端默认最小化 */
@@ -3483,7 +3483,7 @@ html.is-mobile .peekx__intro-header,
 html.is-mobile .peekx__intro-description,
 html.is-mobile .peekx__intro--minimize {
     display: none !important;
-} */
+}
 html.is-mobile .peekx {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -3495,4 +3495,4 @@ html.is-mobile body {
 }
 html.is-mobile .peekx > * {
     position: relative;
-}
+} */
