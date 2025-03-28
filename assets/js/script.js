@@ -69,12 +69,12 @@ function verifyToken(token) {
 
 async function loadUserData(username) {
     try {
-        const response = await fetch(`users/${username}.json`);
+        const response = await fetch(`/assets/users/${username}.json`);
         if (response.status === 404) {
             console.warn(`用户 ${username} 不存在`);
             return false;
         }
-        if (!response.ok) throw new Error(`Failed to fetch users/${username}.json`);
+        if (!response.ok) throw new Error(`Failed to fetch /assets/users/${username}.json`);
         const data = await response.json();
         console.log('用户数据加载成功:', data);
         return data;
