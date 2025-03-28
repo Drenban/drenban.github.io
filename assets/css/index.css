@@ -3480,17 +3480,17 @@ html.is-mobile .peekx__intro-tilte,
 html.is-mobile .peekx__intro-header,
 html.is-mobile .peekx__intro-description,
 html.is-mobile .peekx__intro--minimize {
-    display: none !important; /* 临时强制隐藏 */
+    display: none !important;
 }
 html.is-mobile .peekx {
-    overflow: auto;  /* 允许滚动 */
-    -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
-    min-height: 100vh;  /* 确保内容至少与视口等高 */
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    min-height: 100vh;
 }
 html.is-mobile body {
     overflow: auto;
-    min-height: 100vh; /* 让 body 适应屏幕高度，避免内容被剪切 */
+    min-height: 100vh;
 }
 html.is-mobile .peekx > * {
-    position: relative; /* 仅针对 .peekx 内部直接子元素，避免全局影响 */
+    position: relative;
 } */
