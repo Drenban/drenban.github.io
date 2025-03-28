@@ -252,7 +252,7 @@ const PeekXAuth = {
         localStorage.removeItem('token');
         localStorage.removeItem('salt');
         localStorage.removeItem('session');
-        window.location.href = '/peekx/';
+        window.location.href = '/';
     }
 };
 
@@ -266,11 +266,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const hasRandomParam = urlParams.has('r');
     const token = localStorage.getItem('token');
 
-    const isIndexPage = pathname === '/' || pathname.endsWith('/peekx/') || hasRandomParam;
+    const isIndexPage = pathname === '/' || pathname.endsWith('/') || hasRandomParam;
 
     if (isIndexPage) {
         if (!token || !verifyToken(token)) {
-            window.location.href = '/peekx/';
+            window.location.href = '/';
         } else {
             const loginSection = document.getElementById('login-section');
             const querySection = document.getElementById('query-section');
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const loginBtn = document.getElementById('login-btn');
-    if (pathname.includes('/peekx/') && loginBtn) {
+    if (pathname.includes('/') && loginBtn) {
         loginBtn.addEventListener('click', PeekXAuth.login);
     }
 
