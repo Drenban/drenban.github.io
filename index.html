@@ -512,111 +512,118 @@
                             
                             <div id="shader-peekx">
                                 <div id="shader-peekx-cm"></div>
-                                <div class="peekx__editor">
-                                    <!-- 登录内容 -->
-                                    <div class="peekx__content peekx__content--login" id="login-section">
-                                        <form class="peekx__form" id="login-form">
-                                            <div class="peekx__form-header">
-                                                <h3 class="peekx__form-title">登录</h3>
-                                                <p class="peekx__form-subtitle">欢迎使用 PeekX 量化交易平台</p>
-                                            </div>
-                                            <div class="peekx__form-group">
-                                                <label class="peekx__form-label" for="login-username">用户名</label>
-                                                <input 
-                                                    class="peekx__form-input" 
-                                                    type="email" 
-                                                    id="login-username" 
-                                                    name="username" 
-                                                    placeholder="Email(e.g., admin@example.com)" 
-                                                    required
-                                                >
-                                            </div>
-                                            <div class="peekx__form-group">
-                                                <label class="peekx__form-label" for="login-password">密码</label>
-                                                <input 
-                                                    class="peekx__form-input" 
-                                                    type="password" 
-                                                    id="login-password" 
-                                                    name="password" 
-                                                    placeholder="Password" 
-                                                    required
-                                                >
-                                            </div>
-                                            <button class="peekx__form-button" type="submit" id="login-btn">登录</button>
-                                            <div class="peekx__form-link">
-                                                还没有账号？<a href="#" data-tab="register">注册</a>
-                                            </div>
-                                            <p id="error-message" style="text-align: center; margin-top: 10px;"></p>
-                                        </form>
+                                <div class="layout">
+                                    <header class="top-section">
+                                        <button id="history-toggle" class="history-btn" style="display: none;">History</button>
+                                        <div class="logo">
+                                            <object type="image/svg+xml" data="/peekx/svg/logo.svg" width="180" height="60">PeekX Logo</object>
+                                        </div>
+                                        <div class="auth">
+                                            <button id="logout-btn" class="auth-btn" style="display: none;">Logout</button>
+                                        </div>
+                                    </header>
+                                    <div class="sidebar" id="history-sidebar">
+                                        <div class="history-header">
+                                            <h2>History</h2>
+                                        </div>
+                                        <ul id="history-list"></ul>
                                     </div>
-                                    <!-- 注册内容 -->
-                                    <div class="peekx__content peekx__content--register" id="register-section" style="display: none;">
-                                        <form class="peekx__form" id="register-form">
-                                            <div class="peekx__form-header">
-                                                <h3 class="peekx__form-title">注册账户</h3>
-                                                <p class="peekx__form-subtitle">创建您的 PeekX 账户</p>
-                                            </div>
-                                            <div class="peekx__form-group">
-                                                <label class="peekx__form-label" for="register-username">用户名</label>
-                                                <input 
-                                                    class="peekx__form-input" 
-                                                    type="email" 
-                                                    id="register-username" 
-                                                    name="username" 
-                                                    placeholder="Email(e.g., admin@example.com)" 
-                                                    required
-                                                >
-                                            </div>
-                                            <div class="peekx__form-group">
-                                                <label class="peekx__form-label" for="register-password">密码</label>
-                                                <input 
-                                                    class="peekx__form-input" 
-                                                    type="password" 
-                                                    id="register-password" 
-                                                    name="password" 
-                                                    placeholder="Password" 
-                                                    required
-                                                >
-                                            </div>
-                                            <div class="peekx__form-group">
-                                                <label class="peekx__form-label" for="register-confirm-password">确认密码</label>
-                                                <input 
-                                                    class="peekx__form-input" 
-                                                    type="password" 
-                                                    id="register-confirm-password" 
-                                                    name="confirm-password" 
-                                                    placeholder="Same password as above" 
-                                                    required
-                                                >
-                                            </div>
-                                            <button class="peekx__form-button" type="submit" id="signup-btn">注册</button>
-                                            <div class="peekx__form-link">
-                                                已有账号？<a href="#" data-tab="login">登录</a>
-                                            </div>
-                                            <p id="register-error-message" style="text-align: center; margin-top: 10px;"></p>
-                                        </form>
-                                    </div>
-                                    <!-- 搜索内容 -->
                                     <main class="main">
                                         <div class="content">
-                                            <div class="output" id="result-container"></div>
-                                            <div class="input-area">
-                                                <input 
-                                                    type="text" 
-                                                    id="query-input" 
-                                                    placeholder="How can PeekX help?" 
-                                                    onkeydown="if(event.key === 'Enter') PeekXAuth.search()"
-                                                >
-                                                <button id="search-btn">
-                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                                    </svg>
-                                                </button>
+                                            <!-- 登录区域 -->
+                                            <div id="login-section" class="auth-section">
+                                                <div class="peekx__form-header">
+                                                    <h3 class="peekx__form-title">登录</h3>
+                                                    <p class="peekx__form-subtitle">欢迎使用 PeekX 量化交易平台</p>
+                                                </div>
+                                                <div class="peekx__form-group">
+                                                    <label class="peekx__form-label" for="login-username">用户名</label>
+                                                    <input 
+                                                        type="email" 
+                                                        id="login-username" 
+                                                        class="peekx__form-input" 
+                                                        placeholder="Email (e.g., admin@example.com)" 
+                                                        required
+                                                    >
+                                                </div>
+                                                <div class="peekx__form-group">
+                                                    <label class="peekx__form-label" for="login-password">密码</label>
+                                                    <input 
+                                                        type="password" 
+                                                        id="login-password" 
+                                                        class="peekx__form-input" 
+                                                        placeholder="Password" 
+                                                        required
+                                                    >
+                                                </div>
+                                                <button id="login-btn" class="peekx__form-button">登录</button>
+                                                <p id="error-message" style="text-align: center; margin-top: 10px;"></p>
+                                                <div class="peekx__form-link">
+                                                    还没有账号？<a href="#" id="show-register">注册</a>
+                                                </div>
+                                            </div>
+                                            <!-- 注册区域 -->
+                                            <div id="register-section" class="auth-section" style="display: none;">
+                                                <div class="peekx__form-header">
+                                                    <h3 class="peekx__form-title">注册账户</h3>
+                                                    <p class="peekx__form-subtitle">创建您的 PeekX 账户</p>
+                                                </div>
+                                                <div class="peekx__form-group">
+                                                    <label class="peekx__form-label" for="register-username">用户名</label>
+                                                    <input 
+                                                        type="email" 
+                                                        id="register-username" 
+                                                        class="peekx__form-input" 
+                                                        placeholder="Email (e.g., admin@example.com)" 
+                                                        required
+                                                    >
+                                                </div>
+                                                <div class="peekx__form-group">
+                                                    <label class="peekx__form-label" for="register-password">密码</label>
+                                                    <input 
+                                                        type="password" 
+                                                        id="register-password" 
+                                                        class="peekx__form-input" 
+                                                        placeholder="Password" 
+                                                        required
+                                                    >
+                                                </div>
+                                                <div class="peekx__form-group">
+                                                    <label class="peekx__form-label" for="register-confirm-password">确认密码</label>
+                                                    <input 
+                                                        type="password" 
+                                                        id="register-confirm-password" 
+                                                        class="peekx__form-input" 
+                                                        placeholder="Same password as above" 
+                                                        required
+                                                    >
+                                                </div>
+                                                <button id="signup-btn" class="peekx__form-button">注册</button>
+                                                <p id="register-error-message" style="text-align: center; margin-top: 10px;"></p>
+                                                <div class="peekx__form-link">
+                                                    已有账号？<a href="#" id="show-login">登录</a>
+                                                </div>
+                                            </div>
+                                            <!-- 搜索区域 -->
+                                            <div id="search-section" class="search-section" style="display: none;">
+                                                <div class="output" id="result-container"></div>
+                                                <div class="input-area">
+                                                    <input 
+                                                        type="text" 
+                                                        id="query-input" 
+                                                        placeholder="How can PeekX help?" 
+                                                        onkeydown="if(event.key === 'Enter') PeekXAuth.search()"
+                                                    >
+                                                    <button id="search-btn">
+                                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </main>
                                 </div>
-                            </div>
                                 <div class="peekx__controls">
                                     <div class="peekx__controls-left">
                                         <button class="button-default button__preview" aria-label="Preview shader">Preview</button>
