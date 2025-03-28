@@ -3223,6 +3223,7 @@ li.CodeMirror-hint-active {
 @media (max-width: 812px) {
     /* 主容器调整 */
     .peekx {
+        padding-top: 60px;
         position: fixed;
         left: 0;
         top: 0;
