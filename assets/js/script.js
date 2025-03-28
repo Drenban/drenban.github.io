@@ -10,7 +10,7 @@ let appState = 'login'; // 应用状态：login, register, search
 // 加载 XLSX 数据
 async function loadXLSXData() {
     try {
-        const response = await fetch('/assets/data/data.json');
+        const response = await fetch('/assets/data/data.xlsx');
         if (!response.ok) throw new Error('无法加载 XLSX 数据');
         const data = await response.arrayBuffer();
         const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
@@ -18,7 +18,8 @@ async function loadXLSXData() {
         console.log('XLSX 数据加载完成');
     } catch (error) {
         console.error('加载 XLSX 数据失败:', error);
-        document.getElementById('result-container').textContent = '服务器繁忙，请稍后再试';
+        const resultContainer = document.getElementById('result-container');
+        if (resultContainer) resultContainer.textContent = '服务器繁忙，请稍后再试';
     }
 }
 
@@ -540,19 +541,25 @@ const PeekXAuth = {
         }
 
         const searchSection = document.getElementById('search-section');
-        if (!searchSection || searchSection.style.display === 'none') {
+        if (!searchSection) {
+            console.error('Search section not found');
+            return;
+        }
+        if (searchSection.style.display === 'none') {
             appState = 'search';
             updateUI();
         }
-
-        const query = document.getElementById('query-input').value.trim();
-        if (!query) return;
-
+    
+        const queryInput = document.getElementById('query-input');
         const resultContainer = document.getElementById('result-container');
-        if (!resultContainer) {
-            console.error('Result container not found');
+        if (!queryInput || !resultContainer) {
+            console.error('Query input or result container not found');
             return;
         }
+    
+        const query = queryInput.value.trim();
+        if (!query) return;
+    
         resultContainer.innerHTML = '';
 
         const isXlsxQuery = query.includes(':') ||
@@ -615,6 +622,8 @@ window.PeekXAuth = PeekXAuth;
 // 初始化页面
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded');
+    const resultContainer = document.getElementById('result-container');
+    console.log('resultContainer exists:', !!resultContainer);
     const token = localStorage.getItem('token');
 
     // 检查 token 是否有效，设置初始状态
