@@ -2930,7 +2930,6 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__intro--minimize {
-    display: none;
     margin-top: .75em;
     border: 1px solid #51585b;
     height: 22px;
@@ -3038,8 +3037,7 @@ li.CodeMirror-hint-active {
     height: 40px;
     min-height: 40px;
     background-color: #051015;
-    border: 1px solid #51585b;
-    border-top: none;
+    border-top: 1px solid #51585b;
     padding: 0 .8em;
     display: flex;
     -webkit-box-pack: justify;
@@ -3114,7 +3112,7 @@ li.CodeMirror-hint-active {
 
 /* 容器样式 */
 .peekx__editor {
-    border-top: 1px solid #51585b;
+    border: 1px solid #51585b;
     background: #051015; /* 改为深色背景，与 PeekX 一致 */
     padding: 1rem;
     height: 100%;
@@ -3223,8 +3221,7 @@ li.CodeMirror-hint-active {
 @media (max-width: 812px) {
     /* 主容器调整 */
     .peekx {
-        padding-top: 60px;
-        position: relative;
+        position: fixed;
         left: 0;
         top: 0;
         width: 100%;
@@ -3328,7 +3325,7 @@ li.CodeMirror-hint-active {
 
     /* 隐藏导航模式 */
     .peekx__intro--minimize {
-
+        display: none; /* 在手机端不显示 */
     }
     
     /* 介绍区域调整 - 手机端默认最小化 */
@@ -3342,12 +3339,12 @@ li.CodeMirror-hint-active {
     }
 
     .peekx__intro-description {
-        display: none !important;
         font-size: 0.75rem; /* 减小描述字体 */
     }
 
     /* 搜索区域（CodeMirror） */
     #shader-peekx-cm {
+        height: auto; /* 自适应高度 */
         min-height: 200px; /* 最小高度，确保可见 */
     }
 
@@ -3482,17 +3479,17 @@ html.is-mobile .peekx__intro-tilte,
 html.is-mobile .peekx__intro-header,
 html.is-mobile .peekx__intro-description,
 html.is-mobile .peekx__intro--minimize {
-    display: none !important;
+    display: none !important; /* 临时强制隐藏 */
 }
 html.is-mobile .peekx {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    min-height: 100vh;
+    overflow: auto;  /* 允许滚动 */
+    -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
+    min-height: 100vh;  /* 确保内容至少与视口等高 */
 }
 html.is-mobile body {
     overflow: auto;
-    min-height: 100vh;
+    min-height: 100vh; /* 让 body 适应屏幕高度，避免内容被剪切 */
 }
 html.is-mobile .peekx > * {
-    position: relative;
+    position: relative; /* 仅针对 .peekx 内部直接子元素，避免全局影响 */
 } */
