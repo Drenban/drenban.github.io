@@ -154,7 +154,7 @@ const Auth = {
                     if (!expiryDate || !Utils.isMembershipValid(expiryDate)) {
                         UI.setMessage('error-message', '您的会员已过期或未设置有效期，请续费');
                         localStorage.setItem('expiredEmail', username);
-                        setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
+                        setTimeout(() => window.location.href = '/assets/pay/index.html', 2000);
                         loginBtn.disabled = false;
                         return false;
                     }
@@ -181,7 +181,7 @@ const Auth = {
             if (!expiryDate || !Utils.isMembershipValid(expiryDate)) {
                 UI.setMessage('error-message', '您的会员已过期或未设置有效期，请续费');
                 localStorage.setItem('expiredEmail', username);
-                setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
+                setTimeout(() => window.location.href = '/assets/pay/index.html', 2000);
                 loginBtn.disabled = false;
                 return false;
             }
