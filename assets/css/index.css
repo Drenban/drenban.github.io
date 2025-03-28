@@ -3341,7 +3341,7 @@ li.CodeMirror-hint-active {
     }
 
     .peekx__intro-description {
-        display: none;
+        display: none !important;
         font-size: 0.75rem; /* 减小描述字体 */
     }
 
