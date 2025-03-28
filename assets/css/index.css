@@ -3038,7 +3038,7 @@ li.CodeMirror-hint-active {
     min-height: 40px;
     background-color: #051015;
     border: 1px solid #51585b;
-    border: none;
+    border-top: none;
     padding: 0 .8em;
     display: flex;
     -webkit-box-pack: justify;
