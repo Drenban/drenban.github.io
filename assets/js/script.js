@@ -4,7 +4,7 @@ let userData = null;
 (function() {
     function generateRandomString(length) {
         const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let result = '/peekx';
+        let result = '';
         for (let i = 0; i < length; i++) {
             result += characters.charAt(Math.floor(Math.random() * characters.length));
         }
@@ -12,19 +12,15 @@ let userData = null;
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-        const currentUrl = window.location.href;
-        const basePath = '/';
-        const targetUrl = window.location.origin + basePath;
+        const currentUrl = new URL(window.location.href);
+        const urlParams = new URLSearchParams(currentUrl.search);
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const currentRandom = urlParams.get('r');
-        const isBasePath = currentUrl === targetUrl || currentUrl.endsWith('/peekx');
-        const isRandomPath = currentRandom !== null;
-
-        if (isBasePath || isRandomPath) {
+        // 如果已有 r 参数，不重复拼接
+        if (!urlParams.has('r')) {
             const randomSlug = generateRandomString(6);
-            const newPath = basePath + '?r=' + randomSlug;
-            window.history.replaceState({}, document.title, newPath);
+            urlParams.set('r', randomSlug);
+            currentUrl.search = urlParams.toString();
+            window.history.replaceState({}, document.title, currentUrl.toString());
         }
     });
 })();
