@@ -3038,6 +3038,7 @@ li.CodeMirror-hint-active {
     min-height: 40px;
     background-color: #051015;
     border: 1px solid #51585b;
+    border: none;
     padding: 0 .8em;
     display: flex;
     -webkit-box-pack: justify;
@@ -3112,6 +3113,7 @@ li.CodeMirror-hint-active {
 
 /* 容器样式 */
 .peekx__editor {
+    border-top: 1px solid #51585b;
     background: #051015; /* 改为深色背景，与 PeekX 一致 */
     padding: 1rem;
     height: 100%;
