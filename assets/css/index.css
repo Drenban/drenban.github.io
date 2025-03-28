@@ -3348,7 +3348,6 @@ li.CodeMirror-hint-active {
 
     /* 搜索区域（CodeMirror） */
     #shader-peekx-cm {
-        height: auto; /* 自适应高度 */
         min-height: 200px; /* 最小高度，确保可见 */
     }
 
