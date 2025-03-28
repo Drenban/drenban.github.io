@@ -143,7 +143,6 @@ const Auth = {
         const username = Utils.sanitizeInput(document.getElementById('login-username').value.trim());
         const password = Utils.sanitizeInput(document.getElementById('login-password').value.trim());
 
-        // Supabase 登录
         if (SupabaseConfig.client) {
             try {
                 const { data, error } = await SupabaseConfig.client.auth.signInWithPassword({
@@ -153,51 +152,48 @@ const Auth = {
                 if (!error) {
                     const expiryDate = data.user.user_metadata?.expiry_date;
                     if (!expiryDate || !Utils.isMembershipValid(expiryDate)) {
-                        UI.setMessage('error-message', '您的会员已过期或未设置有效期，请续费', 'red');
+                        UI.setMessage('error-message', '您的会员已过期或未设置有效期，请续费');
                         localStorage.setItem('expiredEmail', username);
                         setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
                         loginBtn.disabled = false;
-                        return;
+                        return false;
                     }
                     localStorage.setItem('token', data.session.access_token);
                     UI.setMessage('error-message', '登录成功（Supabase）！欢迎回来', 'green');
-                    setTimeout(() => {
-                        UI.showSection('query-section');
-                    }, 1000);
-                    return;
+                    setTimeout(() => UI.showSection('query-section'), 1000);
+                    return true;
                 }
             } catch (err) {
                 console.warn('Supabase 登录失败:', err);
             }
         }
 
-        // JSON 登录
         const userData = await UserData.loadUserData(username);
         if (!userData) {
             UI.setMessage('error-message', '用户不存在或网络错误');
             loginBtn.disabled = false;
-            return;
+            return false;
         }
 
         const hashedPassword = await Utils.hashPassword(password);
         if (userData.username === username && userData.password === hashedPassword) {
             const expiryDate = userData.expiry_date;
             if (!expiryDate || !Utils.isMembershipValid(expiryDate)) {
-                UI.setMessage('error-message', '您的会员已过期或未设置有效期，请续费', 'red');
+                UI.setMessage('error-message', '您的会员已过期或未设置有效期，请续费');
                 localStorage.setItem('expiredEmail', username);
                 setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
                 loginBtn.disabled = false;
-                return;
+                return false;
             }
             const token = Utils.generateToken(username);
             localStorage.setItem('token', token);
             UI.setMessage('error-message', '登录成功（JSON）！欢迎回来', 'green');
-            setTimeout(() => {
-                UI.showSection('query-section');
-            }, 1000);
+            setTimeout(() => UI.showSection('query-section'), 1000);
+            return true;
         } else {
             UI.setMessage('error-message', '用户名或密码错误');
             loginBtn.disabled = false;
+            return false;
         }
     },
 
@@ -212,7 +208,7 @@ const Auth = {
         if (password !== confirmPassword) {
             UI.setMessage('register-error-message', '密码和确认密码不匹配');
             signupBtn.disabled = false;
-            return;
+            return false;
         }
 
         const expiryDate = new Date();
@@ -227,14 +223,17 @@ const Auth = {
             });
             if (error) {
                 UI.setMessage('register-error-message', '注册失败: ' + error.message);
+                signupBtn.disabled = false;
+                return false;
             } else {
                 UI.setMessage('register-error-message', `注册成功！7 天有效期: ${expiryDateString}，请检查邮箱验证`, 'green');
                 setTimeout(() => UI.showSection('login-section'), 2000);
+                return true;
             }
         } catch (err) {
             UI.setMessage('register-error-message', '注册错误: ' + err.message);
-        } finally {
             signupBtn.disabled = false;
+            return false;
         }
     },
 
@@ -269,48 +268,27 @@ const Search = {
     }
 };
 
-// 初始化模块
-const Init = {
-    setup() {
-        // URL 随机参数
-        const currentUrl = window.location.href;
-        const basePath = '/peekx/';
-        const targetUrl = window.location.origin + basePath;
-        const urlParams = new URLSearchParams(window.location.search);
-        const currentRandom = urlParams.get('r');
-        const isBasePath = currentUrl === targetUrl || currentUrl.endsWith('/peekx/index.html');
-        if (isBasePath || currentRandom) {
-            const randomSlug = Utils.generateRandomString(6);
-            window.history.replaceState({}, document.title, basePath + '?r=' + randomSlug);
-        }
-
-        // 检查登录状态
-        const token = localStorage.getItem('token');
-        if (token && Utils.verifyToken(token)) {
-            UI.showSection('query-section');
-        } else {
-            UI.showSection('login-section');
-        }
-
-        // 事件绑定
-        document.getElementById('login-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            Auth.login();
-        });
-        document.getElementById('register-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            Auth.register();
-        });
-        document.getElementById('logout-btn').addEventListener('click', Auth.logout);
-    }
+// 暴露接口给 ID 200 调用
+window.PeekXAuth = {
+    login: Auth.login,
+    register: Auth.register,
+    search: Search.search
 };
 
-// DOMContentLoaded 事件
+// 初始化（保持独立运行能力）
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof supabase === 'undefined') {
         console.error('Supabase 未加载');
         UI.setMessage('error-message', 'Supabase 未加载，请检查网络');
     } else {
-        Init.setup();
+        document.getElementById('login-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            Auth.login();
+        });
+        document.getElementById('register-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            Auth.register();
+        });
+        document.getElementById('logout-btn')?.addEventListener('click', Auth.logout);
     }
 });
