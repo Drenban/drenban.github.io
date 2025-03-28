@@ -2759,7 +2759,7 @@ li.CodeMirror-hint-active {
     border-right-color: #333
 }
 
-.CodeMirror-foldgutter-folded,.CodeMirror-foldgutter-open,.CodeMirror-foldmarker,.CodeMirror-hint,.peekx__nav-mode-label,.peekx__nav-mode-wrapper,.peekx__tab,.menu__link,.question__title,button {
+/* .CodeMirror-foldgutter-folded,.CodeMirror-foldgutter-open,.CodeMirror-foldmarker,.CodeMirror-hint,.peekx__nav-mode-label,.peekx__nav-mode-wrapper,.peekx__tab,.menu__link,.question__title,button {
     cursor: pointer
 }
 
@@ -3378,7 +3378,7 @@ li.CodeMirror-hint-active {
     html.is-mobile .menu__item--is-peekx {
         display: block;
     }
-}
+} */
 
 /* html.is-mobile .peekx {
     position: fixed;
