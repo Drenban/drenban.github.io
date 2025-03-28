@@ -565,12 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!token || !verifyToken(token)) {
             window.location.href = '/';
         } else {
-            const loginSection = document.getElementById('login-section');
-            const querySection = document.getElementById('query-section');
-            if (loginSection && querySection) {
-                loginSection.style.display = 'none';
-                querySection.style.display = 'block';
-            }
             loadXLSXData(); // 加载 XLSX 数据
             loadCorpus();   // 加载语料库
         }
