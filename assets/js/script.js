@@ -2,10 +2,12 @@ let userData = null;
 let workbookData = null;
 let corpus = null;
 let fuse = null;
-const searchCache = new Map(); // 搜索结果缓存
-window.searchHistory = []; // 全局搜索历史
+const searchCache = new Map();
+window.searchHistory = [];
 
-// XLSX 数据加载
+let appState = 'login'; // 应用状态：login, register, search
+
+// 加载 XLSX 数据
 async function loadXLSXData() {
     try {
         const response = await fetch('/assets/data/data.json');
@@ -37,7 +39,7 @@ function decodeBase64UTF8(base64Str) {
 // 加载语料库
 async function loadCorpus() {
     try {
-        const response = await fetch('/assets/data/obfuscated_corpus.json');
+        const response = await fetch('data/obfuscated_corpus.json');
         if (!response.ok) throw new Error(`无法加载语料库: ${response.status}`);
         const obfuscatedData = await response.text();
         const decodedData = decodeBase64UTF8(obfuscatedData);
@@ -194,7 +196,6 @@ function detectIntent(input) {
         { name: 'time', patterns: ['时间', '什么时候', '几点', '多久', '啥时候', '何时'], fallback: '您想知道什么的时间？可以告诉我更多细节吗？' },
         { name: 'price', patterns: ['价格', '多少钱', '费用', '成本', '价位', '花多少'], fallback: '您想了解哪方面的价格？可以具体一点吗？' },
         { name: 'howto', patterns: ['如何', '怎么', '怎样', '步骤', '方法', '怎么办'], fallback: '您想知道如何做什么？请告诉我具体操作！' },
-        // ... 其他意图保持不变
         { name: 'psychology', patterns: ['心理', '心态', '情绪', '行为'], fallback: '您想了解交易中的什么心理因素？请具体点！' }
     ];
 
@@ -217,14 +218,14 @@ function generateResponse(intent, match) {
         switch (intent.name) {
             case 'time': return '我可以帮您查时间相关的信息，您具体想知道什么时间？';
             case 'price': return '价格信息可能因产品不同而异，您想了解哪个产品的价格？';
-            // ... 其他 case 保持不变
+            case 'howto': return '我可以指导您完成操作，请告诉我您想做什么！';
             default: return intent.fallback || '抱歉，我不太明白您的意思，可以换个说法试试吗？';
         }
     }
     return '抱歉，我不太明白您的意思，可以换个说法试试吗？';
 }
 
-// 打字效果显示结果
+// 显示结果的打字效果
 function typeLines(lines, element) {
     let lineIndex = 0;
     let charIndex = 0;
@@ -270,6 +271,7 @@ function updateHistory() {
     });
 }
 
+// 密码哈希
 async function hashPassword(password) {
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
@@ -277,13 +279,15 @@ async function hashPassword(password) {
     return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+// 生成 token
 function generateToken(username) {
     const salt = crypto.randomUUID();
-    const payload = { username, exp: Date.now() + 3600000, salt };
+    const payload = { username, exp: Date.now() + 3600000, salt }; // 1小时有效期
     localStorage.setItem('salt', salt);
     return btoa(JSON.stringify(payload));
 }
 
+// 检查会员有效期
 function isMembershipValid(expiryDate) {
     const currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
@@ -291,10 +295,12 @@ function isMembershipValid(expiryDate) {
     return expiry.getTime() > currentDate.getTime() && !isNaN(expiry.getTime());
 }
 
+// 输入清理
 function sanitizeInput(input) {
     return input.replace(/[<>&;"]/g, '');
 }
 
+// 验证 token
 function verifyToken(token) {
     if (!token) {
         localStorage.removeItem('token');
@@ -337,14 +343,15 @@ function verifyToken(token) {
     }
 }
 
+// 加载用户数据
 async function loadUserData(username) {
     try {
-        const response = await fetch(`/assets/users/${username}.json`);
+        const response = await fetch(`users/${username}.json`);
         if (response.status === 404) {
             console.warn(`用户 ${username} 不存在`);
             return false;
         }
-        if (!response.ok) throw new Error(`Failed to fetch /assets/users/${username}.json`);
+        if (!response.ok) throw new Error(`Failed to fetch users/${username}.json`);
         const data = await response.json();
         console.log('用户数据加载成功:', data);
         return data;
@@ -354,6 +361,7 @@ async function loadUserData(username) {
     }
 }
 
+// Supabase 配置
 const supabaseUrl = 'https://xupnsfldgnmeicumtqpp.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1cG5zZmxkZ25tZWljdW10cXBwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE1Mjc1OTUsImV4cCI6MjA1NzEwMzU5NX0.hOHdx2iFHqA6LX2T-8xP4fWuYxK3HxZtTV2zjBHD3ro';
 
@@ -363,6 +371,21 @@ function getSupabaseClient() {
         return null;
     }
     return supabase.createClient(supabaseUrl, supabaseKey);
+}
+
+// 更新 UI 显示
+function updateUI() {
+    const loginSection = document.getElementById('login-section');
+    const registerSection = document.getElementById('register-section');
+    const searchSection = document.getElementById('search-section');
+    const historyToggle = document.getElementById('history-toggle');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    loginSection.style.display = appState === 'login' ? 'block' : 'none';
+    registerSection.style.display = appState === 'register' ? 'block' : 'none';
+    searchSection.style.display = appState === 'search' ? 'block' : 'none';
+    historyToggle.style.display = appState === 'search' ? 'inline-block' : 'none';
+    logoutBtn.style.display = appState === 'search' ? 'inline-block' : 'none';
 }
 
 const PeekXAuth = {
@@ -389,7 +412,7 @@ const PeekXAuth = {
                     if (!expiryDate || !isMembershipValid(expiryDate)) {
                         errorMessage.textContent = '您的会员已过期或未设置有效期，请续费';
                         localStorage.setItem('expiredEmail', username);
-                        setTimeout(() => window.location.href = '/assets/pay/index.html', 2000);
+                        setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
                         loginBtn.disabled = false;
                         return false;
                     }
@@ -397,6 +420,10 @@ const PeekXAuth = {
                     errorMessage.textContent = '登录成功（Supabase）！欢迎回来';
                     localStorage.setItem('session', JSON.stringify(data.session));
                     localStorage.setItem('token', data.session.access_token);
+                    appState = 'search';
+                    updateUI();
+                    loadXLSXData();
+                    loadCorpus();
                     loginBtn.disabled = false;
                     return true;
                 } else {
@@ -422,7 +449,7 @@ const PeekXAuth = {
             if (!expiryDate || !isMembershipValid(expiryDate)) {
                 errorMessage.textContent = '您的会员已过期或未设置有效期，请续费';
                 localStorage.setItem('expiredEmail', username);
-                setTimeout(() => window.location.href = '/assets/pay/index.html', 2000);
+                setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
                 loginBtn.disabled = false;
                 return false;
             }
@@ -430,6 +457,10 @@ const PeekXAuth = {
             localStorage.setItem('token', token);
             errorMessage.style.color = 'green';
             errorMessage.textContent = '登录成功（JSON）！欢迎回来';
+            appState = 'search';
+            updateUI();
+            loadXLSXData();
+            loadCorpus();
             loginBtn.disabled = false;
             return true;
         } else {
@@ -482,6 +513,9 @@ const PeekXAuth = {
                 errorMessage.textContent = data.user
                     ? `注册成功！用户 ID: ${data.user.id}，7 天有效期已设置: ${expiryDateString}`
                     : `注册成功，请检查邮箱验证！7 天有效期已设置: ${expiryDateString}`;
+                appState = 'login';
+                updateUI();
+                signupBtn.disabled = false;
                 return true;
             }
         } catch (err) {
@@ -493,6 +527,14 @@ const PeekXAuth = {
     },
 
     async search() {
+        const token = localStorage.getItem('token');
+        if (!verifyToken(token)) {
+            appState = 'login';
+            updateUI();
+            document.getElementById('error-message').textContent = '请先登录';
+            return;
+        }
+
         const query = document.getElementById('query-input').value.trim();
         if (!query) return;
 
@@ -548,70 +590,100 @@ const PeekXAuth = {
         localStorage.removeItem('token');
         localStorage.removeItem('salt');
         localStorage.removeItem('session');
-        window.location.href = '/';
+        appState = 'login';
+        updateUI();
+        document.getElementById('error-message').textContent = '已退出登录';
     }
 };
 
 window.PeekXAuth = PeekXAuth;
 
+// 初始化页面
 document.addEventListener('DOMContentLoaded', () => {
-    const pathname = window.location.pathname;
     const token = localStorage.getItem('token');
 
-    const isIndexPage = pathname === '/' || pathname.endsWith('/')
-    const isLoginPage = pathname.includes('');
-
-    if (isIndexPage && !isLoginPage) {
-        if (!token || !verifyToken(token)) {
-            window.location.href = '/';
-        } else {
-            loadXLSXData(); // 加载 XLSX 数据
-            loadCorpus();   // 加载语料库
-        }
+    // 检查 token 是否有效，设置初始状态
+    if (token && verifyToken(token)) {
+        appState = 'search';
+        loadXLSXData();
+        loadCorpus();
+    } else {
+        appState = 'login';
     }
+    updateUI();
 
+    // 绑定登录事件
     const loginBtn = document.getElementById('login-btn');
-    if (isLoginPage && loginBtn) {
+    if (loginBtn) {
         loginBtn.addEventListener('click', PeekXAuth.login);
     }
 
+    // 绑定注册事件
+    const signupBtn = document.getElementById('signup-btn');
+    if (signupBtn) {
+        signupBtn.addEventListener('click', PeekXAuth.register);
+    }
+
+    // 绑定搜索事件
+    const searchBtn = document.getElementById('search-btn');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', PeekXAuth.search);
+    }
+
+    // 绑定退出事件
     const logoutBtn = document.getElementById('logout-btn');
-    if (isIndexPage && logoutBtn) {
+    if (logoutBtn) {
         logoutBtn.addEventListener('click', PeekXAuth.logout);
     }
 
-    if (isIndexPage) {
-        const searchBtn = document.getElementById('search-btn');
-        if (searchBtn) {
-            searchBtn.addEventListener('click', PeekXAuth.search);
-        }
-
-        const historyToggle = document.getElementById('history-toggle');
-        if (historyToggle) {
-            historyToggle.addEventListener('click', () => {
-                document.getElementById('history-sidebar').classList.toggle('active');
-            });
-        }
-
-        const historyList = document.getElementById('history-list');
-        if (historyList) {
-            historyList.addEventListener('click', (e) => {
-                if (e.target.tagName === 'LI') {
-                    document.getElementById('query-input').value = e.target.textContent;
-                    PeekXAuth.search();
-                    document.getElementById('history-sidebar').classList.remove('active');
-                }
-            });
-        }
-
-        updateHistory();
+    // 绑定历史切换
+    const historyToggle = document.getElementById('history-toggle');
+    if (historyToggle) {
+        historyToggle.addEventListener('click', () => {
+            document.getElementById('history-sidebar').classList.toggle('active');
+        });
     }
 
+    // 绑定历史点击
+    const historyList = document.getElementById('history-list');
+    if (historyList) {
+        historyList.addEventListener('click', (e) => {
+            if (e.target.tagName === 'LI') {
+                document.getElementById('query-input').value = e.target.textContent;
+                PeekXAuth.search();
+                document.getElementById('history-sidebar').classList.remove('active');
+            }
+        });
+    }
+
+    // 切换到注册
+    const showRegister = document.getElementById('show-register');
+    if (showRegister) {
+        showRegister.addEventListener('click', (e) => {
+            e.preventDefault();
+            appState = 'register';
+            updateUI();
+        });
+    }
+
+    // 切换到登录
+    const showLogin = document.getElementById('show-login');
+    if (showLogin) {
+        showLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            appState = 'login';
+            updateUI();
+        });
+    }
+
+    // 检查 Supabase 加载
     if (typeof supabase === 'undefined') {
         console.error('Supabase 未定义，请检查 CDN 加载');
         const errorMessage = document.getElementById('error-message');
-        const registerErrorMessage = document.getElementById('register-error-message');
         if (errorMessage) errorMessage.textContent = 'Supabase 未加载，请刷新页面或检查网络';
+        const registerErrorMessage = document.getElementById('register-error-message');
         if (registerErrorMessage) registerErrorMessage.textContent = 'Supabase 未加载，请刷新页面或检查网络';
     }
+
+    updateHistory();
 });
