@@ -3483,7 +3483,7 @@ html.is-mobile .peekx__intro-header,
 html.is-mobile .peekx__intro-description,
 html.is-mobile .peekx__intro--minimize {
     display: none !important;
-}
+} */
 html.is-mobile .peekx {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -3495,4 +3495,4 @@ html.is-mobile body {
 }
 html.is-mobile .peekx > * {
     position: relative;
-} */
+}
