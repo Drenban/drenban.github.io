@@ -4,7 +4,7 @@ let userData = null;
 (function() {
     function generateRandomString(length) {
         const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let result = '';
+        let result = '/peekx';
         for (let i = 0; i < length; i++) {
             result += characters.charAt(Math.floor(Math.random() * characters.length));
         }
@@ -18,7 +18,7 @@ let userData = null;
 
         const urlParams = new URLSearchParams(window.location.search);
         const currentRandom = urlParams.get('r');
-        const isBasePath = currentUrl === targetUrl || currentUrl.endsWith('/');
+        const isBasePath = currentUrl === targetUrl || currentUrl.endsWith('/peekx');
         const isRandomPath = currentRandom !== null;
 
         if (isBasePath || isRandomPath) {
