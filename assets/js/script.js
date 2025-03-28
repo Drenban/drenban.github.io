@@ -1,31 +1,5 @@
 let userData = null;
 
-// URL 随机参数生成（保持原逻辑）
-(function() {
-    function generateRandomString(length) {
-        const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let result = '';
-        for (let i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        return result;
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-        const currentUrl = new URL(window.location.href);
-        const urlParams = new URLSearchParams(currentUrl.search);
-
-        // 如果已有 r 参数，不重复拼接
-        if (!urlParams.has('r')) {
-            const randomSlug = generateRandomString(6);
-            urlParams.set('r', randomSlug);
-            currentUrl.search = urlParams.toString();
-            window.history.replaceState({}, document.title, currentUrl.toString());
-        }
-    });
-})();
-
-// 工具函数
 async function hashPassword(password) {
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
@@ -110,12 +84,17 @@ async function loadUserData(username) {
     }
 }
 
-// Supabase 配置
 const supabaseUrl = 'https://xupnsfldgnmeicumtqpp.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1cG5zZmxkZ25tZWljdW10cXBwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE1Mjc1OTUsImV4cCI6MjA1NzEwMzU5NX0.hOHdx2iFHqA6LX2T-8xP4fWuYxK3HxZtTV2zjBHD3ro';
-const supabaseClient = typeof supabase !== 'undefined' ? supabase.createClient(supabaseUrl, supabaseKey) : null;
 
-// 认证和搜索模块
+function getSupabaseClient() {
+    if (typeof supabase === 'undefined') {
+        console.error('Supabase 未加载');
+        return null;
+    }
+    return supabase.createClient(supabaseUrl, supabaseKey);
+}
+
 const PeekXAuth = {
     async login() {
         const loginBtn = document.getElementById('login-btn');
@@ -123,9 +102,10 @@ const PeekXAuth = {
         loginBtn.disabled = true;
         errorMessage.textContent = '';
 
-        const username = sanitizeInput(document.getElementById('login-username').value.trim()); // 适配 ID 200
-        const password = sanitizeInput(document.getElementById('login-password').value.trim()); // 适配 ID 200
+        const username = sanitizeInput(document.getElementById('login-username').value.trim());
+        const password = sanitizeInput(document.getElementById('login-password').value.trim());
 
+        const supabaseClient = getSupabaseClient();
         let supabaseFailed = false;
         if (supabaseClient) {
             try {
@@ -139,7 +119,7 @@ const PeekXAuth = {
                     if (!expiryDate || !isMembershipValid(expiryDate)) {
                         errorMessage.textContent = '您的会员已过期或未设置有效期，请续费';
                         localStorage.setItem('expiredEmail', username);
-                        setTimeout(() => window.location.href = '/assets/pay/index.html', 2000);
+                        setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
                         loginBtn.disabled = false;
                         return false;
                     }
@@ -147,7 +127,8 @@ const PeekXAuth = {
                     errorMessage.textContent = '登录成功（Supabase）！欢迎回来';
                     localStorage.setItem('session', JSON.stringify(data.session));
                     localStorage.setItem('token', data.session.access_token);
-                    return true; // 返回成功状态给 ID 200
+                    loginBtn.disabled = false;
+                    return true;
                 } else {
                     console.warn('Supabase 登录失败:', error.message);
                     supabaseFailed = true;
@@ -171,7 +152,7 @@ const PeekXAuth = {
             if (!expiryDate || !isMembershipValid(expiryDate)) {
                 errorMessage.textContent = '您的会员已过期或未设置有效期，请续费';
                 localStorage.setItem('expiredEmail', username);
-                setTimeout(() => window.location.href = '/assets/pay/index.html', 2000);
+                setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
                 loginBtn.disabled = false;
                 return false;
             }
@@ -179,7 +160,8 @@ const PeekXAuth = {
             localStorage.setItem('token', token);
             errorMessage.style.color = 'green';
             errorMessage.textContent = '登录成功（JSON）！欢迎回来';
-            return true; // 返回成功状态给 ID 200
+            loginBtn.disabled = false;
+            return true;
         } else {
             errorMessage.textContent = supabaseFailed ? '用户名或密码错误' : 'Supabase 登录失败，请检查凭据';
             loginBtn.disabled = false;
@@ -189,13 +171,13 @@ const PeekXAuth = {
 
     async register() {
         const signupBtn = document.getElementById('signup-btn');
-        const errorMessage = document.getElementById('register-error-message'); // 适配 ID 200
+        const errorMessage = document.getElementById('register-error-message');
         signupBtn.disabled = true;
         errorMessage.textContent = '';
 
-        const email = sanitizeInput(document.getElementById('register-username').value.trim()); // 适配 ID 200
-        const password = sanitizeInput(document.getElementById('register-password').value.trim()); // 适配 ID 200
-        const confirmPassword = sanitizeInput(document.getElementById('register-confirm-password').value.trim()); // 适配 ID 200
+        const email = sanitizeInput(document.getElementById('register-username').value.trim());
+        const password = sanitizeInput(document.getElementById('register-password').value.trim());
+        const confirmPassword = sanitizeInput(document.getElementById('register-confirm-password').value.trim());
 
         if (password !== confirmPassword) {
             errorMessage.textContent = '密码和确认密码不匹配';
@@ -203,6 +185,7 @@ const PeekXAuth = {
             return false;
         }
 
+        const supabaseClient = getSupabaseClient();
         if (!supabaseClient) {
             errorMessage.textContent = 'Supabase 未加载，无法注册';
             signupBtn.disabled = false;
@@ -229,7 +212,7 @@ const PeekXAuth = {
                 errorMessage.textContent = data.user
                     ? `注册成功！用户 ID: ${data.user.id}，7 天有效期已设置: ${expiryDateString}`
                     : `注册成功，请检查邮箱验证！7 天有效期已设置: ${expiryDateString}`;
-                return true; // 返回成功状态给 ID 200
+                return true;
             }
         } catch (err) {
             errorMessage.style.color = 'red';
@@ -240,7 +223,6 @@ const PeekXAuth = {
     },
 
     async search() {
-        // ID 200 未提供搜索逻辑，此处占位
         console.log('搜索功能未实现，待补充');
     },
 
@@ -248,25 +230,24 @@ const PeekXAuth = {
         localStorage.removeItem('token');
         localStorage.removeItem('salt');
         localStorage.removeItem('session');
-        window.location.href = '/';
+        window.location.href = '/peekx/login.html';
     }
 };
 
-// 暴露接口给 ID 200
 window.PeekXAuth = PeekXAuth;
 
-// 初始化逻辑
 document.addEventListener('DOMContentLoaded', () => {
     const pathname = window.location.pathname;
     const urlParams = new URLSearchParams(window.location.search);
     const hasRandomParam = urlParams.has('r');
     const token = localStorage.getItem('token');
 
-    const isIndexPage = pathname === '/' || pathname.endsWith('/') || hasRandomParam;
+    const isIndexPage = pathname === '/peekx/' || pathname.endsWith('/peekx/index.html') || hasRandomParam;
+    const isLoginPage = pathname.includes('login.html');
 
-    if (isIndexPage) {
+    if (isIndexPage && !isLoginPage) {
         if (!token || !verifyToken(token)) {
-            window.location.href = '/';
+            window.location.href = '/peekx/login.html';
         } else {
             const loginSection = document.getElementById('login-section');
             const querySection = document.getElementById('query-section');
@@ -278,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const loginBtn = document.getElementById('login-btn');
-    if (pathname.includes('/') && loginBtn) {
+    if (isLoginPage && loginBtn) {
         loginBtn.addEventListener('click', PeekXAuth.login);
     }
 
@@ -290,6 +271,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof supabase === 'undefined') {
         console.error('Supabase 未定义，请检查 CDN 加载');
         const errorMessage = document.getElementById('error-message');
+        const registerErrorMessage = document.getElementById('register-error-message');
         if (errorMessage) errorMessage.textContent = 'Supabase 未加载，请刷新页面或检查网络';
+        if (registerErrorMessage) registerErrorMessage.textContent = 'Supabase 未加载，请刷新页面或检查网络';
     }
 });
