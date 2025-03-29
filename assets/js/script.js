@@ -398,11 +398,10 @@ function updateUI() {
     contents.register.style.display = appState === 'register' ? 'block' : 'none';
     contents.search.style.display = appState === 'search' ? 'block' : 'none';
 
-    // 仅在搜索状态下显示历史和登出按钮
     const historyToggle = document.getElementById('history-toggle');
     const logoutBtn = document.getElementById('logout-btn');
-    if (historyToggle) historyToggle.style.display = appState === 'search' ? 'block' : 'none';
-    if (logoutBtn) logoutBtn.style.display = appState === 'search' ? 'block' : 'none';
+    if (historyToggle) historyToggle.style.display = appState === 'search' ? 'inline-block' : 'none';
+    if (logoutBtn) logoutBtn.style.display = appState === 'search' ? 'inline-block' : 'none';
 }
 
 // 切换内容区域
