@@ -8,6 +8,14 @@ window.searchHistory = [];
 let appState = 'login'; // 应用状态：login, register, search
 let isLoggedIn = false;
 let contents; // 全局定义 contents
+let tabs; // 全局定义 tabs
+let cm = null; // 假设 CodeMirror 实例，可能未初始化
+
+// 假设的 triggerPeekxResize 函数（如果未定义则占位）
+function triggerPeekxResize() {
+    console.log("triggerPeekxResize called (placeholder)");
+    // 如果有实际实现，请替换此处
+}
 
 // 加载 XLSX 数据
 async function loadXLSXData() {
@@ -380,10 +388,10 @@ function getSupabaseClient() {
     return supabase.createClient(supabaseUrl, supabaseKey);
 }
 
-// 更新 UI 显示
+// 更新 UI 显示（与 switchContent 兼容）
 function updateUI() {
     if (!contents) {
-        console.error('contents 未定义，无法更新 UI');
+        console.error("contents 未定义，无法更新 UI");
         return;
     }
     const historyToggle = document.getElementById('history-toggle');
@@ -397,10 +405,38 @@ function updateUI() {
 }
 
 // 切换内容区域
-function switchContent(target) {
-    appState = target;
-    updateUI();
-}
+const switchContent = (tab) => {
+    if (!contents) {
+        console.error("contents 未定义，无法切换内容");
+        return;
+    }
+
+    Object.keys(contents).forEach(key => {
+        const content = contents[key];
+        if (content) {
+            content.style.display = key === tab && (isLoggedIn || tab !== "search") ? "block" : "none";
+            content.style.opacity = "1";
+        }
+    });
+
+    if (!isLoggedIn && tab === "search") {
+        contents.login.style.display = "block";
+        if (tabs && tabs[1]) {
+            tabs[1].classList.add("is-active");
+            Array.from(tabs).forEach(t => {
+                if (t.getAttribute("data-tab") === "search") t.classList.remove("is-active");
+            });
+        }
+        console.log("未登录，强制显示登录界面");
+    } else if (contents[tab]) {
+        console.log("Switching to tab:", tab, "Content visible:", contents[tab]);
+    } else {
+        console.warn("Content for tab", tab, "not found");
+    }
+
+    triggerPeekxResize();
+    if (cm) cm.setOption("readOnly", !isLoggedIn); // 更新 CodeMirror 只读状态
+};
 
 const PeekXAuth = {
     async login() {
@@ -635,7 +671,7 @@ const PeekXAuth = {
         localStorage.removeItem('session');
         appState = 'login';
         isLoggedIn = false;
-        updateUI();
+        switchContent('login');
         const errorMessage = document.getElementById('error-message');
         if (errorMessage) errorMessage.textContent = '已退出登录';
     }
@@ -654,6 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
         register: peekxContainer.querySelector('#register-section'),
         search: peekxContainer.querySelector('#search-section')
     };
+    tabs = peekxContainer.querySelectorAll('.auth-section, .search-section'); // 定义 tabs
 
     if (token && verifyToken(token)) {
         appState = 'search';
@@ -709,7 +746,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 选项卡切换
     const tabLinks = peekxContainer.querySelectorAll(".peekx__form-link a");
-    const tabs = peekxContainer.querySelectorAll(".auth-section, .search-section");
     tabLinks.forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
