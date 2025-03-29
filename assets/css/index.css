@@ -2778,6 +2778,8 @@ li.CodeMirror-hint-active {
 #shader-peekx {
     width: 100%;
     border: 1px solid #51585b;
+    border-left: none;
+    border-right: none;
     -webkit-transition: border-color .3s linear;
     -o-transition: border-color .3s linear;
     transition: border-color .3s linear
@@ -3409,6 +3411,9 @@ li.CodeMirror-hint-active {
 
     .result-panel {
         height: 50%;
+    }
+    .peekx {
+        left: 0;
     }
 }
 
