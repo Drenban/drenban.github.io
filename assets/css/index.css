@@ -3102,38 +3102,124 @@ li.CodeMirror-hint-active {
 }
 
 /* 重置样式 */
-.peekx__editor * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Microsoft YaHei', Arial, sans-serif;
 }
 
-/* 容器样式 */
-.peekx__editor {
-    border-top: 1px solid #51585b;
-    background: #051015; /* 改为深色背景，与 PeekX 一致 */
-    padding: 1rem;
-    height: 100%;
-    overflow: auto;
-}
-
-/* 内容区域 */
-.peekx__content {
-    background: #051015; /* 改为深色背景 */
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid #51585b; /* 添加边框，与其他元素一致 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-/* 表单样式 */
-.peekx__form {
+/* 布局容器 */
+.layout {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    min-height: 100vh;
+    background: #051015; /* 深色背景 */
+    color: #c3c3c3; /* 默认文本色 */
+}
+
+/* 顶部区域 */
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #051015;
+    border-bottom: 1px solid #51585b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo object {
+    display: block;
+}
+
+.history-btn,
+.auth-btn {
+    padding: 0.5rem 1rem;
+    background: #51585b;
+    color: #c3c3c3;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.history-btn:hover,
+.auth-btn:hover {
+    background: #00ffad;
+    color: #051015;
+}
+
+/* 侧边栏 */
+.sidebar {
+    position: fixed;
+    top: 60px; /* 根据顶部高度调整 */
+    left: -250px; /* 默认隐藏 */
+    width: 250px;
+    height: calc(100vh - 60px);
+    background: #051015;
+    border-right: 1px solid #51585b;
+    transition: left 0.3s ease;
+    z-index: 900;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.history-header {
+    padding: 1rem;
+    border-bottom: 1px solid #51585b;
+}
+
+.history-header h2 {
+    color: #c3c3c3;
+    font-size: 1.2rem;
+}
+
+#history-list {
+    list-style: none;
+    padding: 1rem;
+}
+
+#history-list li {
+    padding: 0.5rem 0;
+    color: #c3c3c3;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#history-list li:hover {
+    color: #00ffad;
+}
+
+/* 主内容区域 */
+.main {
+    flex: 1;
+    padding-top: 60px; /* 留出顶部固定区域 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 100%;
+    max-width: 400px; /* 与原始 .peekx__content 一致 */
+    padding: 2rem;
+}
+
+/* 通用区域样式（登录、注册、搜索） */
+.auth-section,
+.search-section {
+    background: #051015;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #51585b;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* 表单头部 */
@@ -3143,13 +3229,13 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__form-title {
-    color: #c3c3c3; /* 使用浅灰色，与选中状态一致 */
+    color: #c3c3c3;
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
 
 .peekx__form-subtitle {
-    color: #51585b; /* 使用深灰色，与边框一致 */
+    color: #51585b;
     font-size: 0.9rem;
 }
 
@@ -3160,7 +3246,7 @@ li.CodeMirror-hint-active {
 
 .peekx__form-label {
     display: block;
-    color: #c3c3c3; /* 使用浅灰色，提升可读性 */
+    color: #c3c3c3;
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
@@ -3169,25 +3255,25 @@ li.CodeMirror-hint-active {
 .peekx__form-input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #51585b; /* 改为深灰色边框 */
+    border: 1px solid #51585b;
     border-radius: 6px;
     font-size: 1rem;
-    background: #051015; /* 深色背景 */
-    color: #c3c3c3; /* 浅灰色文本 */
+    background: #051015;
+    color: #c3c3c3;
     transition: border-color 0.3s ease;
 }
 
 .peekx__form-input:focus {
     outline: none;
-    border-color: #00ffad; /* 使用亮青色，与成功状态一致 */
+    border-color: #00ffad;
 }
 
 /* 按钮样式 */
 .peekx__form-button {
     width: 100%;
     padding: 0.9rem;
-    background: #51585b; /* 默认深灰色，与边框一致 */
-    color: #c3c3c3; /* 浅灰色文本 */
+    background: #51585b;
+    color: #c3c3c3;
     border: none;
     border-radius: 6px;
     font-size: 1rem;
@@ -3196,19 +3282,19 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__form-button:hover {
-    background: #00ffad; /* hover 时亮青色 */
-    color: #051015; /* 深色文本提升对比 */
+    background: #00ffad;
+    color: #051015;
 }
 
 /* 链接样式 */
 .peekx__form-link {
     text-align: center;
     font-size: 0.9rem;
-    color: #51585b; /* 深灰色，与次要文本一致 */
+    color: #51585b;
 }
 
 .peekx__form-link a {
-    color: #00ffad; /* 亮青色，与交互元素一致 */
+    color: #00ffad;
     text-decoration: none;
 }
 
@@ -3216,167 +3302,124 @@ li.CodeMirror-hint-active {
     text-decoration: underline;
 }
 
-/* 响应式调整（针对 PeekX 页面） */
+/* 搜索区域特定样式 */
+.search-section .output {
+    min-height: 100px;
+    margin-bottom: 1rem;
+    color: #c3c3c3;
+    overflow-y: auto;
+}
+
+.input-area {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#query-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #51585b;
+    border-radius: 6px;
+    background: #051015;
+    color: #c3c3c3;
+    font-size: 1rem;
+}
+
+#query-input:focus {
+    outline: none;
+    border-color: #00ffad;
+}
+
+#search-btn {
+    padding: 0.75rem;
+    background: #51585b;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#search-btn:hover {
+    background: #00ffad;
+}
+
+#search-btn svg {
+    vertical-align: middle;
+}
+
+/* 响应式调整 */
 @media (max-width: 812px) {
-    /* 主容器调整 */
-    .peekx {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        padding: 2em 1em 10px; /* 增加顶部内边距，留出 header 空间 */
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
-        height: 100vh;
+    .top-section {
+        padding: 1rem;
     }
 
-    /* 内容区域（登录、注册、搜索共用） */
-    .peekx__content {
+    .sidebar {
+        width: 200px;
+        left: -200px;
+    }
+
+    .main {
+        padding: 60px 1rem 1rem;
+    }
+
+    .content {
         padding: 1.5rem;
         max-width: 100%;
-        min-height: auto; /* 允许高度自适应内容 */
-        overflow-y: auto; /* 内容超出时可滚动 */
-        border-radius: 8px; /* 稍减小圆角 */
     }
 
-    /* 表单样式 */
-    .peekx__form {
-        gap: 0.2rem; /* 减小间距 */
+    .auth-section,
+    .search-section {
+        padding: 1.5rem;
+        border-radius: 8px;
     }
 
-    /* 表单头部 */
     .peekx__form-header {
-        margin-bottom: 1rem; /* 减小头部间距 */
+        margin-bottom: 1rem;
     }
 
     .peekx__form-title {
-        font-size: 1.5rem; /* 减小标题字体 */
+        font-size: 1.5rem;
     }
 
     .peekx__form-subtitle {
-        font-size: 0.85rem; /* 减小副标题字体 */
+        font-size: 0.85rem;
     }
 
-    /* 表单组 */
     .peekx__form-group {
-        margin-bottom: 0.4rem; /* 减小间距 */
+        margin-bottom: 0.4rem;
     }
 
     .peekx__form-label {
-        font-size: 0.9rem; /* 减小标签字体 */
+        font-size: 0.9rem;
     }
 
     .peekx__form-input {
-        padding: 0.6rem; /* 减小输入框内边距 */
-        font-size: 0.95rem; /* 减小输入字体 */
+        padding: 0.6rem;
+        font-size: 0.95rem;
     }
 
-    /* 按钮样式 */
     .peekx__form-button {
-        padding: 0.7rem; /* 减小按钮内边距 */
-        font-size: 0.95rem; /* 减小按钮字体 */
+        padding: 0.7rem;
+        font-size: 0.95rem;
     }
 
-    /* 链接样式 */
     .peekx__form-link {
-        font-size: 0.85rem; /* 减小链接字体 */
+        font-size: 0.85rem;
     }
 
-    /* 选项卡调整 */
-    .peekx__tabs {
-        flex-wrap: wrap; /* 允许换行 */
+    #query-input,
+    #search-btn {
+        padding: 0.6rem;
     }
+}
 
-    .peekx__tab {
-        width: 33.3333333%; /* 默认保持 33.33% */
-        padding: 0.4em 0; /* 减小内边距 */
-        font-size: 0.9rem; /* 减小字体 */
-    }
+#history-list {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
 
-    .peekx__tab + .peekx__tab {
-        border-left: 1px solid #51585b; /* 恢复边框分隔 */
-    }
-
-    /* 针对登录和注册各占 50%，搜索占 100% */
-    .peekx__tab[data-tab="login"],
-    .peekx__tab[data-tab="register"] {
-        width: 50%; /* 登录和注册各占 50% */
-    }
-
-    .peekx__tab[data-tab="search"] {
-        width: 100%; /* 搜索占 100% */
-    }
-
-    /* 隐藏导航模式 */
-    .peekx__nav-modes {
-        display: none; /* 在手机端不显示 */
-    }
-
-    /* 隐藏导航模式 */
-    .peekx__intro-header {
-        display: none; /* 在手机端不显示 */
-    }
-
-    /* 隐藏导航模式 */
-    .peekx__intro-title {
-/*         display: none; /* 在手机端不显示 */ */
-    }
-
-    /* 隐藏导航模式 */
-    .peekx__intro--minimize {
-        display: none; /* 在手机端不显示 */
-    }
-    
-    /* 介绍区域调整 - 手机端默认最小化 */
-    .peekx__intro {
-        max-height: 2.5em; /* 默认最小化 */
-        overflow: hidden; /* 确保内容被裁剪 */
-    }
-
-    .is-minimized .peekx__intro {
-        max-height: 2.5em; /* 最小化时调整 */
-    }
-
-    .peekx__intro-description {
-        font-size: 0.75rem; /* 减小描述字体 */
-    }
-
-    /* 搜索区域（CodeMirror） */
-    #shader-peekx-cm {
-/*         height: auto;
-        min-height: 200px; */
-    }
-
-    /* 控制栏调整 */
-    .peekx__controls {
-        padding: 0 0.5em; /* 减小内边距 */
-        height: 35px; /* 减小高度 */
-        min-height: 35px;
-    }
-
-    .peekx__controls-left .button-icon {
-        height: 16px; /* 减小图标大小 */
-        margin-left: 0.5em; /* 减小间距 */
-    }
-
-    /* 确保 header 和菜单栏可见 */
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 2000;
-        background: #051015;
-    }
-
-    .menu__items {
-        display: flex !important;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    html.is-mobile .menu__item--is-peekx {
-        display: block;
-    }
+.line {
+    margin-bottom: 0.5rem;
 }
 
 /* html.is-mobile .peekx {
