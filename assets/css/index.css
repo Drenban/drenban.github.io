@@ -3031,7 +3031,7 @@ li.CodeMirror-hint-active {
 }
 
 .peekx__controls {
-    position: fixed;
+    position: relative;
     height: 40px;
     min-height: 40px;
     background-color: #051015;
@@ -3113,7 +3113,7 @@ li.CodeMirror-hint-active {
 .layout {
     display: flex;
     flex-direction: column;
-    min-height: 80vh;
+    min-height: 50vh;
     background: #051015;
     color: #c3c3c3;
 }
