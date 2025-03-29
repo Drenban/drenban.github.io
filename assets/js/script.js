@@ -388,20 +388,21 @@ function getSupabaseClient() {
     return supabase.createClient(supabaseUrl, supabaseKey);
 }
 
-// 更新 UI 显示（与 switchContent 兼容）
+// 更新 UI 显示
 function updateUI() {
     if (!contents) {
         console.error("contents 未定义，无法更新 UI");
         return;
     }
-    const historyToggle = document.getElementById('history-toggle');
-    const logoutBtn = document.getElementById('logout-btn');
-
     contents.login.style.display = appState === 'login' ? 'block' : 'none';
     contents.register.style.display = appState === 'register' ? 'block' : 'none';
     contents.search.style.display = appState === 'search' ? 'block' : 'none';
-    if (historyToggle) historyToggle.style.display = appState === 'search' ? 'inline-block' : 'none';
-    if (logoutBtn) logoutBtn.style.display = appState === 'search' ? 'inline-block' : 'none';
+
+    // 仅在搜索状态下显示历史和登出按钮
+    const historyToggle = document.getElementById('history-toggle');
+    const logoutBtn = document.getElementById('logout-btn');
+    if (historyToggle) historyToggle.style.display = appState === 'search' ? 'block' : 'none';
+    if (logoutBtn) logoutBtn.style.display = appState === 'search' ? 'block' : 'none';
 }
 
 // 切换内容区域
