@@ -7,6 +7,7 @@ window.searchHistory = [];
 
 let appState = 'login'; // 应用状态：login, register, search
 let isLoggedIn = false;
+let contents; // 全局定义 contents
 
 // 加载 XLSX 数据
 async function loadXLSXData() {
@@ -381,17 +382,24 @@ function getSupabaseClient() {
 
 // 更新 UI 显示
 function updateUI() {
-    const loginSection = document.getElementById('login-section');
-    const registerSection = document.getElementById('register-section');
-    const searchSection = document.getElementById('search-section');
+    if (!contents) {
+        console.error('contents 未定义，无法更新 UI');
+        return;
+    }
     const historyToggle = document.getElementById('history-toggle');
     const logoutBtn = document.getElementById('logout-btn');
 
-    if (loginSection) loginSection.style.display = appState === 'login' ? 'block' : 'none';
-    if (registerSection) registerSection.style.display = appState === 'register' ? 'block' : 'none';
-    if (searchSection) searchSection.style.display = appState === 'search' ? 'block' : 'none';
+    contents.login.style.display = appState === 'login' ? 'block' : 'none';
+    contents.register.style.display = appState === 'register' ? 'block' : 'none';
+    contents.search.style.display = appState === 'search' ? 'block' : 'none';
     if (historyToggle) historyToggle.style.display = appState === 'search' ? 'inline-block' : 'none';
     if (logoutBtn) logoutBtn.style.display = appState === 'search' ? 'inline-block' : 'none';
+}
+
+// 切换内容区域
+function switchContent(target) {
+    appState = target;
+    updateUI();
 }
 
 const PeekXAuth = {
@@ -641,7 +649,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const token = localStorage.getItem('token');
 
     const peekxContainer = document.querySelector('.layout');
-    const contents = {
+    contents = {
         login: peekxContainer.querySelector('#login-section'),
         register: peekxContainer.querySelector('#register-section'),
         search: peekxContainer.querySelector('#search-section')
@@ -665,8 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const success = await PeekXAuth.login();
             if (success) {
                 isLoggedIn = true;
-                appState = 'search';
-                updateUI();
+                switchContent('search');
             }
         });
     }
@@ -685,8 +692,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const success = await PeekXAuth.register();
             if (success) {
-                appState = 'login';
-                updateUI();
+                switchContent('login');
             }
         });
     }
@@ -712,8 +718,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tabs.forEach(t => {
                 if (t.id === `${targetTab}-section`) t.classList.add("is-active");
             });
-            appState = targetTab;
-            updateUI();
+            switchContent(targetTab);
         });
     });
 
