@@ -50,7 +50,7 @@ function decodeBase64UTF8(base64Str) {
 // 加载语料库
 async function loadCorpus() {
     try {
-        const response = await fetch('data/obfuscated_corpus.json');
+        const response = await fetch('/assets/data/obfuscated_corpus.json');
         if (!response.ok) throw new Error(`无法加载语料库: ${response.status}`);
         const obfuscatedData = await response.text();
         const decodedData = decodeBase64UTF8(obfuscatedData);
