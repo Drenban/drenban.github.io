@@ -481,21 +481,11 @@
                             <div id="shader-peekx">
                                 <div id="shader-peekx-cm"></div>
                                 <div class="layout">
-<!--                                     <header class="top-section">
-                                        <button id="history-toggle" class="history-btn" style="display: none;">History</button>
+                                    <header class="top-section">
                                         <div class="logo">
                                             <object type="image/svg+xml" data="/peekx/svg/logo.svg" width="180" height="60">PeekX Logo</object>
                                         </div>
-                                        <div class="auth">
-                                            <button id="logout-btn" class="auth-btn" style="display: none;">Logout</button>
-                                        </div>
                                     </header>
-                                    <div class="sidebar" id="history-sidebar">
-                                        <div class="history-header">
-                                            <h2>History</h2>
-                                        </div>
-                                        <ul id="history-list"></ul>
-                                    </div> -->
                                     <main class="main">
                                         <div class="content">
                                             <!-- 登录区域 -->
@@ -507,23 +497,11 @@
                                                     </div>
                                                     <div class="peekx__form-group">
                                                         <label class="peekx__form-label" for="login-username">用户名</label>
-                                                        <input 
-                                                            type="email" 
-                                                            id="login-username" 
-                                                            class="peekx__form-input" 
-                                                            placeholder="Email (e.g., admin@example.com)" 
-                                                            required
-                                                        >
+                                                        <input type="email" id="login-username" class="peekx__form-input" placeholder="Email" required>
                                                     </div>
                                                     <div class="peekx__form-group">
                                                         <label class="peekx__form-label" for="login-password">密码</label>
-                                                        <input 
-                                                            type="password" 
-                                                            id="login-password" 
-                                                            class="peekx__form-input" 
-                                                            placeholder="Password" 
-                                                            required
-                                                        >
+                                                        <input type="password" id="login-password" class="peekx__form-input" placeholder="Password" required>
                                                     </div>
                                                     <button id="login-btn" class="peekx__form-button" type="submit">登录</button>
                                                     <p id="error-message" style="text-align: center; margin-top: 10px;"></p>
@@ -541,33 +519,15 @@
                                                     </div>
                                                     <div class="peekx__form-group">
                                                         <label class="peekx__form-label" for="register-username">用户名</label>
-                                                        <input 
-                                                            type="email" 
-                                                            id="register-username" 
-                                                            class="peekx__form-input" 
-                                                            placeholder="Email (e.g., admin@example.com)" 
-                                                            required
-                                                        >
+                                                        <input type="email" id="register-username" class="peekx__form-input" placeholder="Email" required>
                                                     </div>
                                                     <div class="peekx__form-group">
                                                         <label class="peekx__form-label" for="register-password">密码</label>
-                                                        <input 
-                                                            type="password" 
-                                                            id="register-password" 
-                                                            class="peekx__form-input" 
-                                                            placeholder="Password" 
-                                                            required
-                                                        >
+                                                        <input type="password" id="register-password" class="peekx__form-input" placeholder="Password" required>
                                                     </div>
                                                     <div class="peekx__form-group">
                                                         <label class="peekx__form-label" for="register-confirm-password">确认密码</label>
-                                                        <input 
-                                                            type="password" 
-                                                            id="register-confirm-password" 
-                                                            class="peekx__form-input" 
-                                                            placeholder="Same password as above" 
-                                                            required
-                                                        >
+                                                        <input type="password" id="register-confirm-password" class="peekx__form-input" placeholder="Same password" required>
                                                     </div>
                                                     <button id="signup-btn" class="peekx__form-button" type="submit">注册</button>
                                                     <p id="register-error-message" style="text-align: center; margin-top: 10px;"></p>
@@ -578,40 +538,36 @@
                                             </div>
                                             <!-- 搜索区域 -->
                                             <div id="search-section" class="search-section" style="display: none;">
-                                                <div class="output" id="result-container"></div>
-                                                <div class="input-area">
-                                                    <input 
-                                                        type="text" 
-                                                        id="query-input" 
-                                                        placeholder="How can PeekX help?" 
-                                                        onkeydown="if(event.key === 'Enter') PeekXAuth.search()"
-                                                    >
-                                                    <button id="search-btn">
-                                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                                <div class="search-results">
-                                                    <div id="history-sidebar" class="history-panel">
-                                                        <div class="history-header">
-                                                            <h2>历史</h2>
-                                                        </div>
-                                                        <ul id="history-list"></ul>
-                                                    </div>
-                                                    <div class="result-panel">
-                                                        <div class="output" id="result-container"></div>
-                                                    </div>
-                                                    <div class="logout-panel">
+                                                <div class="search-container">
+                                                    <div class="search-header">
+                                                        <button id="history-toggle" class="history-btn">历史</button>
                                                         <button id="logout-btn" class="auth-btn">登出</button>
+                                                        <div class="input-area">
+                                                            <input type="text" id="query-input" placeholder="How can PeekX help?" onkeydown="if(event.key === 'Enter') PeekXAuth.search()">
+                                                            <button id="search-btn">
+                                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="search-results">
+                                                        <div id="history-sidebar" class="history-panel">
+                                                            <div class="history-header">
+                                                                <h2>历史</h2>
+                                                            </div>
+                                                            <ul id="history-list"></ul>
+                                                        </div>
+                                                        <div class="result-panel">
+                                                            <div class="output" id="result-container"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <button id="history-toggle" class="history-btn">历史</button> <!-- 用于切换历史面板 -->
                                             </div>
                                         </div>
-                                    </div>
-                                </main>
-                            </div>
+                                    </main>
+                                </div>
+                               
                                 <div class="peekx__controls">
                                     <div class="peekx__controls-left">
                                         <button class="button-default button__preview" aria-label="Preview shader">Preview</button>
