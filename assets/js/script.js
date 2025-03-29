@@ -6,6 +6,7 @@ const searchCache = new Map();
 window.searchHistory = [];
 
 let appState = 'login'; // 应用状态：login, register, search
+let isLoggedIn = false;
 
 // 加载 XLSX 数据
 async function loadXLSXData() {
@@ -68,10 +69,10 @@ async function loadCorpus() {
 // 搜索 XLSX 数据
 function searchXLSX(query) {
     const resultContainer = document.getElementById('result-container');
-    resultContainer.innerHTML = '';
+    if (resultContainer) resultContainer.innerHTML = '';
 
     if (!workbookData) {
-        resultContainer.textContent = '服务器繁忙，请稍后再试';
+        if (resultContainer) resultContainer.textContent = '服务器繁忙，请稍后再试';
         return false;
     }
 
@@ -169,7 +170,7 @@ function searchXLSX(query) {
 // 搜索语料库
 function searchCorpus(query) {
     const resultContainer = document.getElementById('result-container');
-    resultContainer.innerHTML = '';
+    if (resultContainer) resultContainer.innerHTML = '';
 
     if (!corpus || !fuse) {
         return '语料库未加载，请稍后再试';
@@ -386,22 +387,22 @@ function updateUI() {
     const historyToggle = document.getElementById('history-toggle');
     const logoutBtn = document.getElementById('logout-btn');
 
-    loginSection.style.display = appState === 'login' ? 'block' : 'none';
-    registerSection.style.display = appState === 'register' ? 'block' : 'none';
-    searchSection.style.display = appState === 'search' ? 'block' : 'none';
-    historyToggle.style.display = appState === 'search' ? 'inline-block' : 'none';
-    logoutBtn.style.display = appState === 'search' ? 'inline-block' : 'none';
+    if (loginSection) loginSection.style.display = appState === 'login' ? 'block' : 'none';
+    if (registerSection) registerSection.style.display = appState === 'register' ? 'block' : 'none';
+    if (searchSection) searchSection.style.display = appState === 'search' ? 'block' : 'none';
+    if (historyToggle) historyToggle.style.display = appState === 'search' ? 'inline-block' : 'none';
+    if (logoutBtn) logoutBtn.style.display = appState === 'search' ? 'inline-block' : 'none';
 }
 
 const PeekXAuth = {
     async login() {
         const loginBtn = document.getElementById('login-btn');
         const errorMessage = document.getElementById('error-message');
-        loginBtn.disabled = true;
-        errorMessage.textContent = '';
+        if (loginBtn) loginBtn.disabled = true;
+        if (errorMessage) errorMessage.textContent = '';
 
-        const username = sanitizeInput(document.getElementById('login-username').value.trim());
-        const password = sanitizeInput(document.getElementById('login-password').value.trim());
+        const username = sanitizeInput(document.getElementById('login-username')?.value.trim() || '');
+        const password = sanitizeInput(document.getElementById('login-password')?.value.trim() || '');
 
         const supabaseClient = getSupabaseClient();
         let supabaseFailed = false;
@@ -415,21 +416,24 @@ const PeekXAuth = {
                 if (!error) {
                     const expiryDate = data.user.user_metadata?.expiry_date;
                     if (!expiryDate || !isMembershipValid(expiryDate)) {
-                        errorMessage.textContent = '您的会员已过期或未设置有效期，请续费';
+                        if (errorMessage) errorMessage.textContent = '您的会员已过期或未设置有效期，请续费';
                         localStorage.setItem('expiredEmail', username);
                         setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
-                        loginBtn.disabled = false;
+                        if (loginBtn) loginBtn.disabled = false;
                         return false;
                     }
-                    errorMessage.style.color = 'green';
-                    errorMessage.textContent = '登录成功（Supabase）！欢迎回来';
+                    if (errorMessage) {
+                        errorMessage.style.color = 'green';
+                        errorMessage.textContent = '登录成功（Supabase）！欢迎回来';
+                    }
                     localStorage.setItem('session', JSON.stringify(data.session));
                     localStorage.setItem('token', data.session.access_token);
                     appState = 'search';
+                    isLoggedIn = true;
                     updateUI();
                     loadXLSXData();
                     loadCorpus();
-                    loginBtn.disabled = false;
+                    if (loginBtn) loginBtn.disabled = false;
                     return true;
                 } else {
                     console.warn('Supabase 登录失败:', error.message);
@@ -443,8 +447,8 @@ const PeekXAuth = {
 
         const userData = await loadUserData(username);
         if (!userData) {
-            errorMessage.textContent = '用户不存在或网络错误';
-            loginBtn.disabled = false;
+            if (errorMessage) errorMessage.textContent = '用户不存在或网络错误';
+            if (loginBtn) loginBtn.disabled = false;
             return false;
         }
 
@@ -452,25 +456,28 @@ const PeekXAuth = {
         if (userData.username === username && userData.password === hashedPassword) {
             const expiryDate = userData.expiry_date;
             if (!expiryDate || !isMembershipValid(expiryDate)) {
-                errorMessage.textContent = '您的会员已过期或未设置有效期，请续费';
+                if (errorMessage) errorMessage.textContent = '您的会员已过期或未设置有效期，请续费';
                 localStorage.setItem('expiredEmail', username);
                 setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
-                loginBtn.disabled = false;
+                if (loginBtn) loginBtn.disabled = false;
                 return false;
             }
             const token = generateToken(username);
             localStorage.setItem('token', token);
-            errorMessage.style.color = 'green';
-            errorMessage.textContent = '登录成功（JSON）！欢迎回来';
+            if (errorMessage) {
+                errorMessage.style.color = 'green';
+                errorMessage.textContent = '登录成功（JSON）！欢迎回来';
+            }
             appState = 'search';
+            isLoggedIn = true;
             updateUI();
             loadXLSXData();
             loadCorpus();
-            loginBtn.disabled = false;
+            if (loginBtn) loginBtn.disabled = false;
             return true;
         } else {
-            errorMessage.textContent = supabaseFailed ? '用户名或密码错误' : 'Supabase 登录失败，请检查凭据';
-            loginBtn.disabled = false;
+            if (errorMessage) errorMessage.textContent = supabaseFailed ? '用户名或密码错误' : 'Supabase 登录失败，请检查凭据';
+            if (loginBtn) loginBtn.disabled = false;
             return false;
         }
     },
@@ -478,23 +485,23 @@ const PeekXAuth = {
     async register() {
         const signupBtn = document.getElementById('signup-btn');
         const errorMessage = document.getElementById('register-error-message');
-        signupBtn.disabled = true;
-        errorMessage.textContent = '';
+        if (signupBtn) signupBtn.disabled = true;
+        if (errorMessage) errorMessage.textContent = '';
 
-        const email = sanitizeInput(document.getElementById('register-username').value.trim());
-        const password = sanitizeInput(document.getElementById('register-password').value.trim());
-        const confirmPassword = sanitizeInput(document.getElementById('register-confirm-password').value.trim());
+        const email = sanitizeInput(document.getElementById('register-username')?.value.trim() || '');
+        const password = sanitizeInput(document.getElementById('register-password')?.value.trim() || '');
+        const confirmPassword = sanitizeInput(document.getElementById('register-confirm-password')?.value.trim() || '');
 
         if (password !== confirmPassword) {
-            errorMessage.textContent = '密码和确认密码不匹配';
-            signupBtn.disabled = false;
+            if (errorMessage) errorMessage.textContent = '密码和确认密码不匹配';
+            if (signupBtn) signupBtn.disabled = false;
             return false;
         }
 
         const supabaseClient = getSupabaseClient();
         if (!supabaseClient) {
-            errorMessage.textContent = 'Supabase 未加载，无法注册';
-            signupBtn.disabled = false;
+            if (errorMessage) errorMessage.textContent = 'Supabase 未加载，无法注册';
+            if (signupBtn) signupBtn.disabled = false;
             return false;
         }
 
@@ -509,24 +516,30 @@ const PeekXAuth = {
                 options: { data: { expiry_date: expiryDateString } }
             });
             if (error) {
-                errorMessage.style.color = 'red';
-                errorMessage.textContent = '注册失败: ' + error.message;
-                signupBtn.disabled = false;
+                if (errorMessage) {
+                    errorMessage.style.color = 'red';
+                    errorMessage.textContent = '注册失败: ' + error.message;
+                }
+                if (signupBtn) signupBtn.disabled = false;
                 return false;
             } else {
-                errorMessage.style.color = 'green';
-                errorMessage.textContent = data.user
-                    ? `注册成功！用户 ID: ${data.user.id}，7 天有效期已设置: ${expiryDateString}`
-                    : `注册成功，请检查邮箱验证！7 天有效期已设置: ${expiryDateString}`;
+                if (errorMessage) {
+                    errorMessage.style.color = 'green';
+                    errorMessage.textContent = data.user
+                        ? `注册成功！用户 ID: ${data.user.id}，7 天有效期已设置: ${expiryDateString}`
+                        : `注册成功，请检查邮箱验证！7 天有效期已设置: ${expiryDateString}`;
+                }
                 appState = 'login';
                 updateUI();
-                signupBtn.disabled = false;
+                if (signupBtn) signupBtn.disabled = false;
                 return true;
             }
         } catch (err) {
-            errorMessage.style.color = 'red';
-            errorMessage.textContent = '注册错误: ' + err.message;
-            signupBtn.disabled = false;
+            if (errorMessage) {
+                errorMessage.style.color = 'red';
+                errorMessage.textContent = '注册错误: ' + err.message;
+            }
+            if (signupBtn) signupBtn.disabled = false;
             return false;
         }
     },
@@ -536,7 +549,8 @@ const PeekXAuth = {
         if (!verifyToken(token)) {
             appState = 'login';
             updateUI();
-            document.getElementById('error-message').textContent = '请先登录';
+            const errorMessage = document.getElementById('error-message');
+            if (errorMessage) errorMessage.textContent = '请先登录';
             return;
         }
 
@@ -549,17 +563,17 @@ const PeekXAuth = {
             appState = 'search';
             updateUI();
         }
-    
+
         const queryInput = document.getElementById('query-input');
         const resultContainer = document.getElementById('result-container');
         if (!queryInput || !resultContainer) {
             console.error('Query input or result container not found');
             return;
         }
-    
+
         const query = queryInput.value.trim();
         if (!query) return;
-    
+
         resultContainer.innerHTML = '';
 
         const isXlsxQuery = query.includes(':') ||
@@ -612,8 +626,10 @@ const PeekXAuth = {
         localStorage.removeItem('salt');
         localStorage.removeItem('session');
         appState = 'login';
+        isLoggedIn = false;
         updateUI();
-        document.getElementById('error-message').textContent = '已退出登录';
+        const errorMessage = document.getElementById('error-message');
+        if (errorMessage) errorMessage.textContent = '已退出登录';
     }
 };
 
@@ -622,13 +638,18 @@ window.PeekXAuth = PeekXAuth;
 // 初始化页面
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded');
-    const resultContainer = document.getElementById('result-container');
-    console.log('resultContainer exists:', !!resultContainer);
     const token = localStorage.getItem('token');
 
-    // 检查 token 是否有效，设置初始状态
+    const peekxContainer = document.querySelector('.layout');
+    const contents = {
+        login: peekxContainer.querySelector('#login-section'),
+        register: peekxContainer.querySelector('#register-section'),
+        search: peekxContainer.querySelector('#search-section')
+    };
+
     if (token && verifyToken(token)) {
         appState = 'search';
+        isLoggedIn = true;
         loadXLSXData();
         loadCorpus();
     } else {
@@ -636,31 +657,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateUI();
 
-    // 绑定登录事件
-    const loginBtn = document.getElementById('login-btn');
-    if (loginBtn) {
-        loginBtn.addEventListener('click', PeekXAuth.login);
+    // 登录表单提交
+    const loginForm = contents.login.querySelector('#login-form');
+    if (loginForm) {
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const success = await PeekXAuth.login();
+            if (success) {
+                isLoggedIn = true;
+                appState = 'search';
+                updateUI();
+            }
+        });
     }
 
-    // 绑定注册事件
-    const signupBtn = document.getElementById('signup-btn');
-    if (signupBtn) {
-        signupBtn.addEventListener('click', PeekXAuth.register);
+    // 注册表单提交
+    const registerForm = contents.register.querySelector('#register-form');
+    if (registerForm) {
+        registerForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const password = registerForm.querySelector("#register-password").value;
+            const confirmPassword = registerForm.querySelector("#register-confirm-password").value;
+            if (password !== confirmPassword) {
+                const errorMessage = contents.register.querySelector('#register-error-message');
+                if (errorMessage) errorMessage.textContent = "密码不匹配";
+                return;
+            }
+            const success = await PeekXAuth.register();
+            if (success) {
+                appState = 'login';
+                updateUI();
+            }
+        });
     }
 
-    // 绑定搜索事件
-    const searchBtn = document.getElementById('search-btn');
-    if (searchBtn) {
-        searchBtn.addEventListener('click', PeekXAuth.search);
+    // 搜索功能
+    const searchInput = contents.search.querySelector("#query-input");
+    const searchBtn = contents.search.querySelector("#search-btn");
+    if (searchInput && searchBtn) {
+        searchInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") PeekXAuth.search();
+        });
+        searchBtn.addEventListener("click", () => PeekXAuth.search());
     }
 
-    // 绑定退出事件
-    const logoutBtn = document.getElementById('logout-btn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', PeekXAuth.logout);
-    }
+    // 选项卡切换
+    const tabLinks = peekxContainer.querySelectorAll(".peekx__form-link a");
+    const tabs = peekxContainer.querySelectorAll(".auth-section, .search-section");
+    tabLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetTab = link.getAttribute("data-tab");
+            tabs.forEach(t => t.classList.remove("is-active"));
+            tabs.forEach(t => {
+                if (t.id === `${targetTab}-section`) t.classList.add("is-active");
+            });
+            appState = targetTab;
+            updateUI();
+        });
+    });
 
-    // 绑定历史切换
+    // 历史切换
     const historyToggle = document.getElementById('history-toggle');
     if (historyToggle) {
         historyToggle.addEventListener('click', () => {
@@ -668,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 绑定历史点击
+    // 历史点击
     const historyList = document.getElementById('history-list');
     if (historyList) {
         historyList.addEventListener('click', (e) => {
@@ -680,33 +737,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 切换到注册
-    const showRegister = document.getElementById('show-register');
-    if (showRegister) {
-        showRegister.addEventListener('click', (e) => {
-            e.preventDefault();
-            appState = 'register';
-            updateUI();
-        });
+    // 退出
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', PeekXAuth.logout);
     }
 
-    // 切换到登录
-    const showLogin = document.getElementById('show-login');
-    if (showLogin) {
-        showLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            appState = 'login';
-            updateUI();
+    if (!contents.login || !contents.register || !contents.search) {
+        console.warn("Content sections missing:", {
+            login: !!contents.login,
+            register: !!contents.register,
+            search: !!contents.search
         });
-    }
-
-    // 检查 Supabase 加载
-    if (typeof supabase === 'undefined') {
-        console.error('Supabase 未定义，请检查 CDN 加载');
-        const errorMessage = document.getElementById('error-message');
-        if (errorMessage) errorMessage.textContent = 'Supabase 未加载，请刷新页面或检查网络';
-        const registerErrorMessage = document.getElementById('register-error-message');
-        if (registerErrorMessage) registerErrorMessage.textContent = 'Supabase 未加载，请刷新页面或检查网络';
     }
 
     updateHistory();
