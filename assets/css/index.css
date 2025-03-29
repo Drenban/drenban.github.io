@@ -3121,7 +3121,7 @@ li.CodeMirror-hint-active {
 /* 顶部区域 */
 .top-section {
     display: flex;
-    justify-content: center; /* 仅保留 logo 居中 */
+    justify-content: center;
     align-items: center;
     padding: 1rem 2rem;
     background: #051015;
@@ -3140,10 +3140,10 @@ li.CodeMirror-hint-active {
 /* 主内容区域 */
 .main {
     flex: 1;
-    padding-top: 60px; /* 留出顶部固定区域 */
+    padding-top: 60px;
     display: flex;
     justify-content: center;
-    align-items: stretch; /* 确保内容充满高度 */
+    align-items: stretch;
 }
 
 .content {
@@ -3170,7 +3170,7 @@ li.CodeMirror-hint-active {
     width: 100%;
     height: 100%;
     background: #051015;
-    padding: 0; /* 移除内边距，让内容占满 */
+    padding: 0;
 }
 
 .search-container {
@@ -3179,11 +3179,35 @@ li.CodeMirror-hint-active {
     height: 100%;
 }
 
+.search-header {
+    padding: 1rem;
+    border-bottom: 1px solid #51585b;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.history-btn,
+.auth-btn {
+    padding: 0.5rem 1rem;
+    background: #51585b;
+    color: #c3c3c3;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.history-btn:hover,
+.auth-btn:hover {
+    background: #00ffad;
+    color: #051015;
+}
+
 .input-area {
     display: flex;
     gap: 0.5rem;
-    padding: 1rem;
-    border-bottom: 1px solid #51585b;
+    flex: 1;
 }
 
 #query-input {
@@ -3218,7 +3242,7 @@ li.CodeMirror-hint-active {
     vertical-align: middle;
 }
 
-/* 搜索结果区域（左右布局） */
+/* 搜索结果区域 */
 .search-results {
     display: flex;
     flex: 1;
@@ -3226,7 +3250,7 @@ li.CodeMirror-hint-active {
 }
 
 .history-panel {
-    width: 0; /* 默认隐藏 */
+    width: 0;
     background: #051015;
     border-right: 1px solid #51585b;
     transition: width 0.3s ease;
@@ -3234,7 +3258,7 @@ li.CodeMirror-hint-active {
 }
 
 .history-panel.active {
-    width: 33.33%; /* 三分之一宽度 */
+    width: 300px; /* 固定宽度，可调整 */
 }
 
 .history-header {
@@ -3264,45 +3288,13 @@ li.CodeMirror-hint-active {
 }
 
 .result-panel {
-    flex: 1; /* 占据剩余空间 */
+    flex: 1;
     padding: 1rem;
     overflow-y: auto;
 }
 
 .output {
     color: #c3c3c3;
-}
-
-.logout-panel {
-    width: 33.33%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    border-left: 1px solid #51585b;
-}
-
-.history-btn,
-.auth-btn {
-    padding: 0.5rem 1rem;
-    background: #51585b;
-    color: #c3c3c3;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.history-btn {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-}
-
-.history-btn:hover,
-.auth-btn:hover {
-    background: #00ffad;
-    color: #051015;
 }
 
 /* 表单样式（登录和注册） */
@@ -3400,49 +3392,31 @@ li.CodeMirror-hint-active {
         border-radius: 8px;
     }
 
-    .search-results {
-        flex-direction: column; /* 移动端改为上下布局 */
+    .search-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-area {
+        margin-top: 1rem;
     }
 
     .history-panel.active {
         width: 100%;
-        height: 33.33%;
+        height: 50%; /* 移动端占一半高度 */
     }
 
     .result-panel {
-        height: 33.33%;
-    }
-
-    .logout-panel {
-        width: 100%;
-        height: 33.33%;
-        border-left: none;
-        border-top: 1px solid #51585b;
-    }
-
-    .history-btn {
-        position: static;
-        margin: 1rem auto;
-        display: block;
+        height: 50%;
     }
 }
 
-#history-list {
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
+.history-panel {
+    transition: width 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
 }
-
-.line {
-    margin-bottom: 0.5rem;
-}
-
-.search-results {
-    flex-direction: column;
-    height: 100%;
-}
-.history-panel.active, .result-panel, .logout-panel {
-    width: 100%;
-    height: 33.33%;
+.history-panel.active {
+    opacity: 1;
 }
 
 /* html.is-mobile .peekx {
