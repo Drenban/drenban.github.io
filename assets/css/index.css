@@ -3114,14 +3114,14 @@ li.CodeMirror-hint-active {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: #051015; /* 深色背景 */
-    color: #c3c3c3; /* 默认文本色 */
+    background: #051015;
+    color: #c3c3c3;
 }
 
 /* 顶部区域 */
 .top-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* 仅保留 logo 居中 */
     align-items: center;
     padding: 1rem 2rem;
     background: #051015;
@@ -3137,182 +3137,53 @@ li.CodeMirror-hint-active {
     display: block;
 }
 
-.history-btn,
-.auth-btn {
-    padding: 0.5rem 1rem;
-    background: #51585b;
-    color: #c3c3c3;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.history-btn:hover,
-.auth-btn:hover {
-    background: #00ffad;
-    color: #051015;
-}
-
-/* 侧边栏 */
-.sidebar {
-    position: fixed;
-    top: 60px; /* 根据顶部高度调整 */
-    left: -250px; /* 默认隐藏 */
-    width: 250px;
-    height: calc(100vh - 60px);
-    background: #051015;
-    border-right: 1px solid #51585b;
-    transition: left 0.3s ease;
-    z-index: 900;
-}
-
-.sidebar.active {
-    left: 0;
-}
-
-.history-header {
-    padding: 1rem;
-    border-bottom: 1px solid #51585b;
-}
-
-.history-header h2 {
-    color: #c3c3c3;
-    font-size: 1.2rem;
-}
-
-#history-list {
-    list-style: none;
-    padding: 1rem;
-}
-
-#history-list li {
-    padding: 0.5rem 0;
-    color: #c3c3c3;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-#history-list li:hover {
-    color: #00ffad;
-}
-
 /* 主内容区域 */
 .main {
     flex: 1;
     padding-top: 60px; /* 留出顶部固定区域 */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch; /* 确保内容充满高度 */
 }
 
 .content {
     width: 100%;
-    max-width: 400px; /* 与原始 .peekx__content 一致 */
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* 通用区域样式（登录、注册、搜索） */
-.auth-section,
-.search-section {
+/* 通用区域样式（登录、注册） */
+.auth-section {
     background: #051015;
     padding: 2rem;
     border-radius: 12px;
     border: 1px solid #51585b;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* 表单头部 */
-.peekx__form-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.peekx__form-title {
-    color: #c3c3c3;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-}
-
-.peekx__form-subtitle {
-    color: #51585b;
-    font-size: 0.9rem;
-}
-
-/* 表单组 */
-.peekx__form-group {
-    margin-bottom: 0.5rem;
-}
-
-.peekx__form-label {
-    display: block;
-    color: #c3c3c3;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-}
-
-/* 输入框样式 */
-.peekx__form-input {
+    max-width: 400px;
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #51585b;
-    border-radius: 6px;
-    font-size: 1rem;
+}
+
+/* 搜索区域 */
+.search-section {
+    width: 100%;
+    height: 100%;
     background: #051015;
-    color: #c3c3c3;
-    transition: border-color 0.3s ease;
+    padding: 0; /* 移除内边距，让内容占满 */
 }
 
-.peekx__form-input:focus {
-    outline: none;
-    border-color: #00ffad;
-}
-
-/* 按钮样式 */
-.peekx__form-button {
-    width: 100%;
-    padding: 0.9rem;
-    background: #51585b;
-    color: #c3c3c3;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.peekx__form-button:hover {
-    background: #00ffad;
-    color: #051015;
-}
-
-/* 链接样式 */
-.peekx__form-link {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #51585b;
-}
-
-.peekx__form-link a {
-    color: #00ffad;
-    text-decoration: none;
-}
-
-.peekx__form-link a:hover {
-    text-decoration: underline;
-}
-
-/* 搜索区域特定样式 */
-.search-section .output {
-    min-height: 100px;
-    margin-bottom: 1rem;
-    color: #c3c3c3;
-    overflow-y: auto;
+.search-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .input-area {
     display: flex;
     gap: 0.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid #51585b;
 }
 
 #query-input {
@@ -3347,15 +3218,173 @@ li.CodeMirror-hint-active {
     vertical-align: middle;
 }
 
+/* 搜索结果区域（左右布局） */
+.search-results {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.history-panel {
+    width: 0; /* 默认隐藏 */
+    background: #051015;
+    border-right: 1px solid #51585b;
+    transition: width 0.3s ease;
+    overflow-y: auto;
+}
+
+.history-panel.active {
+    width: 33.33%; /* 三分之一宽度 */
+}
+
+.history-header {
+    padding: 1rem;
+    border-bottom: 1px solid #51585b;
+}
+
+.history-header h2 {
+    color: #c3c3c3;
+    font-size: 1.2rem;
+}
+
+#history-list {
+    list-style: none;
+    padding: 1rem;
+}
+
+#history-list li {
+    padding: 0.5rem 0;
+    color: #c3c3c3;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#history-list li:hover {
+    color: #00ffad;
+}
+
+.result-panel {
+    flex: 1; /* 占据剩余空间 */
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.output {
+    color: #c3c3c3;
+}
+
+.logout-panel {
+    width: 33.33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-left: 1px solid #51585b;
+}
+
+.history-btn,
+.auth-btn {
+    padding: 0.5rem 1rem;
+    background: #51585b;
+    color: #c3c3c3;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.history-btn {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.history-btn:hover,
+.auth-btn:hover {
+    background: #00ffad;
+    color: #051015;
+}
+
+/* 表单样式（登录和注册） */
+.peekx__form-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.peekx__form-title {
+    color: #c3c3c3;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.peekx__form-subtitle {
+    color: #51585b;
+    font-size: 0.9rem;
+}
+
+.peekx__form-group {
+    margin-bottom: 0.5rem;
+}
+
+.peekx__form-label {
+    display: block;
+    color: #c3c3c3;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.peekx__form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #51585b;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #051015;
+    color: #c3c3c3;
+    transition: border-color 0.3s ease;
+}
+
+.peekx__form-input:focus {
+    outline: none;
+    border-color: #00ffad;
+}
+
+.peekx__form-button {
+    width: 100%;
+    padding: 0.9rem;
+    background: #51585b;
+    color: #c3c3c3;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.peekx__form-button:hover {
+    background: #00ffad;
+    color: #051015;
+}
+
+.peekx__form-link {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #51585b;
+}
+
+.peekx__form-link a {
+    color: #00ffad;
+    text-decoration: none;
+}
+
+.peekx__form-link a:hover {
+    text-decoration: underline;
+}
+
 /* 响应式调整 */
 @media (max-width: 812px) {
     .top-section {
         padding: 1rem;
-    }
-
-    .sidebar {
-        width: 200px;
-        left: -200px;
     }
 
     .main {
@@ -3364,52 +3393,37 @@ li.CodeMirror-hint-active {
 
     .content {
         padding: 1.5rem;
-        max-width: 100%;
     }
 
-    .auth-section,
-    .search-section {
+    .auth-section {
         padding: 1.5rem;
         border-radius: 8px;
     }
 
-    .peekx__form-header {
-        margin-bottom: 1rem;
+    .search-results {
+        flex-direction: column; /* 移动端改为上下布局 */
     }
 
-    .peekx__form-title {
-        font-size: 1.5rem;
+    .history-panel.active {
+        width: 100%;
+        height: 33.33%;
     }
 
-    .peekx__form-subtitle {
-        font-size: 0.85rem;
+    .result-panel {
+        height: 33.33%;
     }
 
-    .peekx__form-group {
-        margin-bottom: 0.4rem;
+    .logout-panel {
+        width: 100%;
+        height: 33.33%;
+        border-left: none;
+        border-top: 1px solid #51585b;
     }
 
-    .peekx__form-label {
-        font-size: 0.9rem;
-    }
-
-    .peekx__form-input {
-        padding: 0.6rem;
-        font-size: 0.95rem;
-    }
-
-    .peekx__form-button {
-        padding: 0.7rem;
-        font-size: 0.95rem;
-    }
-
-    .peekx__form-link {
-        font-size: 0.85rem;
-    }
-
-    #query-input,
-    #search-btn {
-        padding: 0.6rem;
+    .history-btn {
+        position: static;
+        margin: 1rem auto;
+        display: block;
     }
 }
 
@@ -3420,6 +3434,15 @@ li.CodeMirror-hint-active {
 
 .line {
     margin-bottom: 0.5rem;
+}
+
+.search-results {
+    flex-direction: column;
+    height: 100%;
+}
+.history-panel.active, .result-panel, .logout-panel {
+    width: 100%;
+    height: 33.33%;
 }
 
 /* html.is-mobile .peekx {
