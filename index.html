@@ -477,43 +477,11 @@
                                 <li class="peekx__tab is-active" data-tab="login" title="Slot 2">登录</li>
                                 <li class="peekx__tab" data-tab="search" title="Slot 3">搜索</li>
                             </ul>
-                            
-<!--                             <div class="peekx__buttons">
-                                <div class="peekx__buttons-line">
-                                    <div class="group group--template">
-                                        <span class="group__name">Template:</span>
-                                        <div class="select-wrapper">
-                                            <select class="select-default"></select>
-                                        </div>
-                                        <button class="button-default button__load" aria-label="Load template">New</button>
-                                    </div>
-                                    <div class="group group--model">
-                                        <span class="group__name">Model:</span>
-                                        <div class="select-wrapper">
-                                            <select class="select-default">
-                                                <option value="person">Person</option>
-                                                <option value="car">Car</option>
-                                                <option value="nothing">Nothing</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="peekx__buttons-line">
-                                    <div class="group group--title">
-                                        <span class="group__name">Title:</span>
-                                        <input class="group__input-text" type="text" value="My PeekX">
-                                    </div>
-                                    <div class="group group--description">
-                                        <span class="group__name">Description:</span>
-                                        <input class="group__input-text" type="text" value="Lorem ipsum dolor">
-                                    </div>
-                                </div>
-                            </div> -->
-                            
+                                                        
                             <div id="shader-peekx">
                                 <div id="shader-peekx-cm"></div>
                                 <div class="layout">
-                                    <header class="top-section">
+<!--                                     <header class="top-section">
                                         <button id="history-toggle" class="history-btn" style="display: none;">History</button>
                                         <div class="logo">
                                             <object type="image/svg+xml" data="/peekx/svg/logo.svg" width="180" height="60">PeekX Logo</object>
@@ -527,7 +495,7 @@
                                             <h2>History</h2>
                                         </div>
                                         <ul id="history-list"></ul>
-                                    </div>
+                                    </div> -->
                                     <main class="main">
                                         <div class="content">
                                             <!-- 登录区域 -->
@@ -624,10 +592,26 @@
                                                         </svg>
                                                     </button>
                                                 </div>
+                                                <div class="search-results">
+                                                    <div id="history-sidebar" class="history-panel">
+                                                        <div class="history-header">
+                                                            <h2>历史</h2>
+                                                        </div>
+                                                        <ul id="history-list"></ul>
+                                                    </div>
+                                                    <div class="result-panel">
+                                                        <div class="output" id="result-container"></div>
+                                                    </div>
+                                                    <div class="logout-panel">
+                                                        <button id="logout-btn" class="auth-btn">登出</button>
+                                                    </div>
+                                                </div>
+                                                <button id="history-toggle" class="history-btn">历史</button> <!-- 用于切换历史面板 -->
                                             </div>
                                         </div>
-                                    </main>
-                                </div>
+                                    </div>
+                                </main>
+                            </div>
                                 <div class="peekx__controls">
                                     <div class="peekx__controls-left">
                                         <button class="button-default button__preview" aria-label="Preview shader">Preview</button>
