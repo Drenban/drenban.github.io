@@ -3206,8 +3206,8 @@ li.CodeMirror-hint-active {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-bottom: 60px;
-    min-height: 0; /* 防止flex子项溢出 */
+    padding-bottom: 80px;
+    min-height: 0;
 }
 
 .input-area {
@@ -3216,7 +3216,7 @@ li.CodeMirror-hint-active {
     gap: 0.5rem;
     max-width: 800px;
     margin: 0 auto;
-    width: 100%; /* 确保在小屏幕上占满宽度 */
+    width: 100%;
 }
 
 #query-input {
@@ -3388,7 +3388,8 @@ li.CodeMirror-hint-active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0 10px;
+    margin-top: 0;
 }
 
 .fixed-bottom {
@@ -3396,10 +3397,12 @@ li.CodeMirror-hint-active {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #fff; /* 添加背景色防止内容透视 */
+    background-color: #051015;
     padding: 10px;
-    border-top: 1px solid #eee; /* 可选：添加顶部边框 */
-    z-index: 1000; /* 确保在其他内容之上 */
+    border-top: 1px solid #51585b;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
 }
 
 /* 响应式调整 */
