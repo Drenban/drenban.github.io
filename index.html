@@ -534,18 +534,8 @@
                                             <!-- 搜索区域 -->
                                             <div id="search-section" class="search-section" style="display: none;">
                                                 <div class="search-container">
-                                                    <div class="search-header">
-                                                        <button id="history-toggle" class="history-btn">历史</button>
-                                                        <button id="logout-btn" class="auth-btn">登出</button>
-                                                        <div class="input-area">
-                                                            <input type="text" id="query-input" placeholder="How can PeekX help?" onkeydown="if(event.key === 'Enter') PeekXAuth.search()">
-                                                            <button id="search-btn">
-                                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                                                </svg>
-                                                            </button>
-                                                        </div>
-                                                    </div>
+                                                    <button id="history-toggle" class="history-btn">历史</button>
+                                                    <button id="logout-btn" class="auth-btn">登出</button>
                                                     <div class="search-results">
                                                         <div id="history-sidebar" class="history-panel">
                                                             <div class="history-header">
@@ -555,6 +545,16 @@
                                                         </div>
                                                         <div class="result-panel">
                                                             <div class="output" id="result-container"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="search-header">
+                                                        <div class="input-area">
+                                                            <input type="text" id="query-input" placeholder="How can PeekX help?" onkeydown="if(event.key === 'Enter') PeekXAuth.search()">
+                                                            <button id="search-btn">
+                                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                                                </svg>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
