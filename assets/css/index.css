@@ -3449,11 +3449,12 @@ li.CodeMirror-hint-active {
     }
 
     .history-panel.active {
-        width: 100%;
-        height: 50%; /* 移动端占一半高度 */
+        width: 30%;
+        height: 100%; /* 移动端占一半高度 */
     }
 
     .result-panel {
+        width: 100%;
         height: 100%;
     }
     .peekx {
