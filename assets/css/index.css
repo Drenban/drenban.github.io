@@ -3460,7 +3460,10 @@ li.CodeMirror-hint-active {
         left: 0;
     }
     .peekx__nav-modes {
-        dispaly: none;
+        display: none;
+    }
+    .peekx__nav-mode-label {
+        display: none;
     }
 }
 
