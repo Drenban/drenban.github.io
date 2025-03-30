@@ -3454,7 +3454,7 @@ li.CodeMirror-hint-active {
     }
 
     .result-panel {
-        height: 50%;
+        height: 100%;
     }
     .peekx {
         left: 0;
