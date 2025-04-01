@@ -1,1 +1,603 @@
-1
+fetch("https://exp-mind-flayer.lusion.co/", {
+    "headers": {
+      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "u=0, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "document",
+      "sec-fetch-mode": "navigate",
+      "sec-fetch-site": "same-site",
+      "sec-fetch-user": "?1",
+      "upgrade-insecure-requests": "1",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.0.1743516014.0.0.0",
+      "Referer": "https://labs.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://www.googletagmanager.com/gtag/js?id=G-WP0TFE68VB", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "script",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "cross-site",
+      "sec-fetch-storage-access": "active",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/index.js", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "u=1",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "script",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516043.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/style.css", {
+    "headers": {
+      "accept": "text/css,*/*;q=0.1",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "u=0",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "style",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516043.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("chrome-extension://ncennffkjdiamlpmcbajkmaiiiddgioo/assets/content.js-f0117009.js", {
+    "referrer": "",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("chrome-extension://ncennffkjdiamlpmcbajkmaiiiddgioo/assets/runtime-dom.esm-bundler-cb82e4a9.js", {
+    "referrer": "",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("chrome-extension://ncennffkjdiamlpmcbajkmaiiiddgioo/assets/util-1fabc922.js", {
+    "referrer": "",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("chrome-extension://ncennffkjdiamlpmcbajkmaiiiddgioo/assets/index-9000aff5.js", {
+    "referrer": "",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("chrome-extension://ncennffkjdiamlpmcbajkmaiiiddgioo/assets/tool-aa30449a.js", {
+    "referrer": "",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("chrome-extension://ncennffkjdiamlpmcbajkmaiiiddgioo/assets/chrome-runtime-promise-57dc646e.js", {
+    "referrer": "",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("chrome-extension://ncennffkjdiamlpmcbajkmaiiiddgioo/assets/stat-ffa8f2e7.js", {
+    "referrer": "",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://use.typekit.net/af/c8b670/00000000000000007735bc70/30/l?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "u=0",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "font",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "cross-site",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://region1.google-analytics.com/g/collect?v=2&tid=G-WP0TFE68VB&gtm=45je53s1h1v889355957za200&_p=1743516043968&gcd=13l3l3l3l1l1&npa=0&dma=0&tag_exp=102482433~102788824~102803279~102813109~102887800~102926062~102964103~102975949~102976415&cid=1992180559.1740206788&ul=zh-cn&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B134.0.6998.178%7CNot%253AA-Brand%3B24.0.0.0%7CMicrosoft%2520Edge%3B134.0.3124.93&uamb=0&uam=&uap=Windows&uapv=10.0.0&uaw=0&are=1&frm=0&pscdl=noapi&_s=1&sid=1743516014&sct=2&seg=1&dl=https%3A%2F%2Fexp-mind-flayer.lusion.co%2F&dr=https%3A%2F%2Flabs.lusion.co%2F&dt=Mind%20Flayer%20-%20An%20Interactive%20Fan%20Based%20Artwork%20By%20Lusion&en=page_view&_ee=1&tfd=2157", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "cross-site",
+      "sec-fetch-storage-access": "active",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "POST"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/images/logo_2.png", {
+    "headers": {
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "image",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/bgm.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/step_1.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/step_0.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/hover_1.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/hover_0.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/favicon.ico", {
+    "headers": {
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "image",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/meta/site.webmanifest", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"dff16826ce98b7cf821ac79f37f361a9-ssl\"",
+      "priority": "u=2",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "manifest",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://region1.google-analytics.com/g/collect?v=2&tid=G-WP0TFE68VB&gtm=45je53s1h1v889355957za200&_p=1743516043968&gcd=13l3l3l3l1l1&npa=0&dma=0&tag_exp=102482433~102788824~102803279~102813109~102887800~102926062~102964103~102975949~102976415&cid=1992180559.1740206788&ul=zh-cn&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B134.0.6998.178%7CNot%253AA-Brand%3B24.0.0.0%7CMicrosoft%2520Edge%3B134.0.3124.93&uamb=0&uam=&uap=Windows&uapv=10.0.0&uaw=0&are=1&frm=0&pscdl=noapi&_eu=AEA&_s=2&sid=1743516014&sct=2&seg=1&dl=https%3A%2F%2Fexp-mind-flayer.lusion.co%2F&dr=https%3A%2F%2Flabs.lusion.co%2F&dt=Mind%20Flayer%20-%20An%20Interactive%20Fan%20Based%20Artwork%20By%20Lusion&en=scroll&epn.percent_scrolled=90&tfd=7160", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "cross-site",
+      "sec-fetch-storage-access": "active",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "POST"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/step_2.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"c36bb586877eb77dc93f0ebf061a162e-ssl\"",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/step_3.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"0c9178d754a891632071f3ca06135cf2-ssl\"",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/step_4.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"1bb5e44d74c03e5b26ad499a30c5a50e-ssl\"",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/step_5.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"33e94fd3af1a7f1cbb997346247bb740-ssl\"",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/step_6.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"f4904291c5eebbf3d0508d26b82913b5-ssl\"",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/step_7.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"86030253e355f510b031972f3c674817-ssl\"",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/meta/favicon-32x32.png", {
+    "headers": {
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"f7d2150a05545ed87577d96a82b688ae-ssl\"",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "image",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/textures/LDR_RGB1_0.png", {
+    "headers": {
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"0f7714ce2a45319bccc8eaa8f34a250e-ssl\"",
+      "priority": "i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "image",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/textures/ground/concrete_wall_005_nor_gl_1k.jpg", {
+    "headers": {
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"2ecdffcc90551a2272856fb0697c17b3-ssl\"",
+      "priority": "i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "image",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/textures/ground/concrete_wall_005_arm_1k.jpg", {
+    "headers": {
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"c8311e040faeb35d5ce910b669fbb88a-ssl\"",
+      "priority": "i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "image",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/textures/ground/concrete_wall_005_diff_1k.jpg", {
+    "headers": {
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"34238164a138f90660f85e4b87e00452-ssl\"",
+      "priority": "i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "image",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/textures/noise.png", {
+    "headers": {
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"1e10d05e9b210ed8e8e0375e9d11f054-ssl\"",
+      "priority": "i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "image",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/models/leg.buf", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"587ac811134656865b4bf013e88a8d50-ssl-df\"",
+      "priority": "u=1, i",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  }); ;
+  fetch("https://exp-mind-flayer.lusion.co/assets/audios/bgm.mp3", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "if-none-match": "\"a5de6092da9fb6083df4b38c5b5ba4d8-ssl\"",
+      "priority": "i",
+      "range": "bytes=0-1377791",
+      "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "audio",
+      "sec-fetch-mode": "no-cors",
+      "sec-fetch-site": "same-origin",
+      "cookie": "_ga=GA1.1.1992180559.1740206788; _ga_XK78QP0PZB=GS1.1.1741715977.1.1.1741716187.0.0.0; _ga_JTLXB64KQH=GS1.1.1741716210.1.1.1741716311.0.0.0; _ga_K2LJQFS7TD=GS1.1.1741716499.1.1.1741716603.0.0.0; _ga_LE5WRXZS1B=GS1.1.1741717234.1.1.1741717272.0.0.0; _ga_ZFQPF7PGDB=GS1.1.1741717525.1.1.1741717657.0.0.0; _ga_GZNECZFLBN=GS1.1.1741717805.1.0.1741717821.0.0.0; _ga_FZNNT4GC39=GS1.1.1741717852.1.1.1741717962.0.0.0; _ga_W2XC5XK9QJ=GS1.1.1743514267.7.1.1743515274.0.0.0; _ga_6FTR8BSEYX=GS1.1.1743515837.4.1.1743515977.0.0.0; _ga_EVJ7V9ZN7J=GS1.1.1743515981.5.1.1743516012.0.0.0; _ga_WP0TFE68VB=GS1.1.1743516014.2.1.1743516045.0.0.0",
+      "Referer": "https://exp-mind-flayer.lusion.co/",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    },
+    "body": null,
+    "method": "GET"
+  });
