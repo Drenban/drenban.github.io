@@ -103,13 +103,13 @@ max-width: 26rem;
     width: 100%;
 }
 .picture-shadow {
-    border-radius: 290486px;
+    border-radius: 280185px;
     background-image: radial-gradient(#000 0%, rgba(0, 0, 0, 0) 70%);
     position: absolute;
     top: 10%;
 }
 .picture-image {
-    border-radius: 290486px;
+    border-radius: 280185px;
     position: absolute;
 }
 
@@ -160,7 +160,7 @@ name {
 
 .button {
     background-color: #fff;
-    border-radius: 290486px;
+    border-radius: 280185px;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
     color: #9013fe;
     display: inline-block;
