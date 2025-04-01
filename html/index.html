@@ -15,7 +15,7 @@
     </head>
     
     <body>
-        <div class="wallpaper"></div>
+        <div id="wallpaper" class="wallpaper" data-image="images/austria.jpg"></div>
         <div class="content">
             <aside class="side">
                 <figure class="picture">
@@ -68,6 +68,17 @@
                 </div>
             </main>
         </div>
+        <noscript>
+            <style type="text/css">
+                .wallpaper {
+                    animation-name: zoomOut;
+                }
+    
+                .picture {
+                    animation-name: dropIn;
+                }
+            </style>
+        </noscript>
     </body>
     
 </html>
