@@ -3203,7 +3203,7 @@ li.CodeMirror-hint-active {
 }
 
 .search-container {
-    position: fixed;
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -3212,7 +3212,7 @@ li.CodeMirror-hint-active {
 }
 
 .input-area {
-    display: relative;
+    display: fixed;
     align-items: center;
     gap: 0.5rem;
     max-width: 800px;
