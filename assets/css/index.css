@@ -3212,7 +3212,7 @@ li.CodeMirror-hint-active {
 }
 
 .input-area {
-    display: flex;
+    display: relative;
     align-items: center;
     gap: 0.5rem;
     max-width: 800px;
