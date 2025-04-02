@@ -3203,7 +3203,7 @@ li.CodeMirror-hint-active {
 }
 
 .search-container {
-    position: relative;
+    position: fixed;
     display: flex;
     flex-direction: column;
     height: 100%;
