@@ -1,7 +1,7 @@
 const DEFAULT_CONFIG = {
-    JSON_DATA_PATH: '/noise/assets/data/data.json',
-    CORPUS_PATH: '/noise/assets/data/corpus.json',
-    USER_DATA_PATH: '/noise/assets/obfuscate/',
+    JSON_DATA_PATH: '/assets/data/data.json',
+    CORPUS_PATH: '/assets/data/corpus.json',
+    USER_DATA_PATH: '/assets/obfuscate/',
     TOKEN_EXPIRY_MS: 3600000,
     CACHE_LIMIT: 100,
     MAX_HISTORY: 10,
@@ -15,7 +15,7 @@ const ENCRYPTION_KEY = CryptoJS.SHA256(PASSWORD).toString(CryptoJS.enc.Hex);
 
 async function decryptSupabaseConfig() {
     try {
-        const response = await fetch('/noise/assets/data/supabase-config.json');
+        const response = await fetch('/assets/data/supabase-config.json');
         if (!response.ok) throw new Error(`Failed to fetch supabase-config.json: ${response.status} ${response.statusText}`);
         const data = await response.json();
         const { encrypted, iv } = data;
