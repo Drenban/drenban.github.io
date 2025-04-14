@@ -75,19 +75,33 @@ body {
     margin-bottom: 20px;
 }
 
-.pay-button {
-    background-color: #51585b;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+/* 二维码样式 */
+.qr-code {
+    margin: 20px 0;
 }
 
-.pay-button:hover {
-    background-color: #051015;
+.qr-code img {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #51585b;
+    border-radius: 5px;
+}
+
+/* 支付说明容器样式 */
+.payment-description {
+    font-size: 14px;
+    color: #51585b;
+    text-align: left;
+}
+
+.payment-description ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.payment-description li {
+    margin-bottom: 10px;
 }
 
 /* 底部样式 */
@@ -103,8 +117,8 @@ body {
     .plans-container {
         flex-direction: column;
         align-items: center;
-        max-height: 70vh; /* 限制高度以启用滚动 */
-        overflow-y: auto; /* 启用垂直滚动 */
+        max-height: 70vh;
+        overflow-y: auto;
     }
 
     .plan {
@@ -116,5 +130,10 @@ body {
     .payment-container {
         width: 95%;
         margin: 10px 0;
+    }
+
+    .qr-code img {
+        width: 120px;
+        height: 120px;
     }
 }
