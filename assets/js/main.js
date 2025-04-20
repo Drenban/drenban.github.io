@@ -81,30 +81,50 @@ async function loadDataFile(filePath) {
     }
 }
 
-async function initializeConfig() {
-    try {
-        await decryptSupabaseConfig();
-        const result = await loadConfig();
-        if (!result) throw new Error('Failed to initialize CONFIG');
-        CONFIG = result;
-        supabaseClient = result.supabase;
-    } catch (error) {
-        console.error('initializeConfig failed:', error);
-        throw error;
+// async function initializeConfig() {
+//     try {
+//         await decryptSupabaseConfig();
+//         const result = await loadConfig();
+//         if (!result) throw new Error('Failed to initialize CONFIG');
+//         CONFIG = result;
+//         supabaseClient = result.supabase;
+//     } catch (error) {
+//         console.error('initializeConfig failed:', error);
+//         throw error;
+//     }
+// }
+
+async function withRetry(fn, retries = 3, delay = 1000) {
+    for (let i = 0; i < retries; i++) {
+        try {
+            return await fn();
+        } catch (error) {
+            if (i === retries - 1) throw error;
+            console.warn(`[CONFIG] Retry ${i + 1}/${retries} after ${delay}ms:`, error.message);
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
     }
 }
 
-// async function withRetry(fn, retries = 3, delay = 1000) {
-//     for (let i = 0; i < retries; i++) {
-//         try {
-//             return await fn();
-//         } catch (error) {
-//             if (i === retries - 1) throw error;
-//             console.warn(`[CONFIG] Retry ${i + 1}/${retries} after ${delay}ms:`, error.message);
-//             await new Promise(resolve => setTimeout(resolve, delay));
-//         }
-//     }
-// }
+async function initializeConfig() {
+    try {
+        console.log('[CONFIG] 初始化配置...');
+        const supabaseConfig = await withRetry(decryptSupabaseConfig);
+        if (!supabaseConfig) throw new Error('解密 Supabase 配置失败');
+
+        const result = await withRetry(loadConfig);
+        if (!result) throw new Error('加载配置失败');
+
+        CONFIG = result;
+        supabaseClient = result.supabase;
+        console.log('[CONFIG] 配置初始化成功');
+    } catch (error) {
+        console.error('[CONFIG] 配置初始化失败:', error);
+        CONFIG = null;
+        supabaseClient = null;
+        throw new Error(`配置初始化失败: ${error.message}`);
+    }
+}
 
 // async function initializeConfig() {
 //     try {
@@ -708,12 +728,54 @@ const PeekXAuth = {
     postLogin() {
     },
 
+    // async register(event) {
+    //     event.preventDefault();
+    //     if (!this.supabaseClient) {
+    //         alert('服务器未加载，注册功能不可用');
+    //         return;
+    //     }
+    //     const name = utils.sanitizeInput(document.querySelector('.sign-up-container input[type="text"]').value.trim());
+    //     const email = utils.sanitizeInput(document.querySelector('.sign-up-container input[type="email"]').value.trim());
+    //     const password = utils.sanitizeInput(document.querySelector('.sign-up-container input[type="password"]').value.trim());
+
+    //     if (!name || !email || !password) {
+    //         alert('请填写所有必填字段');
+    //         return;
+    //     }
+
+    //     const expiryDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    //     try {
+    //         const { data, error } = await this.supabaseClient.auth.signUp({
+    //             email,
+    //             password,
+    //             options: { data: { expiry_date: expiryDate, full_name: name } }
+    //         });
+    //         if (error) throw error;
+    //         alert(data.user ? `注册成功！用户 ID: ${data.user.id}, 到期时间: ${expiryDate}` : `注册成功，请验证你的邮箱！到期时间: ${expiryDate}`);
+    //         ELEMENTS.container.classList.remove('right-panel-active');
+    //     } catch (error) {
+    //         alert(`注册失败: ${error.message}`);
+    //     }
+    // },
+
     async register(event) {
         event.preventDefault();
-        if (!this.supabaseClient) {
-            alert('服务器未加载，注册功能不可用');
-            return;
+
+        // 确保配置已初始化
+        if (!supabaseClient) {
+            try {
+                await initializeConfig();
+                if (!supabaseClient) {
+                    alert('无法连接到服务器，请稍后再试');
+                    return;
+                }
+            } catch (error) {
+                console.error('注册时初始化配置失败:', error);
+                alert('服务器初始化失败，请稍后再试');
+                return;
+            }
         }
+
         const name = utils.sanitizeInput(document.querySelector('.sign-up-container input[type="text"]').value.trim());
         const email = utils.sanitizeInput(document.querySelector('.sign-up-container input[type="email"]').value.trim());
         const password = utils.sanitizeInput(document.querySelector('.sign-up-container input[type="password"]').value.trim());
@@ -725,7 +787,7 @@ const PeekXAuth = {
 
         const expiryDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
         try {
-            const { data, error } = await this.supabaseClient.auth.signUp({
+            const { data, error } = await supabaseClient.auth.signUp({
                 email,
                 password,
                 options: { data: { expiry_date: expiryDate, full_name: name } }
@@ -737,6 +799,7 @@ const PeekXAuth = {
             alert(`注册失败: ${error.message}`);
         }
     },
+
 
     async search() {
         if (!utils.verifyToken(localStorage.getItem('token'))) {
