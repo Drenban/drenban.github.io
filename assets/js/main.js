@@ -725,6 +725,11 @@ const PeekXAuth = {
                 return;
             } catch (error) {
                 console.error('Supabase login failed:', error.message, error);
+                if (error.message.includes('Email not confirmed')) {
+                    ELEMENTS.signInForm.insertAdjacentHTML('beforeend', `
+                      <p style="color: red;">请验证您的邮箱！未收到邮件？请检查垃圾邮件或<a href="mailto:support@peekx.com">联系支持</a>。</p>
+                    `);
+                  }
                 alert(`Supabase登录失败: ${error.message}，尝试本地认证`);
             }
         } else {
@@ -815,15 +820,42 @@ const PeekXAuth = {
 
         const expiryDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
         try {
+            // Supabase注册
+            console.log('Registering user with Supabase:', email);
             const { data, error } = await supabaseClient.auth.signUp({
                 email,
                 password,
                 options: { data: { expiry_date: expiryDate, full_name: name } }
             });
             if (error) throw error;
+
+            // 创建本地JSON用户数据
+            const hashedPassword = await utils.hashPassword(password);
+            const userData = {
+                email,
+                password: hashedPassword,
+                expiry_date: expiryDate,
+                full_name: name
+            };
+            try {
+                console.log('Attempting to create local JSON for', email);
+                const response = await fetch(`${DEFAULT_CONFIG.USER_DATA_PATH}${email}.json`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userData)
+                });
+                if (!response.ok) throw new Error(`Failed to create local JSON: ${response.status} ${response.statusText}`);
+                console.log(`Created local user data for ${email}`);
+            } catch (fetchError) {
+                console.warn('Failed to create local JSON:', fetchError.message);
+                // 继续注册流程，不阻塞
+                alert('注册成功，但本地用户数据创建失败，可能影响离线登录');
+            }
+
             alert(data.user ? `注册成功！用户 ID: ${data.user.id}, 到期时间: ${expiryDate}` : `注册成功，请验证你的邮箱！到期时间: ${expiryDate}`);
             ELEMENTS.container.classList.remove('right-panel-active');
         } catch (error) {
+            console.error('Registration failed:', error.message, error);
             alert(`注册失败: ${error.message}`);
         }
     },
