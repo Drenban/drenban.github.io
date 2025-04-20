@@ -300,12 +300,18 @@ const dataLoader = {
         }
         try {
             const response = await fetch(`${DEFAULT_CONFIG.USER_DATA_PATH}${username}.json`);
-            if (response.status === 404) return null;
-            if (!response.ok) throw new Error(`Failed to fetch user data for ${username}`);
-            state.userData = JSON.parse(utils.decodeBase64UTF8(await response.text()));
-            return state.userData;
+            console.log('Fetching user data:', response.status, response.statusText);
+            if (response.status === 404) {
+                console.warn(`User data file not found for ${username}`);
+                return null;
+            }
+            if (!response.ok) throw new Error(`Failed to fetch user data: ${response.status} ${response.statusText}`);
+            const data = JSON.parse(utils.decodeBase64UTF8(await response.text()));
+            console.log(`Loaded user data for ${username}`);
+            state.userData = data;
+            return data;
         } catch (error) {
-            console.error('Load user data failed:', error);
+            console.error(`Failed to load user data for ${username}:`, error);
             return null;
         }
     }
@@ -684,12 +690,27 @@ const PeekXAuth = {
         const email = utils.sanitizeInput(document.querySelector('.sign-in-container input[type="email"]').value.trim());
         const password = utils.sanitizeInput(document.querySelector('.sign-in-container input[type="password"]').value.trim());
 
+        // 确保配置初始化
         if (!CONFIG || !supabaseClient) {
-            console.error('CONFIG or supabaseClient is not initialized, skip Supabase login');
-        } else {
             try {
+                await initializeConfig();
+                if (!supabaseClient) {
+                    console.warn('Supabase not initialized, attempting local login');
+                }
+            } catch (error) {
+                console.error('Failed to initialize config during login:', error);
+                alert('服务器初始化失败，请稍后再试');
+                return;
+            }
+        }
+
+        // 尝试Supabase认证
+        if (supabaseClient) {
+            try {
+                console.log('Attempting Supabase login for', email);
                 const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
                 if (error) throw error;
+
                 const expiryDate = data.user.user_metadata?.expiry_date;
                 if (!utils.isMembershipValid(expiryDate)) {
                     alert('你的会员已过期，正在跳转到付款页面...');
@@ -697,21 +718,28 @@ const PeekXAuth = {
                     setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
                     return;
                 }
+
                 localStorage.setItem('token', data.session.access_token);
                 this.postLogin();
                 alert('登录成功');
                 return;
             } catch (error) {
-                console.warn('Supabase login failed:', error.message);
+                console.error('Supabase login failed:', error.message, error);
+                alert(`Supabase登录失败: ${error.message}，尝试本地认证`);
             }
+        } else {
+            console.warn('Supabase client unavailable, falling back to local authentication');
         }
 
+        // 本地JSON回退认证
+        console.log('Attempting local JSON login for', email);
         const user = await dataLoader.loadUserData(email);
         if (!user) {
-            alert('未找到用户或网络错误');
+            alert('未找到用户或网络错误，请确认是否已注册或检查网络连接');
             return;
         }
-        if (user.password !== await utils.hashPassword(password)) {
+        const hashedPassword = await utils.hashPassword(password);
+        if (user.password !== hashedPassword) {
             alert('邮箱或密码错误');
             return;
         }
