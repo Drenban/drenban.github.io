@@ -636,98 +636,134 @@ social a:active {
 }
 
 @media (max-width: 1000px) {
-    /* 确保 auth-container 占据全屏高度 */
+    /* 确保 auth-container 占满屏幕且固定 */
     .auth-container {
+        width: 100vw;
         height: 100vh;
-        overflow-y: auto;
+        overflow: hidden;
         display: flex;
         flex-direction: column;
         position: relative;
+        background: #051015;
     }
 
-    /* 调整 sign-in-container 和 sign-up-container 为上下排列 */
+    /* 将登录和注册容器垂直堆叠 */
     .sign-in-container,
     .sign-up-container {
         width: 100%;
-        height: 50%; /* 每个容器占一半高度，或者根据内容动态调整 */
+        height: 50%; /* 如需动态调整高度 */
         position: absolute;
         top: 0;
         left: 0;
-        transform: translateY(0); /* 默认位置 */
+        transition: opacity 0.6s ease-in-out, z-index 0.6s ease-in-out;
+        z-index: 2;
     }
 
-    /* 注册面板默认在下方 */
+    /* 注册容器默认在下方 */
     .sign-up-container {
-        transform: translateY(100%);
-        opacity: 0;
+        top: 50%;
+        opacity: 0.5;
         z-index: 1;
+        pointer-events: none; /* 非活动面板不可交互 */
     }
 
-    /* 激活注册面板时，上下滑动 */
+    /* 激活状态：显示注册，隐藏登录 */
     .auth-container.right-panel-active .sign-in-container {
-        transform: translateY(-100%);
-        opacity: 0;
+        opacity: 0.5;
+        z-index: 1;
+        pointer-events: none;
     }
 
     .auth-container.right-panel-active .sign-up-container {
-        transform: translateY(0);
         opacity: 1;
         z-index: 5;
+        pointer-events: auto;
     }
 
-    /* 调整 overlay-container 为上下滑动 */
+    /* 用于滑动遮罩的 overlay 容器 */
     .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 100;
+        transition: transform var(--transition-time) ease-in-out;
+    }
+
+    /* 遮罩垂直滑动 */
+    .overlay {
+        background: linear-gradient(to bottom, rgba(5, 16, 21, 0.9), rgba(81, 88, 91, 0.7)), #051015;
+        color: #fff;
+        position: relative;
+        top: -100%;
+        height: 200%;
+        width: 100%;
+        transition: transform var(--transition-time) ease-in-out;
+    }
+
+    /* 遮罩面板用于显示文字 */
+    .overlay-panel {
+        position: absolute;
         width: 100%;
         height: 50%;
-        left: 0;
-        top: 50%;
-        transform: translateY(0);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 0 20px;
     }
 
-    .overlay {
-        width: 100%;
-        height: 200%;
-        left: 0;
-        top: -100%;
-        transform: translateY(0);
+    .overlay-right {
+        top: 50%; /* 位于下半部分 */
     }
 
-    /* 激活注册面板时的 overlay 动画 */
+    .overlay-left {
+        top: 0; /* 位于上半部分 */
+    }
+
+    /* 激活注册时，遮罩滑动覆盖登录 */
     .auth-container.right-panel-active .overlay-container {
-        transform: translateY(-100%);
+        transform: translateY(-50%);
     }
 
     .auth-container.right-panel-active .overlay {
         transform: translateY(50%);
     }
 
-    .overlay-panel {
-        width: 100%;
-        height: 50%;
-    }
-
-    .overlay-right {
-        top: 0;
-    }
-
-    .auth-container.right-panel-active .overlay-left {
-        transform: translateY(0);
-    }
-
-    .auth-container.right-panel-active .overlay-right {
-        transform: translateY(20%);
-    }
-
-    /* 确保 form-container 适应内容 */
+    /* 表单容器调整 */
     .form-container {
         width: 100%;
         height: 100%;
         padding: 20px;
         box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    /* 调整表单内容居中 */
     .form-container form {
+        width: 100%;
+        max-width: 400px; /* 防止表单过宽 */
         padding: 0 20px;
+    }
+
+    /* 确保按钮触发滑动 */
+    .form-container button,
+    .overlay-panel button.ghost {
+        pointer-events: auto;
+        cursor: pointer;
+    }
+
+    /* 调整社交链接 */
+    .social {
+        margin-top: 1rem;
+    }
+
+    .social li {
+        margin: 0 0.5rem;
     }
 }
