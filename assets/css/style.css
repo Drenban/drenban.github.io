@@ -635,3 +635,99 @@ social a:active {
     }
 }
 
+@media (max-width: 1000px) {
+    /* 确保 auth-container 占据全屏高度 */
+    .auth-container {
+        height: 100vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    /* 调整 sign-in-container 和 sign-up-container 为上下排列 */
+    .sign-in-container,
+    .sign-up-container {
+        width: 100%;
+        height: 50%; /* 每个容器占一半高度，或者根据内容动态调整 */
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(0); /* 默认位置 */
+    }
+
+    /* 注册面板默认在下方 */
+    .sign-up-container {
+        transform: translateY(100%);
+        opacity: 0;
+        z-index: 1;
+    }
+
+    /* 激活注册面板时，上下滑动 */
+    .auth-container.right-panel-active .sign-in-container {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    .auth-container.right-panel-active .sign-up-container {
+        transform: translateY(0);
+        opacity: 1;
+        z-index: 5;
+    }
+
+    /* 调整 overlay-container 为上下滑动 */
+    .overlay-container {
+        width: 100%;
+        height: 50%;
+        left: 0;
+        top: 50%;
+        transform: translateY(0);
+    }
+
+    .overlay {
+        width: 100%;
+        height: 200%;
+        left: 0;
+        top: -100%;
+        transform: translateY(0);
+    }
+
+    /* 激活注册面板时的 overlay 动画 */
+    .auth-container.right-panel-active .overlay-container {
+        transform: translateY(-100%);
+    }
+
+    .auth-container.right-panel-active .overlay {
+        transform: translateY(50%);
+    }
+
+    .overlay-panel {
+        width: 100%;
+        height: 50%;
+    }
+
+    .overlay-right {
+        top: 0;
+    }
+
+    .auth-container.right-panel-active .overlay-left {
+        transform: translateY(0);
+    }
+
+    .auth-container.right-panel-active .overlay-right {
+        transform: translateY(20%);
+    }
+
+    /* 确保 form-container 适应内容 */
+    .form-container {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* 调整表单内容居中 */
+    .form-container form {
+        padding: 0 20px;
+    }
+}
