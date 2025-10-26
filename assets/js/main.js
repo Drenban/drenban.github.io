@@ -735,7 +735,7 @@ const PeekXAuth = {
                 if (!utils.isMembershipValid(expiryDate)) {
                     alert('你的会员已过期，正在跳转到付款页面...');
                     localStorage.setItem('expiredEmail', email);
-                    setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
+                    setTimeout(() => window.location.href = '/assets/payment/index.html', 2000);
                     return;
                 }
 
@@ -771,7 +771,7 @@ const PeekXAuth = {
         if (!utils.isMembershipValid(user.expiry_date)) {
             alert('你的会员已过期，正在跳转到付款页面...');
             localStorage.setItem('expiredEmail', email);
-            setTimeout(() => window.location.href = '/peekx/payment/index.html', 2000);
+            setTimeout(() => window.location.href = '/assets/payment/index.html', 2000);
             return;
         }
         localStorage.setItem('token', utils.generateToken(email));
