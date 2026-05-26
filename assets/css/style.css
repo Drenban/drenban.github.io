@@ -637,66 +637,67 @@ social a:active {
 
 @media (max-width: 1000px) {
 
-    /* Stack panels vertically */
     .auth-container {
         min-height: 100vh;
+        height: 100vh;          /* FIX: explicit height so 50% children resolve */
         overflow-y: auto;
     }
 
-    /* Each form takes full width, half the height */
-    .sign-in-container,
-    .sign-up-container {
-        position: absolute;
-        width: 100%;
+    /* FIX: override .form-container { height: 100% } from desktop */
+    .form-container {
         height: 50%;
-        left: 0;
     }
 
-    .sign-in-container {
+    .sign-in-container,
+    .sign-up-container {
+        width: 100%;
+        left: 0;
         top: 0;
     }
 
     .sign-up-container {
-        top: 0;       /* starts hidden behind sign-in */
         opacity: 0;
     }
 
-    /* Overlay sits in the bottom half */
     .overlay-container {
         top: 50%;
-        left: 0;
+        left: 0;                /* FIX: override desktop left: 50% */
         width: 100%;
         height: 50%;
     }
 
-    /* The overlay strip is now 2× tall (top/bottom) instead of 2× wide */
     .overlay {
-        left: 0;
-        top: -100%;       /* start position before animation */
+        left: 0;                /* FIX: override desktop left: -100% */
+        top: -100%;
         height: 200%;
         width: 100%;
-        transition: transform var(--transition-time) ease-in-out;
     }
 
-    /* Only show the bottom overlay panel on mobile */
-    .overlay-left  { display: none; }
+    .overlay-left {
+        display: none;
+    }
+
     .overlay-right {
-        top: 0; right: auto;
+        top: 0;
+        right: auto;
+        left: 0;                /* FIX: anchor it explicitly */
         width: 100%;
         height: 50%;
     }
 
-    /* ---- Active state (sign-up panel open) ---- */
+    /* Active state */
     .auth-container.right-panel-active .sign-in-container {
-        transform: translateY(100%);   /* slide down instead of right */
+        transform: translateY(100%);
+        /* FIX: clear the desktop translateX that still applies */
+        transform: translateY(100%) translateX(0);
     }
 
     .auth-container.right-panel-active .overlay-container {
-        transform: translateY(-100%);  /* slide up instead of left */
+        transform: translateY(-100%) translateX(0);
     }
 
     .auth-container.right-panel-active .sign-up-container {
-        transform: translateY(100%);   /* match sign-in slide direction */
+        transform: translateY(100%) translateX(0);
         opacity: 1;
         z-index: 5;
     }
