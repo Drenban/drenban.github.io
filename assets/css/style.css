@@ -637,48 +637,84 @@ social a:active {
 
 @media (max-width: 1000px) {
 
-    /* ── Container ── */
+    /* Let the container grow with content */
     .auth-container {
         position: relative !important;
         width: 100% !important;
-        height: auto !important;        /* let content define height */
-        min-height: 100vh !important;
-        overflow: visible !important;   /* don't clip the stacked panels */
+        height: auto !important;
+        min-height: unset !important;
+        overflow: visible !important;
     }
 
-    /* ── Hide the sliding overlay entirely on mobile ── */
-    .overlay-container {
-        display: none !important;
-    }
-
-    /* ── Both form panels: full width, natural height, stacked ── */
+    /* Both panels: full width, natural height, stacked in flow */
     .form-container {
-        position: relative !important;  /* break out of absolute stacking */
+        position: relative !important;
         width: 100% !important;
         height: auto !important;
         left: auto !important;
         top: auto !important;
         transform: none !important;
+        transition: none !important;
+    }
+
+    /* Sign-in visible by default, sign-up hidden */
+    .sign-in-container {
+        display: block !important;
         opacity: 1 !important;
         z-index: 1 !important;
     }
 
-    /* ── Sign-in on top, sign-up below, separated by a divider ── */
-    .sign-in-container {
-        border-bottom: 1px solid #51585b;
-    }
-
-    /* ── Cancel ALL the right-panel-active transforms on mobile ── */
-    .auth-container.right-panel-active .sign-in-container,
-    .auth-container.right-panel-active .sign-up-container,
-    .auth-container.right-panel-active .overlay-container {
-        transform: none !important;
+    .sign-up-container {
+        display: none !important;
         opacity: 1 !important;
+        z-index: 1 !important;
     }
 
-    /* ── Make forms tall enough to breathe ── */
+    /* When active: flip visibility */
+    .auth-container.right-panel-active .sign-in-container {
+        display: none !important;
+        transform: none !important;
+    }
+
+    .auth-container.right-panel-active .sign-up-container {
+        display: block !important;
+        transform: none !important;
+    }
+
+    /* Hide the sliding overlay panel — buttons moved to tab strip below */
+    .overlay-container {
+        display: none !important;
+    }
+
+    /* Tab strip: inject via the existing #signIn / #signUp buttons */
+    .mobile-auth-tabs {
+        display: flex !important;
+        width: 100%;
+        border-bottom: 1px solid #51585b;
+        margin-bottom: 0;
+    }
+
+    .mobile-auth-tabs button {
+        flex: 1;
+        padding: 14px 0;
+        background: #051015;
+        border: none;
+        border-bottom: 2px solid transparent;
+        color: #c3c3c3;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: color 0.3s, border-color 0.3s;
+    }
+
+    .mobile-auth-tabs button.is-active {
+        color: #00ffad;
+        border-bottom: 2px solid #00ffad;
+    }
+
     .form-container form {
-        padding: 40px 24px !important;
-        min-height: 420px;
+        padding: 30px 24px !important;
     }
 }
