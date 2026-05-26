@@ -637,76 +637,67 @@ social a:active {
 
 @media (max-width: 1000px) {
 
+    /* Ensure the container itself is full-width and tall enough */
     .auth-container {
-        min-height: 100vh;
-        height: 100vh;          /* FIX: explicit height so 50% children resolve */
-        overflow-y: auto;
+        position: relative !important;
+        width: 100% !important;
+        height: 100vh !important;
+        min-height: 600px;
+        overflow: hidden !important;
     }
 
-    /* FIX: override .form-container { height: 100% } from desktop */
+    /* Half-height panels, full width */
     .form-container {
-        height: 50%;
+        height: 50% !important;
+        width: 100% !important;
+        left: 0 !important;
     }
 
-    .sign-in-container,
-    .sign-up-container {
-        width: 100%;
-        left: 0;
-        top: 0;
-    }
+    .sign-in-container { top: 0; z-index: 2; }
+    .sign-up-container { top: 0; opacity: 0; z-index: 1; }
 
-    .sign-up-container {
-        opacity: 0;
-    }
-
+    /* Overlay strip in bottom half */
     .overlay-container {
-        top: 50%;
-        left: 0;                /* FIX: override desktop left: 50% */
-        width: 100%;
-        height: 50%;
+        top: 50% !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 50% !important;
     }
 
+    /* 2× tall overlay, starting above the container */
     .overlay {
-        left: 0;                /* FIX: override desktop left: -100% */
-        top: -100%;
-        height: 200%;
-        width: 100%;
+        left: 0 !important;
+        top: -100% !important;
+        height: 200% !important;
+        width: 100% !important;
     }
 
-    .overlay-left {
-        display: none;
-    }
-
+    /* Only the right panel is used on mobile; make it fill the strip */
+    .overlay-left  { display: none !important; }
     .overlay-right {
-        top: 0;
-        right: auto;
-        left: 0;                /* FIX: anchor it explicitly */
-        width: 100%;
-        height: 50%;
+        top: 0 !important;
+        right: auto !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 50% !important;
     }
 
-    /* Active state */
+    /* Active (sign-up open): everything slides vertically */
     .auth-container.right-panel-active .sign-in-container {
-        transform: translateY(100%);
-        /* FIX: clear the desktop translateX that still applies */
-        transform: translateY(100%) translateX(0);
+        transform: translateX(0) translateY(100%) !important;
     }
-
     .auth-container.right-panel-active .overlay-container {
-        transform: translateY(-100%) translateX(0);
+        transform: translateX(0) translateY(-100%) !important;
     }
-
     .auth-container.right-panel-active .sign-up-container {
-        transform: translateY(100%) translateX(0);
-        opacity: 1;
-        z-index: 5;
+        transform: translateX(0) translateY(100%) !important;
+        opacity: 1 !important;
+        z-index: 5 !important;
     }
-
     .auth-container.right-panel-active .overlay {
-        transform: translateY(50%);
+        transform: translateY(50%) !important;
     }
-
     .auth-container.right-panel-active .overlay-right {
-        transform: translateY(20%);
+        transform: translateY(20%) !important;
     }
 }
