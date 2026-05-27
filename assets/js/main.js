@@ -236,7 +236,7 @@ const dataLoader = {
 
 const kiloAI = {
     ENDPOINT: 'https://xupnsfldgnmeicumtqpp.supabase.co/functions/v1/kilo-proxy',
-    MODEL:    'kilocode/kilo-auto/free',
+    MODEL:    'kilo-auto/free',
 
     async polish(userQuery, rawResult) {
         const rawText = Array.isArray(rawResult)
