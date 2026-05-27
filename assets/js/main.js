@@ -235,8 +235,8 @@ const dataLoader = {
 
 const kiloAI = {
     ENDPOINT: 'https://xupnsfldgnmeicumtqpp.supabase.co/functions/v1/kilo-proxy',
-    MODEL:    'kilo-auto/free',   // set to '' to disable and fall back to raw results
-    // MODEL: 'anthropic/claude-haiku-4-5/free',
+    // MODEL:    'kilo-auto/free',   // set to '' to disable and fall back to raw results
+    MODEL: 'poolside/laguna-m.1:free',
 
     get enabled() { return !!this.MODEL; },
 
