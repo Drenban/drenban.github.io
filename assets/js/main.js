@@ -7,7 +7,6 @@ const DEFAULT_CONFIG = {
     TOKEN_EXPIRY_MS: 3_600_000,
     CACHE_LIMIT:     100,
     MAX_HISTORY:     10,
-    get KILO_API_KEY() { return CONFIG?.KILO_API_KEY || ''; },
 };
 
 let CONFIG        = null;
@@ -77,7 +76,6 @@ async function initializeConfig() {
 
         CONFIG         = result;
         supabaseClient = result.supabase;
-        get apiKey() { return DEFAULT_CONFIG.KILO_API_KEY; },  // was: window.KILO_API_KEY
         console.log('[CONFIG] Ready');
     } catch (err) {
         console.error('[CONFIG] Initialization failed:', err);
