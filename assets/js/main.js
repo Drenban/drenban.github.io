@@ -237,21 +237,23 @@ const dataLoader = {
 const kiloAI = {
     ENDPOINT: 'https://xupnsfldgnmeicumtqpp.supabase.co/functions/v1/kilo-proxy',
     MODEL:    'kilo-auto/free',
+    // MODEL: 'anthropic/claude-haiku-4-5:free',
 
     async polish(userQuery, rawResult) {
         const rawText = Array.isArray(rawResult)
             ? rawResult.map(l => l.replace(/<[^>]+>/g, '').trim()).filter(Boolean).join('\n')
             : String(rawResult);
 
-        const system = `你是一位专业的A股量化交易助手。
+        const system = `你是一位专业的A股量化交易助手。所有回答必须使用中文，严禁使用英文或任何其他语言，包括思考过程。
 用户会提供查询和原始搜索结果，请将结果整理成自然、友好、简洁的中文回答。
 规则：
-- 必须使用中文回答，禁止使用任何其他语言
-- 保留全部关键数据（股票代码、价格、策略），不可遗漏
+- 所有输出必须是中文，包括标点符号使用中文格式
+- 保留全部关键数据（股票代码、价格、策略、支撑位、压力位等），不可遗漏
 - 使用口语化中文，避免生硬列表堆砌
 - 股票列表需简洁汇总并说明策略含义
 - 知识类问题用清晰解释回答
-- 回答控制在150字以内`;
+- 回答控制在150字以内
+- 直接输出最终答案，不要输出分析过程`;
 
         try {
             const res = await fetch(this.ENDPOINT, {  // ← no /chat/completions suffix
@@ -265,7 +267,7 @@ const kiloAI = {
                     max_tokens: 300,
                     messages:   [
                         { role: 'system', content: system },
-                        { role: 'user',   content: `用户查询：${userQuery}\n\n原始结果：\n${rawText}` },
+                        { role: 'user', content: `用户查询：${userQuery}\n\n原始结果：\n${rawText}\n\n请用中文直接回答，不超过150字。` },
                     ],
                 }),
             });
