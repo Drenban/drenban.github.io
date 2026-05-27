@@ -9,7 +9,7 @@ const DEFAULT_CONFIG = {
     MAX_HISTORY:     10,
 };
 
-let CONFIG        = null;
+let CONFIG         = null;
 let supabaseClient = null;
 
 const PASSWORD       = window.ENCRYPTION_PASSWORD || 'border-radius: 280185px;';
@@ -120,7 +120,6 @@ const state = {
     fuse:           null,
     searchCache:    new Map(),
     searchHistory:  [],
-    // Restore randomCount across page reloads
     randomCount:    parseInt(localStorage.getItem('randomCount') || '0', 10),
     maxRandomCount: 5,
     isAnimating:    false,
@@ -201,17 +200,17 @@ const dataLoader = {
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             state.corpus = JSON.parse(utils.decodeBase64UTF8(await response.text()));
             state.fuse   = new Fuse(state.corpus, {
-                keys:             [
+                keys: [
                     { name: 'question', weight: 0.5  },
                     { name: 'keywords', weight: 0.3  },
                     { name: 'synonyms', weight: 0.15 },
                     { name: 'tags',     weight: 0.05 },
                 ],
-                threshold:        0.4,
-                includeScore:     true,
-                includeMatches:   true,
+                threshold:          0.4,
+                includeScore:       true,
+                includeMatches:     true,
                 minMatchCharLength: 2,
-                shouldSort:       true,
+                shouldSort:         true,
             });
         } catch (err) {
             console.error('loadCorpus failed:', err);
@@ -236,39 +235,44 @@ const dataLoader = {
 
 const kiloAI = {
     ENDPOINT: 'https://xupnsfldgnmeicumtqpp.supabase.co/functions/v1/kilo-proxy',
-    MODEL:    'kilo-auto/free',
+    MODEL:    'kilocode/kilo-auto:free',   // set to '' to disable and fall back to raw results
     // MODEL: 'anthropic/claude-haiku-4-5:free',
 
+    get enabled() { return !!this.MODEL; },
+
     async polish(userQuery, rawResult) {
-        if (!this.MODEL) return null;
+        // Instantly return null if model is disabled — caller falls back to raw result
+        if (!this.enabled) return null;
+
         const rawText = Array.isArray(rawResult)
             ? rawResult.map(l => l.replace(/<[^>]+>/g, '').trim()).filter(Boolean).join('\n')
             : String(rawResult);
 
-        const system = `你是一位专业的A股量化交易助手。所有回答必须使用中文，严禁使用英文或任何其他语言，包括思考过程。
-用户会提供查询和原始搜索结果，请将结果整理成自然、友好、简洁的中文回答。
-规则：
-- 所有输出必须是中文，包括标点符号使用中文格式
-- 保留全部关键数据（股票代码、价格、策略、支撑位、压力位等），不可遗漏
-- 使用口语化中文，避免生硬列表堆砌
-- 股票列表需简洁汇总并说明策略含义
-- 知识类问题用清晰解释回答
-- 回答控制在150字以内
-- 直接输出最终答案，不要输出分析过程`;
+        const system =
+            `你是一位专业的A股量化交易助手。所有回答必须使用中文，严禁使用英文或任何其他语言，包括思考过程。\n` +
+            `用户会提供查询和原始搜索结果，请将结果整理成自然、友好、简洁的中文回答。\n` +
+            `规则：\n` +
+            `- 所有输出必须是中文，包括标点符号使用中文格式\n` +
+            `- 保留全部关键数据（股票代码、价格、策略、支撑位、压力位等），不可遗漏\n` +
+            `- 使用口语化中文，避免生硬列表堆砌\n` +
+            `- 股票列表需简洁汇总并说明策略含义\n` +
+            `- 知识类问题用清晰解释回答\n` +
+            `- 回答控制在150字以内\n` +
+            `- 直接输出最终答案，不要输出分析过程`;
 
         try {
-            const res = await fetch(this.ENDPOINT, {  // ← no /chat/completions suffix
+            const res = await fetch(this.ENDPOINT, {
                 method:  'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
+                headers: {
+                    'Content-Type':  'application/json',
                     'Authorization': `Bearer ${window.SUPABASE_CONFIG?.SUPABASE_KEY ?? ''}`,
-                },  // ← no Authorization header
+                },
                 body: JSON.stringify({
                     model:      this.MODEL,
                     max_tokens: 300,
                     messages:   [
                         { role: 'system', content: system },
-                        { role: 'user', content: `用户查询：${userQuery}\n\n原始结果：\n${rawText}\n\n请用中文直接回答，不超过150字。` },
+                        { role: 'user',   content: `用户查询：${userQuery}\n\n原始结果：\n${rawText}\n\n请用中文直接回答，不超过150字。` },
                     ],
                 }),
             });
@@ -286,7 +290,6 @@ const kiloAI = {
 // ─── Search ───────────────────────────────────────────────────────────────────
 
 const search = {
-    // ── JSON / stock data search ──────────────────────────────────────────────
     json(query) {
         if (!state.workbookData) {
             ELEMENTS.resultsList.innerHTML = '<li>Server busy, please try again later</li>';
@@ -376,15 +379,14 @@ const search = {
         ]);
     },
 
-    // ── Corpus / FAQ search ───────────────────────────────────────────────────
     corpus(query) {
         if (!state.corpus || !state.fuse) return 'Corpus not loaded, please try again later';
         query = query.trim().toLowerCase();
         if (state.searchCache.has(query)) return state.searchCache.get(query);
 
-        const results  = state.fuse.search(query);
-        const best     = results.length && results[0].score < 0.6 ? results[0] : null;
-        const answer   = this._generateResponse(this._detectIntent(query), best);
+        const results = state.fuse.search(query);
+        const best    = results.length && results[0].score < 0.6 ? results[0] : null;
+        const answer  = this._generateResponse(this._detectIntent(query), best);
 
         if (state.searchCache.size >= DEFAULT_CONFIG.CACHE_LIMIT) state.searchCache.clear();
         state.searchCache.set(query, answer);
@@ -393,10 +395,10 @@ const search = {
 
     _detectIntent(input) {
         const intents = [
-            { name: 'time',        patterns: ['时间','什么时候','几点','多久','啥时候','何时'],  fallback: '您想知道什么的时间？可以告诉我更多细节吗？' },
-            { name: 'price',       patterns: ['价格','多少钱','费用','成本','价位','花多少'],   fallback: '您想了解哪方面的价格？可以具体一点吗？' },
-            { name: 'howto',       patterns: ['如何','怎么','怎样','步骤','方法','怎么办'],    fallback: '您想知道如何做什么？请告诉我具体操作！' },
-            { name: 'psychology',  patterns: ['心理','心态','情绪','行为'],                    fallback: '您想了解交易中的什么心理因素？请具体点！' },
+            { name: 'time',       patterns: ['时间','什么时候','几点','多久','啥时候','何时'], fallback: '您想知道什么的时间？可以告诉我更多细节吗？' },
+            { name: 'price',      patterns: ['价格','多少钱','费用','成本','价位','花多少'],  fallback: '您想了解哪方面的价格？可以具体一点吗？' },
+            { name: 'howto',      patterns: ['如何','怎么','怎样','步骤','方法','怎么办'],   fallback: '您想知道如何做什么？请告诉我具体操作！' },
+            { name: 'psychology', patterns: ['心理','心态','情绪','行为'],                   fallback: '您想了解交易中的什么心理因素？请具体点！' },
         ];
         return intents.find(i => i.patterns.some(p => input.includes(p))) || null;
     },
@@ -424,8 +426,13 @@ const search = {
         return fallbackMsg;
     },
 
-    // ── Typewriter animator ───────────────────────────────────────────────────
-    // Fix: lastTime is now tracked in closure scope, not passed by value through rAF.
+    // Renders text instantly without the typewriter effect — used for loading indicators
+    // so they don't hold state.isAnimating = true while waiting for async work.
+    showInstant(text, element) {
+        if (!element) return;
+        element.innerHTML = `<div class="line">${text}</div>`;
+    },
+
     typeLines(lines, element) {
         if (!element || !lines?.length || state.isAnimating) return;
 
@@ -442,13 +449,13 @@ const search = {
                 return;
             }
 
-            const line    = document.createElement('div');
+            const line     = document.createElement('div');
             line.className = 'line';
             element.appendChild(line);
 
-            const content  = lines[lineIndex] || '';
-            let charIndex  = 0;
-            let lastTime   = 0;     // closure-scoped — persists correctly across rAF calls
+            const content = lines[lineIndex] || '';
+            let charIndex = 0;
+            let lastTime  = 0;
 
             const typeChar = timestamp => {
                 if (!state.isAnimating) return;
@@ -480,7 +487,6 @@ const search = {
         });
     },
 
-    // ── Random pick ───────────────────────────────────────────────────────────
     random() {
         if (!state.workbookData) {
             this.typeLines(['Data not loaded, please try again later'], ELEMENTS.resultsList);
@@ -515,8 +521,6 @@ const search = {
         this.updateHistory();
     },
 
-    // ── History ───────────────────────────────────────────────────────────────
-    // Fix: use event delegation on the list element — no repeated listener attachment.
     initHistory() {
         ELEMENTS.historyList.addEventListener('click', e => {
             const li = e.target.closest('li');
@@ -554,7 +558,6 @@ const PeekXAuth = {
             return;
         }
 
-        // Supabase auth
         if (supabaseClient) {
             try {
                 const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
@@ -619,15 +622,14 @@ const PeekXAuth = {
             });
             if (error) throw error;
 
-            // Best-effort local JSON backup (non-blocking)
             fetch(`${DEFAULT_CONFIG.USER_DATA_PATH}${email}.json`, {
                 method:  'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body:    JSON.stringify({
                     email,
-                    password: await utils.hashPassword(password),
+                    password:    await utils.hashPassword(password),
                     expiry_date: expiryDate,
-                    full_name: name,
+                    full_name:   name,
                 }),
             }).catch(e => console.warn('Local JSON backup failed:', e.message));
 
@@ -660,34 +662,42 @@ const PeekXAuth = {
         const rawResult = isJSONQuery ? search.json(query) : search.corpus(query);
 
         if (!rawResult) {
-            search.typeLines(['No results found'], ELEMENTS.resultsList);
+            search.typeLines(['未找到相关结果'], ELEMENTS.resultsList);
             return;
         }
 
-        // Show loading indicator while Kilo AI is thinking
-        search.typeLines(['正在思考…'], ELEMENTS.resultsList);
-
-        const aiAnswer = await kiloAI.polish(query, rawResult);
-
-        if (aiAnswer) {
-            search.typeLines(aiAnswer.split('\n').filter(Boolean), ELEMENTS.resultsList);
-        } else {
-            // Graceful fallback to raw result
-            search.typeLines(
-                typeof rawResult === 'string' ? rawResult.split('\n').filter(Boolean) : rawResult,
-                ELEMENTS.resultsList
-            );
+        // Only show loading indicator and call AI if the model is enabled.
+        // showInstant() is used instead of typeLines() so state.isAnimating stays false
+        // during the async polish() call — preventing the real result from being dropped.
+        if (kiloAI.enabled) {
+            search.showInstant('正在思考…', ELEMENTS.resultsList);
+            const aiAnswer = await kiloAI.polish(query, rawResult);
+            if (aiAnswer) {
+                search.typeLines(aiAnswer.split('\n').filter(Boolean), ELEMENTS.resultsList);
+                this._addHistory(query);
+                adjustResultsWidth();
+                return;
+            }
+            // AI failed — fall through to raw result below
         }
 
+        // Raw result fallback (also used when kiloAI.enabled is false)
+        search.typeLines(
+            typeof rawResult === 'string' ? rawResult.split('\n').filter(Boolean) : rawResult,
+            ELEMENTS.resultsList
+        );
+        this._addHistory(query);
+        adjustResultsWidth();
+    },
+
+    _addHistory(query) {
         if (!state.searchHistory.includes(query)) {
             state.searchHistory.unshift(query);
             search.updateHistory();
         }
-        adjustResultsWidth();
     },
 
     logout() {
-        // Use module-level supabaseClient, not this.supabaseClient (which doesn't exist)
         supabaseClient?.auth.signOut().catch(e => console.error('Supabase signOut failed:', e));
         localStorage.clear();
         sessionStorage.clear();
@@ -729,7 +739,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ELEMENTS.randomButton.addEventListener('click',  () => search.random());
     ELEMENTS.searchInput.addEventListener('keydown', e => e.key === 'Enter' && PeekXAuth.search());
 
-    // Single delegated listener for history clicks (replaces per-item attachment)
     search.initHistory();
 
     if (sessionStorage.getItem('isLoggedIn') === 'true' && utils.verifyToken(localStorage.getItem('token'))) {
