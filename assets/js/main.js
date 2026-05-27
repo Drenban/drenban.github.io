@@ -237,7 +237,7 @@ const dataLoader = {
 // ─── Kilo AI ──────────────────────────────────────────────────────────────────
 
 const kiloAI = {
-    ENDPOINT: 'https://api.kilo.ai/api/gateway',
+    ENDPOINT: 'https://xupnsfldgnmeicumtqpp.supabase.co/functions/v1/kilo-proxy',
     MODEL:    'kilocode/kilo-auto/free',
 
     get apiKey() { return window.KILO_API_KEY || ''; },
