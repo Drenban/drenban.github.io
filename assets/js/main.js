@@ -240,18 +240,7 @@ const kiloAI = {
     ENDPOINT: 'https://xupnsfldgnmeicumtqpp.supabase.co/functions/v1/kilo-proxy',
     MODEL:    'kilocode/kilo-auto/free',
 
-    get apiKey() { return window.KILO_API_KEY || ''; },
-
-    /**
-     * Polishes raw search results into a natural Chinese response.
-     * Returns null if the key is missing or the call fails (caller falls back).
-     */
     async polish(userQuery, rawResult) {
-        if (!this.apiKey) {
-            console.warn('[KiloAI] KILO_API_KEY not set — skipping AI polish');
-            return null;
-        }
-
         const rawText = Array.isArray(rawResult)
             ? rawResult.map(l => l.replace(/<[^>]+>/g, '').trim()).filter(Boolean).join('\n')
             : String(rawResult);
@@ -266,12 +255,9 @@ const kiloAI = {
 - 回答控制在150字以内`;
 
         try {
-            const res = await fetch(`${this.ENDPOINT}/chat/completions`, {
+            const res = await fetch(this.ENDPOINT, {  // ← no /chat/completions suffix
                 method:  'POST',
-                headers: {
-                    'Content-Type':  'application/json',
-                    'Authorization': `Bearer ${this.apiKey}`,
-                },
+                headers: { 'Content-Type': 'application/json' },  // ← no Authorization header
                 body: JSON.stringify({
                     model:      this.MODEL,
                     max_tokens: 300,
@@ -282,7 +268,7 @@ const kiloAI = {
                 }),
             });
 
-            if (!res.ok) throw new Error(`Kilo API ${res.status}: ${await res.text()}`);
+            if (!res.ok) throw new Error(`Proxy ${res.status}: ${await res.text()}`);
             const data = await res.json();
             return data.choices?.[0]?.message?.content?.trim() || null;
         } catch (err) {
