@@ -240,6 +240,7 @@ const kiloAI = {
     // MODEL: 'anthropic/claude-haiku-4-5:free',
 
     async polish(userQuery, rawResult) {
+        if (!this.MODEL) return null;
         const rawText = Array.isArray(rawResult)
             ? rawResult.map(l => l.replace(/<[^>]+>/g, '').trim()).filter(Boolean).join('\n')
             : String(rawResult);
