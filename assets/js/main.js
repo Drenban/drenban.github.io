@@ -255,7 +255,10 @@ const kiloAI = {
         try {
             const res = await fetch(this.ENDPOINT, {  // ← no /chat/completions suffix
                 method:  'POST',
-                headers: { 'Content-Type': 'application/json' },  // ← no Authorization header
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${window.SUPABASE_CONFIG?.SUPABASE_KEY ?? ''}`,
+                },  // ← no Authorization header
                 body: JSON.stringify({
                     model:      this.MODEL,
                     max_tokens: 300,
