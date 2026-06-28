@@ -269,7 +269,7 @@ const kiloAI = {
                 },
                 body: JSON.stringify({
                     model:      this.MODEL,
-                    max_tokens: 300,
+                    max_tokens: 600,
                     messages:   [
                         { role: 'system', content: system },
                         { role: 'user',   content: `用户查询：${userQuery}\n\n原始结果：\n${rawText}\n\n请用中文直接回答，不超过150字。` },
@@ -278,8 +278,16 @@ const kiloAI = {
             });
 
             if (!res.ok) throw new Error(`Proxy ${res.status}: ${await res.text()}`);
+
             const data = await res.json();
-            return data.choices?.[0]?.message?.content?.trim() || null;
+            const choice = data.choices?.[0];
+
+            if (choice?.finish_reason === 'length') {
+                console.warn('[KiloAI] Response truncated by max_tokens');
+                return null;
+            }
+
+            return choice?.message?.content?.trim() || null;
         } catch (err) {
             console.error('[KiloAI] polish() failed:', err);
             return null;
@@ -388,8 +396,11 @@ const search = {
         const best    = results.length && results[0].score < 0.6 ? results[0] : null;
         const answer  = this._generateResponse(this._detectIntent(query), best);
 
-        if (state.searchCache.size >= DEFAULT_CONFIG.CACHE_LIMIT) state.searchCache.clear();
-        state.searchCache.set(query, answer);
+        const isFallback = answer.includes('抱歉') || answer.includes('换个说法');
+        if (!isFallback) {
+            if (state.searchCache.size >= DEFAULT_CONFIG.CACHE_LIMIT) state.searchCache.clear();
+            state.searchCache.set(query, answer);
+        }
         return answer;
     },
 
@@ -426,6 +437,9 @@ const search = {
         return fallbackMsg;
     },
 
+    _activeTypeFrameId: null,
+    _activeTypeTimeoutId: null,
+
     // Renders text instantly without the typewriter effect — used for loading indicators
     // so they don't hold state.isAnimating = true while waiting for async work.
     showInstant(text, element) {
@@ -433,9 +447,31 @@ const search = {
         element.innerHTML = `<div class="line">${text}</div>`;
     },
 
-    typeLines(lines, element) {
-        if (!element || !lines?.length || state.isAnimating) return;
+    _clearTypeLoop() {
+        if (this._activeTypeFrameId !== null) {
+            cancelAnimationFrame(this._activeTypeFrameId);
+            this._activeTypeFrameId = null;
+        }
+        if (this._activeTypeTimeoutId !== null) {
+            clearTimeout(this._activeTypeTimeoutId);
+            this._activeTypeTimeoutId = null;
+        }
+    },
 
+    typeLines(lines, element) {
+        if (!element || !lines?.length) return;
+
+        if (state.isAnimating) {
+            state.isAnimating = false;
+            this._clearTypeLoop();
+            requestAnimationFrame(() => this._startTypeLines(lines, element));
+            return;
+        }
+
+        this._startTypeLines(lines, element);
+    },
+
+    _startTypeLines(lines, element) {
         state.isAnimating = true;
         this._setUILocked(true);
         element.innerHTML = '';
@@ -444,6 +480,7 @@ const search = {
 
         const typeNextLine = () => {
             if (!state.isAnimating || lineIndex >= lines.length) {
+                this._clearTypeLoop();
                 state.isAnimating = false;
                 this._setUILocked(false);
                 return;
@@ -464,14 +501,17 @@ const search = {
                     lastTime = timestamp;
                 }
                 if (charIndex < content.length) {
-                    requestAnimationFrame(typeChar);
+                    this._activeTypeFrameId = requestAnimationFrame(typeChar);
                 } else {
                     lineIndex++;
-                    setTimeout(typeNextLine, 300);
+                    this._activeTypeTimeoutId = setTimeout(() => {
+                        this._activeTypeTimeoutId = null;
+                        typeNextLine();
+                    }, 300);
                 }
             };
 
-            requestAnimationFrame(typeChar);
+            this._activeTypeFrameId = requestAnimationFrame(typeChar);
             element.scrollTop = element.scrollHeight;
         };
 
@@ -670,8 +710,12 @@ const PeekXAuth = {
         // showInstant() is used instead of typeLines() so state.isAnimating stays false
         // during the async polish() call — preventing the real result from being dropped.
         if (kiloAI.enabled) {
+            const querySnapshot = query;
             search.showInstant('正在思考…', ELEMENTS.resultsList);
             const aiAnswer = await kiloAI.polish(query, rawResult);
+
+            if (ELEMENTS.searchInput.value.trim() !== querySnapshot) return;
+
             if (aiAnswer) {
                 search.typeLines(aiAnswer.split('\n').filter(Boolean), ELEMENTS.resultsList);
                 this._addHistory(query);
