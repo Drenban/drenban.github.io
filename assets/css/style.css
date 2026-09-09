@@ -609,6 +609,92 @@ social a:active {
     }
 }
 
+/* ================= Auth: mobile vertical (top-to-bottom) layout =================
+   Desktop uses a 50/50 side-by-side sliding-panel layout (.sign-in-container /
+   .sign-up-container / .overlay-container each absolutely positioned at width:50%).
+   On narrow viewports that split leaves ~half-width columns, which wraps every
+   word/character and makes the sign-in and overlay panels overflow and visually
+   overlap each other (the bug in the reported screenshot). Below we switch the
+   panels to normal block flow at full width so the form stacks above the
+   overlay prompt, top-to-bottom, and let the auth box scroll internally if the
+   stacked content is taller than the available space. */
+@media (max-width: 1000px) {
+    .auth-container {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .form-container,
+    .overlay-container {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: auto;
+        z-index: auto;
+        transform: none !important;
+        transition: none;
+    }
+
+    .form-container form {
+        height: auto;
+        padding: 30px 24px;
+        box-sizing: border-box;
+    }
+
+    /* Only one form is shown at a time; the hidden one takes no space, so the
+       visible form and the overlay prompt stack naturally top-to-bottom. */
+    .sign-up-container {
+        display: none;
+        opacity: 1;
+    }
+
+    .auth-container.right-panel-active .sign-in-container {
+        display: none;
+    }
+
+    .auth-container.right-panel-active .sign-up-container {
+        display: block;
+    }
+
+    .overlay-container {
+        overflow: visible;
+    }
+
+    .overlay {
+        position: relative;
+        left: auto;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        transform: none !important;
+    }
+
+    .overlay-panel {
+        position: relative;
+        top: auto;
+        width: 100%;
+        height: auto;
+        padding: 24px 24px 30px;
+    }
+
+    /* Show the overlay prompt that matches whichever form is currently visible:
+       "sign up" prompt under the login form, "sign in" prompt under the
+       registration form. */
+    .overlay-panel.overlay-left {
+        display: none;
+    }
+
+    .auth-container.right-panel-active .overlay-panel.overlay-right {
+        display: none;
+    }
+
+    .auth-container.right-panel-active .overlay-panel.overlay-left {
+        display: flex;
+    }
+}
+
 @media (max-width: 1000px) {
     .quant__intro {
         max-height: 3em;
